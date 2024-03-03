@@ -9,7 +9,7 @@ class ChatView extends StatelessWidget {
       body: Container(
         height: 150,
         width: 50,
-        color: Colors.blue,
+        color: Colors.red,
       ),
     );
   }
