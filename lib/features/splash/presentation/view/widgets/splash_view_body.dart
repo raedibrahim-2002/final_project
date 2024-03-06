@@ -57,22 +57,22 @@ class _SplashViewBodyState extends State<SplashViewBody>
       duration: const Duration(seconds: 2),
     );
     slidingAnimation =
-        Tween<Offset>(begin: const Offset(4, 0), end: Offset.zero)
-            .animate(CurvedAnimation(
-            parent: animationController, curve: Curves.easeInOut));
+        Tween<Offset>(begin: const Offset(4, 0), end: Offset.zero).animate(
+            CurvedAnimation(
+                parent: animationController, curve: Curves.easeInOut));
     animationController.forward();
   }
 
   void navigateToHome() {
     Future.delayed(
       const Duration(seconds: 3),
-          () {
-        Get.to(() => BottomNavigationBarHelper(),
+      () {
+        Get.to(
+          () => BottomNavigationBarHelper(),
           transition: Transition.fade, // Change the transition direction
           duration: Duration(milliseconds: 1000),
         );
       },
     );
   }
-
 }

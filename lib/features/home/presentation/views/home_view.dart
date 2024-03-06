@@ -64,7 +64,7 @@ class _HomeViewState extends State<HomeView> {
                 ],
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * .02,
+                height: MediaQuery.of(context).size.height * .01,
               ),
               Expanded(
                 child: GridView.builder(
@@ -72,10 +72,8 @@ class _HomeViewState extends State<HomeView> {
                   shrinkWrap: true,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    childAspectRatio:
-                        (MediaQuery.of(context).size.width - 15 - 15) /
-                            (2 * 240),
-                    mainAxisSpacing: 15,
+                    childAspectRatio: (MediaQuery.of(context).size.width - 15 - 15) / (2 * 240),
+                    // mainAxisSpacing: 2,
                     crossAxisSpacing: 10,
                   ),
                   itemCount: 10,
