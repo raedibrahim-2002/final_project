@@ -75,7 +75,7 @@ class _HomeViewState extends State<HomeView> {
                     childAspectRatio:
                         (MediaQuery.of(context).size.width - 15 - 15) /
                             (2 * 240),
-                    mainAxisSpacing: 15,
+                    mainAxisSpacing: MediaQuery.of(context).size.height /60,
                     crossAxisSpacing: 10,
                   ),
                   itemCount: 10,

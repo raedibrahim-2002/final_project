@@ -1,7 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_final_graduation_project/features/categories/presentation/views/category_view.dart';
-import 'package:flutter_final_graduation_project/features/chat/presentation/views/chat_view.dart';
+import 'package:flutter_final_graduation_project/features/chat/presentation/views/chat_Screen.dart';
 import 'package:flutter_final_graduation_project/features/home/presentation/views/home_view.dart';
 import 'package:flutter_final_graduation_project/features/profile/presentation/views/profile_view.dart';
 
