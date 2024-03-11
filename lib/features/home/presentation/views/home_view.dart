@@ -72,7 +72,9 @@ class _HomeViewState extends State<HomeView> {
                   shrinkWrap: true,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    childAspectRatio: (MediaQuery.of(context).size.width - 15 - 15) / (2 * 240),
+                    childAspectRatio:
+                        (MediaQuery.of(context).size.width - 15 - 15) /
+                            (2 * 230),
                     // mainAxisSpacing: 2,
                     crossAxisSpacing: 10,
                   ),
@@ -96,6 +98,7 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 }
+
 class AppBarBody extends StatelessWidget {
   const AppBarBody({
     super.key,

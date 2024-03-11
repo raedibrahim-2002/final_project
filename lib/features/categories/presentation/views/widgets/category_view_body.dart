@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_final_graduation_project/features/room/presentaiton/views/room_view.dart';
 
 class CategoryViewBody extends StatefulWidget {
   const CategoryViewBody({super.key});
   @override
   State<CategoryViewBody> createState() => _CategoryViewBodyState();
 }
+
 class _CategoryViewBodyState extends State<CategoryViewBody> {
   bool _isLogin = false;
- // تحديد ما إذا كان نموذج تسجيل الدخول معروضًا أم لا
+  // تحديد ما إذا كان نموذج تسجيل الدخول معروضًا أم لا
   void _toggleForm() {
     setState(() {
       _isLogin = !_isLogin;
@@ -18,15 +20,20 @@ class _CategoryViewBodyState extends State<CategoryViewBody> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        showModalBottomSheet(
-          context: context,
-          builder: (BuildContext context) {
-            return Container(
-              padding: EdgeInsets.all(16.0),
-              child: _isLogin ? _buildLoginForm() : _buildSignUpForm(),
-            );
+        // showModalBottomSheet(
+        //   context: context,
+        //   builder: (BuildContext context) {
+        //     return Container(
+        //       padding: EdgeInsets.all(16.0),
+        //       child: _isLogin ? _buildLoginForm() : _buildSignUpForm(),
+        //     );
+        //   },
+        // );
+        Navigator.push(context, MaterialPageRoute(
+          builder: (context) {
+            return RoomView();
           },
-        );
+        ));
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -51,6 +58,7 @@ class _CategoryViewBodyState extends State<CategoryViewBody> {
       ),
     );
   }
+
   Widget _buildLoginForm() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,7 +79,6 @@ class _CategoryViewBodyState extends State<CategoryViewBody> {
           children: [
             TextButton(
               onPressed: _toggleForm,
-
               child: Text('Sign Up'),
             ),
             ElevatedButton(

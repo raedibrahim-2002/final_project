@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+
 class NavBarView extends StatelessWidget {
   const NavBarView({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -45,22 +45,32 @@ class NavBarView extends StatelessWidget {
               onTap: () {},
 
             ),
-            //Icon(CupertinoIcons.sun_min),
             SwitchListTile(
-              title: Text(
-                'Theme',
-                style: Theme.of(context).textTheme.bodySmall,
+              title: Row(
+                children: [
+                  Icon(CupertinoIcons.sun_min_fill), // أيقونة الشمس
+                  SizedBox(width: 8), // ترك مسافة بين الأيقونة والنص
+                  Text(
+                    'Theme',
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ],
               ),
               value: true,
               onChanged: (bool? value) {},
             ),
-           // Icon(CupertinoIcons.bell_fill),
             SwitchListTile(
-              title: Text(
-                'Notifications',
-                style: Theme.of(context).textTheme.bodySmall,
+              title: Row(
+                children: [
+                  Icon(CupertinoIcons.bell_fill), // أيقونة الشمس
+                  SizedBox(width: 8), // ترك مسافة بين الأيقونة والنص
+                  Text(
+                    'Notifications',
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ],
               ),
-              value: false,
+              value: true,
               onChanged: (bool? value) {},
             ),
             ListTile(

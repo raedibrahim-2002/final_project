@@ -40,7 +40,7 @@ class AppBarCategoryViewBody extends StatelessWidget {
           width: MediaQuery.of(context).size.width * .09,
         ),
         Text(
-          'category',
+          'Category',
           style: Theme.of(context).textTheme.displayLarge,
         ),
         Spacer(),
