@@ -98,6 +98,7 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 }
+
 class AppBarBody extends StatelessWidget {
   const AppBarBody({
     super.key,

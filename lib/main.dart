@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_final_graduation_project/features/search/views/search_screen.dart';
 import 'package:flutter_final_graduation_project/features/splash/presentation/view/splash_view.dart';
 import 'package:get/get.dart';
 
@@ -13,7 +14,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light().copyWith(
         scaffoldBackgroundColor: Colors.white,
-        iconTheme: IconThemeData(color: Colors.black, size: 28,),
+        iconTheme: IconThemeData(
+          color: Colors.black,
+          size: 28,
+        ),
         appBarTheme: AppBarTheme(
             iconTheme: IconThemeData(color: Colors.black), color: Colors.white),
         textTheme: TextTheme(
@@ -23,7 +27,7 @@ class MyApp extends StatelessWidget {
               color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
         ),
       ),
-      home: SplashView(),
+      home:SearchScreen(),
     );
   }
 }

@@ -9,7 +9,6 @@ class CategoryView extends StatefulWidget {
 }
 
 class _CategoryViewState extends State<CategoryView> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,9 +17,12 @@ class _CategoryViewState extends State<CategoryView> {
         elevation: 0,
         title: AppBarCategoryViewBody(),
       ),
-      body: ListView.builder(itemCount: 5,itemBuilder: (context, index) {
-        return CategoryViewBody();
-      },),
+      body: ListView.builder(
+        itemCount: 5,
+        itemBuilder: (context, index) {
+          return CategoryViewBody();
+        },
+      ),
     );
   }
 }

@@ -16,7 +16,8 @@ class DesignModel extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {},
-                    child: Image.asset("assets/images/home_2.jpeg",
+                    child: Image.asset(
+                      "assets/images/home_2.jpeg",
                       fit: BoxFit.fill,
                       height: double.maxFinite,
                       // height: MediaQuery.of(context).size.height * .23,
@@ -48,7 +49,7 @@ class DesignModel extends StatelessWidget {
               bottom: 5,
             ),
             child: Padding(
-              padding: const EdgeInsets.only(left: 10.0,top: 2),
+              padding: const EdgeInsets.only(left: 10.0, top: 2),
               child: Align(
                 alignment: Alignment.bottomLeft,
                 child: Column(
@@ -57,12 +58,14 @@ class DesignModel extends StatelessWidget {
                     Text(
                       "BedRoom",
                       style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black.withOpacity(1),
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black.withOpacity(1),
                       ),
                     ),
-                    SizedBox(height: 2,),
+                    SizedBox(
+                      height: 2,
+                    ),
                     Text(
                       "Modern Style",
                       style: TextStyle(

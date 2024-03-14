@@ -9,7 +9,8 @@ class BottomNavigationBarHelper extends StatefulWidget {
   const BottomNavigationBarHelper({super.key});
 
   @override
-  State<BottomNavigationBarHelper> createState() => _BottomNavigationBarHelperState();
+  State<BottomNavigationBarHelper> createState() =>
+      _BottomNavigationBarHelperState();
 }
 
 class _BottomNavigationBarHelperState extends State<BottomNavigationBarHelper> {
@@ -38,10 +39,16 @@ class _BottomNavigationBarHelperState extends State<BottomNavigationBarHelper> {
         },
         animationDuration: Duration(milliseconds: 400),
         items: [
-          Icon(Icons.home, color: _selectedIndex == 0 ? Colors.white : Colors.black,), // اللون يتغير بناءً على الاختيار المحدد
-          Icon(Icons.category, color: _selectedIndex == 1 ? Colors.white : Colors.black),
-          Icon(Icons.chat, color: _selectedIndex == 2 ? Colors.white : Colors.black),
-          Icon(Icons.person, color: _selectedIndex == 3 ? Colors.white : Colors.black),
+          Icon(
+            Icons.home,
+            color: _selectedIndex == 0 ? Colors.white : Colors.black,
+          ), // اللون يتغير بناءً على الاختيار المحدد
+          Icon(Icons.category,
+              color: _selectedIndex == 1 ? Colors.white : Colors.black),
+          Icon(Icons.chat,
+              color: _selectedIndex == 2 ? Colors.white : Colors.black),
+          Icon(Icons.person,
+              color: _selectedIndex == 3 ? Colors.white : Colors.black),
         ],
       ),
       body: screens[_selectedIndex],

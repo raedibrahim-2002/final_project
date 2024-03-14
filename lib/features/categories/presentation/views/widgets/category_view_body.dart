@@ -5,9 +5,10 @@ class CategoryViewBody extends StatefulWidget {
   @override
   State<CategoryViewBody> createState() => _CategoryViewBodyState();
 }
+
 class _CategoryViewBodyState extends State<CategoryViewBody> {
   bool _isLogin = false;
- // تحديد ما إذا كان نموذج تسجيل الدخول معروضًا أم لا
+  // تحديد ما إذا كان نموذج تسجيل الدخول معروضًا أم لا
   void _toggleForm() {
     setState(() {
       _isLogin = !_isLogin;
@@ -51,6 +52,7 @@ class _CategoryViewBodyState extends State<CategoryViewBody> {
       ),
     );
   }
+
   Widget _buildLoginForm() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,7 +73,6 @@ class _CategoryViewBodyState extends State<CategoryViewBody> {
           children: [
             TextButton(
               onPressed: _toggleForm,
-
               child: Text('Sign Up'),
             ),
             ElevatedButton(
