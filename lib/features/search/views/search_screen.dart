@@ -37,6 +37,25 @@ class _SearchScreenState extends State<SearchScreen> {
                 .titleLarge!
                 .copyWith(color: Color(0XFF000000))),
       ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            AssetsData.generalText,
+            style: Theme.of(context)
+                .textTheme
+                .bodyMedium!
+                .copyWith(color: BaseColors.primaryColor),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+             // Icon(Icons),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
