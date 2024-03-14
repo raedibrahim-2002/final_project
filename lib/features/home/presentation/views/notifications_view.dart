@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class NotificationView extends StatelessWidget {
-  const NotificationView({super.key});
-  final List<CustomNotification> notifactions = const [
+  const NotificationView({Key? key}) : super(key: key);
+
+  final List<CustomNotification> notifications = const [
     CustomNotification(),
     CustomNotification(),
     CustomNotification(),
     CustomNotification(),
     CustomNotification(),
-    CustomNotification(),
-    CustomNotification(),
-    CustomNotification(),
-    CustomNotification()
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,34 +42,31 @@ class NotificationView extends StatelessWidget {
         ],
       ),
       body: ListView.builder(
-        itemBuilder: (context, index) => notifactions[index],
-        itemCount: notifactions.length,
+        itemBuilder: (context, index) => notifications[index],
+        itemCount: notifications.length,
       ),
     );
   }
 }
 
 class CustomNotification extends StatelessWidget {
-  const CustomNotification({
-    super.key,
-  });
+  const CustomNotification({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      //  color: Color(0xFF1D2046),
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       child: ListTile(
         tileColor: Colors.white,
         title: const Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
+          padding: EdgeInsets.symmetric(vertical: 5),
           child: Text(
             'Super Offer',
             style: TextStyle(fontSize: 20),
           ),
         ),
         subtitle: const Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
+          padding: EdgeInsets.symmetric(vertical: 0),
           child: Text(
             'Get 60% off in our first booking',
             style: TextStyle(color: Colors.grey, fontSize: 15),
@@ -78,10 +74,14 @@ class CustomNotification extends StatelessWidget {
         ),
         leading: CircleAvatar(
           backgroundColor: Colors.white,
-          radius: 40,
-          backgroundImage: AssetImage('assets/images/Backgrounddd.png'),
+          radius: 30,
+          backgroundImage: AssetImage(
+            "assets/images/home_3.jpeg",
+          ),
         ),
-        trailing: Text('{DateFormat.E().format(DateTime.now(),)}''{DateFormat.jm().format(DateTime.now(),)}'),
+        trailing: Text(
+          '${DateFormat.E().format(DateTime.now())} ${DateFormat.jm().format(DateTime.now())}',
+        ),
       ),
     );
   }

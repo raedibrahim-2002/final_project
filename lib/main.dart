@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_final_graduation_project/features/home/presentation/views/notifications_view.dart';
 import 'package:flutter_final_graduation_project/features/onboardings/presentation/onboarding1/views/onboarding_view.dart';
 import 'package:flutter_final_graduation_project/features/splash/presentation/view/splash_view.dart';
 import 'package:get/get.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
                 fontSize: 18,
                 fontWeight: FontWeight.normal)),
       ),
-      home: SplashView(),
+      home: NotificationView(),
     );
   }
 }
