@@ -1,16 +1,29 @@
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
-class NotificationView extends StatelessWidget {
+class NotificationView extends StatefulWidget {
   const NotificationView({Key? key}) : super(key: key);
 
-  final List<CustomNotification> notifications = const [
+  @override
+  _NotificationViewState createState() => _NotificationViewState();
+}
+
+class _NotificationViewState extends State<NotificationView> {
+  List<CustomNotification> notifications = const [
     CustomNotification(),
     CustomNotification(),
     CustomNotification(),
     CustomNotification(),
     CustomNotification(),
   ];
+
+  void clearAllNotifications() {
+    setState(() {
+      notifications = [];
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +44,11 @@ class NotificationView extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(right: 5),
               child: GestureDetector(
-                child: const Text(
+                onTap: clearAllNotifications, // Calling the clear function here
+                child: Text(
                   'Clear all',
-                  style: TextStyle(color: Colors.black, fontSize: 19),
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
-                onTap: () {},
               ),
             ),
           )
