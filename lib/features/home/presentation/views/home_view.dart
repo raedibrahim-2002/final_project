@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_final_graduation_project/core/utils/design_model.dart';
+import 'package:flutter_final_graduation_project/features/home/presentation/views/notifications_view.dart';
 import 'package:flutter_final_graduation_project/features/naveBar/presentation/view/navBar_view.dart';
 
 class HomeView extends StatefulWidget {
@@ -140,7 +141,16 @@ class AppBarBody extends StatelessWidget {
               ],
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return NotificationView();
+                    },
+                  ),
+                );
+              },
               icon: Icon(CupertinoIcons.bell),
             ),
           ],

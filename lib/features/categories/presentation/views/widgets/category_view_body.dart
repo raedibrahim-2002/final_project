@@ -8,6 +8,8 @@ class CategoryViewBody extends StatefulWidget {
 }
 
 class _CategoryViewBodyState extends State<CategoryViewBody> {
+  var isPressed = false;
+
   bool _isLogin = false;
   // تحديد ما إذا كان نموذج تسجيل الدخول معروضًا أم لا
   void _toggleForm() {
@@ -20,20 +22,28 @@ class _CategoryViewBodyState extends State<CategoryViewBody> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // showModalBottomSheet(
-        //   context: context,
-        //   builder: (BuildContext context) {
-        //     return Container(
-        //       padding: EdgeInsets.all(16.0),
-        //       child: _isLogin ? _buildLoginForm() : _buildSignUpForm(),
-        //     );
-        //   },
-        // );
-        Navigator.push(context, MaterialPageRoute(
-          builder: (context) {
-            return RoomView();
+        showModalBottomSheet(
+          context: context,
+          builder: (BuildContext context) {
+            return Container(
+              height: 200,
+              padding: EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ElevatedButton(onPressed: () {}, child: Text('Login')),
+                  ElevatedButton(onPressed: () {}, child: Text('Sign Up')),
+                ],
+              ),
+              // child: _isLogin ? _buildLoginForm() : _buildSignUpForm(),
+            );
           },
-        ));
+        );
+        // Navigator.push(context, MaterialPageRoute(
+        //   builder: (context) {
+        //     return RoomView();
+        //   },
+        // ));
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),

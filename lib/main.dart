@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
                 fontSize: 18,
                 fontWeight: FontWeight.normal)),
       ),
-      home:SplashView(),
+      home: SplashView(),
     );
   }
 }
