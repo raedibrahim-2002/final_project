@@ -71,7 +71,7 @@ TextStyle getMediumTextStylePoppins(
 }
 
 TextStyle getRegularTextStylePoppins(
-    {double fontSize = 22, required Color color}) {
+    {double fontSize = 14, required Color color}) {
   return _getTextStyle(
     fontSize,
     FontWeightManager.regular,

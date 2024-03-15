@@ -8,7 +8,18 @@ class AssetsData {
   static const String fontfamilyMonserrat = "Montserrat";
   static const String fontfamilyPoppins = "Poppins";
   static const String fontfamilyInter = "Inter";
+  static const String theme = "Theme";
+  static const String language = "Language";
+  static const String eng = "English";
+  static const String notifications = "Notifications";
+  static const String account = "Account";
+  static const String profile = "Profile";
+  static const String other = "Other";
+  static const String privacyPolicy = "Privacy Policy";
+  static const String aboutUs = "About Us";
+
 }
+
 class FontWeightManager {
   static const FontWeight light = FontWeight.w300;
   static const FontWeight bold = FontWeight.w700;
