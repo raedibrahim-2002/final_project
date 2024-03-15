@@ -17,7 +17,7 @@ TextStyle getRegularTextStyleInter(
     fontSize,
     FontWeightManager.regular,
     color,
-    AssetsData.fontfamilyInter,
+    AppString.fontfamilyInter,
   );
 }
 
@@ -26,7 +26,7 @@ TextStyle getBoldTextStyleInter({double fontSize = 22, required Color color}) {
     fontSize,
     FontWeightManager.bold,
     color,
-    AssetsData.fontfamilyInter,
+    AppString.fontfamilyInter,
   );
 }
 
@@ -36,7 +36,7 @@ TextStyle getSemiBoldTextStyleInter(
     fontSize,
     FontWeightManager.semiBold,
     color,
-    AssetsData.fontfamilyInter,
+    AppString.fontfamilyInter,
   );
 }
 
@@ -46,7 +46,7 @@ TextStyle getMediumTextStyleInter(
     fontSize,
     FontWeightManager.medium,
     color,
-    AssetsData.fontfamilyInter,
+    AppString.fontfamilyInter,
   );
 }
 
@@ -56,7 +56,7 @@ TextStyle getMediumTextStyleMontserrat(
     fontSize,
     FontWeightManager.medium,
     color,
-    AssetsData.fontfamilyMonserrat,
+    AppString.fontfamilyMonserrat,
   );
 }
 
@@ -66,7 +66,7 @@ TextStyle getMediumTextStylePoppins(
     fontSize,
     FontWeightManager.medium,
     color,
-    AssetsData.fontfamilyPoppins,
+    AppString.fontfamilyPoppins,
   );
 }
 
@@ -76,6 +76,6 @@ TextStyle getRegularTextStylePoppins(
     fontSize,
     FontWeightManager.regular,
     color,
-    AssetsData.fontfamilyPoppins,
+    AppString.fontfamilyPoppins,
   );
 }

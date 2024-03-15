@@ -17,6 +17,7 @@ ThemeData getAppTheme() {
     textTheme: TextTheme(
       titleMedium: getRegularTextStylePoppins(color:BaseColors.subTitle ),
         displayLarge: getBoldTextStyleInter(color: BaseColors.blackColor),
+           displayMedium: getBoldTextStyleInter(color: BaseColors.blackColor),
         headlineLarge: getBoldTextStyleInter(color: BaseColors.whiteColor),
         bodyMedium: getSemiBoldTextStyleInter(
             color: BaseColors.primaryColor, fontSize: 18)),

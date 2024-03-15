@@ -31,7 +31,7 @@ class _SearchScreenState extends State<SearchScreen> {
             size: 34,
           ),
         ),
-        title: Text(AssetsData.titleAppBarSearch,
+        title: Text(AppString.titleAppBarSearch,
             style: Theme.of(context)
                 .textTheme
                 .titleLarge!
@@ -46,7 +46,7 @@ class _SearchScreenState extends State<SearchScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              AssetsData.generalText,
+              AppString.generalText,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             const SizedBox(
@@ -58,7 +58,7 @@ class _SearchScreenState extends State<SearchScreen> {
               children: [
                 ItemRowIcon(
                   icon: CupertinoIcons.sun_min_fill,
-                  title: AssetsData.theme,
+                  title: AppString.theme,
                 ),
                 const Spacer(),
                 SizedBox(
@@ -88,12 +88,12 @@ class _SearchScreenState extends State<SearchScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ItemRowIcon(
-                    icon: CupertinoIcons.globe, title: AssetsData.language),
+                    icon: CupertinoIcons.globe, title: AppString.language),
                 const Spacer(),
                 Padding(
                   padding: const EdgeInsets.only(top: 4),
                   child: Text(
-                    AssetsData.eng,
+                    AppString.eng,
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                 ),
@@ -111,7 +111,7 @@ class _SearchScreenState extends State<SearchScreen> {
               children: [
                 ItemRowIcon(
                     icon: CupertinoIcons.bell_fill,
-                    title: AssetsData.notifications),
+                    title: AppString.notifications),
                 const Spacer(),
                 IconButton(
                   onPressed: () {},
@@ -123,7 +123,7 @@ class _SearchScreenState extends State<SearchScreen> {
               height: 24,
             ),
             Text(
-              AssetsData.account,
+              AppString.account,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             const SizedBox(
@@ -136,7 +136,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 ItemRowIcon(
                     icon: Icons.person,
                     sizeIcon: 30,
-                    title: AssetsData.profile),
+                    title: AppString.profile),
                 const Spacer(),
                 IconButton(
                   onPressed: () {},
@@ -148,7 +148,7 @@ class _SearchScreenState extends State<SearchScreen> {
               height: 24,
             ),
             Text(
-              AssetsData.other,
+              AppString.other,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             const SizedBox(
@@ -161,7 +161,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 ItemRowIcon(
                     icon: CupertinoIcons.lock_fill,
                     sizeIcon: 30,
-                    title: AssetsData.privacyPolicy),
+                    title: AppString.privacyPolicy),
                 const Spacer(),
                 IconButton(
                   onPressed: () {},
@@ -176,7 +176,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 ItemRowIcon(
                     icon: CupertinoIcons.info_circle_fill,
                     sizeIcon: 30,
-                    title: AssetsData.aboutUs),
+                    title: AppString.aboutUs),
                 const Spacer(),
                 IconButton(
                   onPressed: () {},
