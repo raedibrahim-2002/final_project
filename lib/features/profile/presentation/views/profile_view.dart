@@ -71,7 +71,7 @@ class ProfileView extends StatelessWidget {
               height: 50,
             ),
             Text('Last Name'),
-          const SizedBox(
+            const SizedBox(
               height: 15,
             ),
             // TextFormField(

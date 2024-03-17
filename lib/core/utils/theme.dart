@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 ThemeData getAppTheme() {
   return ThemeData(
+    
     scaffoldBackgroundColor: Colors.white,
     primaryColorLight: BaseColors.primaryColor,
     appBarTheme: AppBarTheme(
@@ -21,5 +22,6 @@ ThemeData getAppTheme() {
         headlineLarge: getBoldTextStyleInter(color: BaseColors.whiteColor),
         bodyMedium: getSemiBoldTextStyleInter(
             color: BaseColors.primaryColor, fontSize: 18)),
+          
   );
 }
