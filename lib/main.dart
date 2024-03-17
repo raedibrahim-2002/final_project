@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
               color: Colors.black, fontSize: 16, fontWeight: FontWeight.normal),
         ),
       ),
-      home: ChatView(),
+      home: SplashView(),
     );
   }
 }
