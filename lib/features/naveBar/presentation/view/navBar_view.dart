@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 
 class NavBarView extends StatelessWidget {
   const NavBarView({Key? key}) : super(key: key);
@@ -36,14 +36,13 @@ class NavBarView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Home",
+                    AssetsStrings.homeString,
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                   Icon(Icons.arrow_forward_ios_outlined)
                 ],
               ),
               onTap: () {},
-
             ),
             SwitchListTile(
               title: Row(
@@ -51,7 +50,7 @@ class NavBarView extends StatelessWidget {
                   Icon(CupertinoIcons.sun_min_fill), // أيقونة الشمس
                   SizedBox(width: 8), // ترك مسافة بين الأيقونة والنص
                   Text(
-                    'Theme',
+                    AssetsStrings.themeString,
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ],
@@ -65,7 +64,7 @@ class NavBarView extends StatelessWidget {
                   Icon(CupertinoIcons.bell_fill), // أيقونة الشمس
                   SizedBox(width: 8), // ترك مسافة بين الأيقونة والنص
                   Text(
-                    'Notifications',
+                    AssetsStrings.notificationdString,
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ],
@@ -76,7 +75,7 @@ class NavBarView extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.person_add),
               title: Text(
-                "Invite friends",
+                AssetsStrings.inviteFriendsString,
                 style: Theme.of(context).textTheme.bodySmall,
               ),
               onTap: () {},
@@ -87,7 +86,7 @@ class NavBarView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Settings",
+                    AssetsStrings.settingsString,
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                   Icon(Icons.arrow_forward_ios_outlined)
@@ -101,7 +100,7 @@ class NavBarView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "About Us",
+                    AssetsStrings.aboutUsString,
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                   Icon(Icons.arrow_forward_ios_outlined)

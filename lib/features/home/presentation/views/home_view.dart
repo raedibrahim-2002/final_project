@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/core/utils/design_model.dart';
 import 'package:flutter_final_graduation_project/features/home/presentation/views/notifications_view.dart';
 import 'package:flutter_final_graduation_project/features/naveBar/presentation/view/navBar_view.dart';
@@ -47,7 +48,7 @@ class _HomeViewState extends State<HomeView> {
                           ),
                         ),
                         Text(
-                          "Search",
+                          AssetsStrings.searchAppString,
                           style: TextStyle(
                               color: Colors.black38,
                               fontWeight: FontWeight.bold,
@@ -115,7 +116,7 @@ class AppBarBody extends StatelessWidget {
           width: MediaQuery.of(context).size.width * .09,
         ),
         Text(
-          "Home",
+          AssetsStrings.homeString,
           style: Theme.of(context).textTheme.displayLarge,
         ),
         Spacer(),

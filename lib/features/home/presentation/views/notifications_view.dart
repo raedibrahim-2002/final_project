@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -32,17 +31,14 @@ class _NotificationViewState extends State<NotificationView> {
         backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
-        title: const Text(
+        title: Text(
           'Notifications',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 25,
-          ),
+          style: Theme.of(context).textTheme.displayLarge,
         ),
         actions: [
           Center(
             child: Padding(
-              padding: const EdgeInsets.only(right: 5),
+              padding: const EdgeInsets.only(right: 20),
               child: GestureDetector(
                 onTap: clearAllNotifications, // Calling the clear function here
                 child: Text(
@@ -71,11 +67,11 @@ class CustomNotification extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       child: ListTile(
         tileColor: Colors.white,
-        title: const Padding(
+        title: Padding(
           padding: EdgeInsets.symmetric(vertical: 5),
           child: Text(
             'Super Offer',
-            style: TextStyle(fontSize: 20),
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
         ),
         subtitle: const Padding(

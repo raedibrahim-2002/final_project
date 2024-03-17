@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_final_graduation_project/core/utils/design_model.dart';
 import 'package:flutter_final_graduation_project/core/utils/list_view_design.dart';
@@ -42,37 +41,37 @@ class RoomView extends StatelessWidget {
               Tab(
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text("Modern"),
+                  child: Text("Modern1"),
                 ),
               ),
               Tab(
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text("Modern"),
+                  child: Text("Modern2"),
                 ),
               ),
               Tab(
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text("ModernModern"),
+                  child: Text("Modern3"),
                 ),
               ),
               Tab(
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text("Modern"),
+                  child: Text("Modern4"),
                 ),
               ),
               Tab(
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text("Modern"),
+                  child: Text("Modern5"),
                 ),
               ),
               Tab(
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text("Modern"),
+                  child: Text("Modern6"),
                 ),
               ),
             ],

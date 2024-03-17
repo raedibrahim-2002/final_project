@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_final_graduation_project/bottom_navigation_bar.dart';
-import 'package:flutter_final_graduation_project/features/home/presentation/views/home_view.dart';
+import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class OnBoardingView1 extends StatefulWidget {
   OnBoardingView1({super.key});
@@ -14,26 +14,25 @@ class OnBoardingView1 extends StatefulWidget {
 class _OnBoardingView1State extends State<OnBoardingView1> {
   void initState() {
     super.initState();
-    //   checkFirstSeen();
+    // checkOnBoarding();
   }
-// علشان تظهر اول مره فقط
-  // checkFirstSeen() async {
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   bool _seen = (prefs.getBool('seenOnBoarding') ?? false);
 
-  //   if (!_seen) {
-  //     await prefs.setBool('seenOnBoarding', true);
-  //   } else {
-  //     Navigator.of(context).pushReplacement(
-  //       MaterialPageRoute(builder: (context) => HomeView()),
-  //     );
-  //   }
-  // }
+  void checkOnBoarding() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool onBoarding = prefs.getBool("onBoarding") ?? false;
+    if (onBoarding) {
+      // إذا كانت قيمة onBoarding تساوي true، انتقل مباشرة لصفحة BottomNavigationBarHelper
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => BottomNavigationBarHelper()),
+      );
+    }
+  }
 
   List<PageViewModel> pages = [
     PageViewModel(
-      titleWidget: Text('The title of the language'),
-      bodyWidget: Text('The body of the language'),
+      titleWidget: Text(OnBoardingAssets.title1),
+      bodyWidget: Text(OnBoardingAssets.body1),
       footer: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -49,7 +48,7 @@ class _OnBoardingView1State extends State<OnBoardingView1> {
               ),
               child: const Text(
                 style: TextStyle(color: Colors.white),
-                'عربي',
+                OnBoardingAssets.arabicButton,
               ),
             ),
           ),
@@ -65,14 +64,14 @@ class _OnBoardingView1State extends State<OnBoardingView1> {
               ),
               child: const Text(
                 style: TextStyle(color: Colors.white),
-                'English',
+                OnBoardingAssets.englishButton,
               ),
             ),
           ),
         ],
       ),
       image: Image.asset(
-        'assets/images/pana.png',
+        OnBoardingAssets.image1,
         fit: BoxFit.contain,
       ),
       decoration: PageDecoration(
@@ -83,20 +82,19 @@ class _OnBoardingView1State extends State<OnBoardingView1> {
       ),
     ),
     PageViewModel(
-      bodyWidget: Text(
-          'Discover the world of beauty and creativity with our company’s images \nwhere wondrful ideas meet exceptional design',
+      bodyWidget: Text(OnBoardingAssets.body2,
           style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.normal,
               color: Color(0xff0D142C))),
-      titleWidget: Text('Discover The World Of Beauty',
+      titleWidget: Text(OnBoardingAssets.title2,
           style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
               color: Color(0xff0D142C))),
       image: Container(
         child: Image.asset(
-          'assets/images/pana2.png',
+          OnBoardingAssets.image2,
         ),
       ),
       decoration: PageDecoration(
@@ -108,14 +106,14 @@ class _OnBoardingView1State extends State<OnBoardingView1> {
     ),
     PageViewModel(
       titleWidget: Text(
-        'Direct communication with\n             the company',
+        OnBoardingAssets.title3,
         style: TextStyle(
             fontSize: 25,
             fontWeight: FontWeight.bold,
             color: Color(0xff0D142C)),
       ),
       bodyWidget: const Text(
-        'Direct communication with \nthe company through a chat ',
+        OnBoardingAssets.body3,
         style: TextStyle(fontSize: 20, fontWeight: FontWeight.normal),
       ),
       footer: Column(
@@ -140,7 +138,7 @@ class _OnBoardingView1State extends State<OnBoardingView1> {
                       ),
                       child: const Text(
                         style: TextStyle(color: Colors.white),
-                        'Sign Up',
+                        OnBoardingAssets.signUpButton,
                       ),
                     ),
                   ),
@@ -167,7 +165,7 @@ class _OnBoardingView1State extends State<OnBoardingView1> {
                       ),
                       child: const Text(
                         style: TextStyle(color: Colors.white),
-                        'Continue as a guest',
+                        OnBoardingAssets.continueAsGuestButton,
                       ),
                     ),
                   ),
@@ -178,7 +176,7 @@ class _OnBoardingView1State extends State<OnBoardingView1> {
         ],
       ),
       image: Image.asset(
-        'assets/images/rafiki.png',
+        OnBoardingAssets.image3,
         height: 400,
         width: 400,
       ),
@@ -196,6 +194,7 @@ class _OnBoardingView1State extends State<OnBoardingView1> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        automaticallyImplyLeading: false
       ),
       body: IntroductionScreen(
         globalBackgroundColor: Colors.white,
@@ -209,9 +208,9 @@ class _OnBoardingView1State extends State<OnBoardingView1> {
             activeShape: BeveledRectangleBorder(
                 borderRadius: BorderRadius.circular(25))),
         showDoneButton: true,
-        done: Text('Done'),
+        done: Text(OnBoardingAssets.done),
         showSkipButton: true,
-        skip: Text("Skip"),
+        skip: Text(OnBoardingAssets.skip),
         showNextButton: true,
         next: Icon(Icons.arrow_forward),
         onDone: () => onDone(context),
@@ -219,7 +218,9 @@ class _OnBoardingView1State extends State<OnBoardingView1> {
     );
   }
 
-  void onDone(context) {
+  void onDone(context) async {
+    final pres = await SharedPreferences.getInstance();
+    pres.setBool("onBoarding", true);
     Navigator.pushReplacement(context, MaterialPageRoute(
       builder: (context) {
         return BottomNavigationBarHelper();
