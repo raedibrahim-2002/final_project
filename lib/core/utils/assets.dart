@@ -23,6 +23,19 @@ class AppString {
   static const String privacyPolicy = "Privacy Policy";
   static const String aboutUs = "About Us";
   static const String favorite = "Favorite";
+  static const String category = "Category";
+  static const String bedroom = "Bedroom";
+  static const String livingRoom = "Living room";
+  static const String bathroom = "Bathroom";
+  static const String Kitchen = "Kitchen";
+  static const String receptions = "Receptions";
+  static const String diningRoom = "Dining room";
+  static const String modern = "Modern";
+  static const String classic = "Classic";
+  static const String minimalist = "Minimalist";
+  static const String asion = "Asion";
+  static const String scandinavion = "Scandinavion";
+  static const String colonial = "Colonial";
 }
 
 class FontWeightManager {

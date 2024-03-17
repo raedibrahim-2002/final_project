@@ -10,4 +10,5 @@ class BaseColors {
   static const pinkLight = Color(0xffFAB9C9);
   static const red = Colors.red;
   static const black12 = Colors.black12;
+  static const grey = Colors.grey;
 }

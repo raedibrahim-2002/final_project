@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_final_graduation_project/core/utils/theme.dart';
+import 'package:flutter_final_graduation_project/features/categories/presentation/views/category_view.dart';
+import 'package:flutter_final_graduation_project/features/categories/presentation/views/widgets/category_view_body.dart';
 import 'package:flutter_final_graduation_project/features/favorite/presentation/view/favorite_view.dart';
+import 'package:flutter_final_graduation_project/features/filter/presentation/views/fiter_view.dart';
 import 'package:flutter_final_graduation_project/features/home/presentation/views/home_view.dart';
 import 'package:flutter_final_graduation_project/features/profile/presentation/views/profile_view.dart';
 import 'package:flutter_final_graduation_project/features/search/views/search_screen.dart';
@@ -16,7 +19,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: getAppTheme(),
-      home:  FavoriteView(),
+      home: FilterScreen(),
     );
   }
 }
