@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/features/categories/presentation/views/widgets/category_view_body.dart';
 
 class CategoryView extends StatefulWidget {
@@ -42,7 +43,7 @@ class AppBarCategoryViewBody extends StatelessWidget {
           width: MediaQuery.of(context).size.width * .09,
         ),
         Text(
-          'category',
+          AssetsStrings.categoryString,
           style: Theme.of(context).textTheme.displayLarge,
         ),
         Spacer(),

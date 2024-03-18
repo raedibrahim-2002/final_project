@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_final_graduation_project/bottom_navigation_bar.dart';
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/features/home/presentation/views/home_view.dart';
+import 'package:flutter_final_graduation_project/features/onboardings/presentation/onboarding1/views/onboarding_view.dart';
 import 'package:flutter_final_graduation_project/features/splash/presentation/view/widgets/sliding_text.dart';
 import 'package:get/get.dart';
 
@@ -68,7 +69,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
       const Duration(seconds: 3),
       () {
         Get.to(
-          () => BottomNavigationBarHelper(),
+          () => OnBoardingView1(),
           transition: Transition.fade, // Change the transition direction
           duration: Duration(milliseconds: 1000),
         );

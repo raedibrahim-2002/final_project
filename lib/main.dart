@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: getAppTheme(),
       home: FilterScreen(),
+
     );
   }
 }

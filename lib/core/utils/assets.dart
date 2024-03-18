@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 
+import 'package:flutter/foundation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 class AssetsData {
   static const splash = 'assets/images/img_splash.png';
   static const logoForPhoto = 'assets/images/logo_for_photo.png';
@@ -37,7 +38,6 @@ class AppString {
   static const String scandinavion = "Scandinavion";
   static const String colonial = "Colonial";
 }
-
 class FontWeightManager {
   static const FontWeight light = FontWeight.w300;
   static const FontWeight bold = FontWeight.w700;
