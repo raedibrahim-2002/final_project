@@ -1,43 +1,47 @@
+
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 class AssetsData {
   static const splash = 'assets/images/img_splash.png';
   static const logoForPhoto = 'assets/images/logo_for_photo.png';
+  static const profile = 'assets/images/profile.png';
 }
 
-class AssetsStrings {
-  static const homeString = "Home";
-  static const categoryString = "Category";
-  static const chatString = "Chat";
-  static const ProfileString = "Profile";
-  static const themeString = "Theme";
-  static const notificationdString = "Notifications";
-  static const inviteFriendsString = "Invite friends";
-  static const settingsString = "Settings";
-  static const aboutUsString = "About Us";
-  static const searchAppString = "Search";
+// all strings in app
+class AppString {
+  static const String titleAppBarSearch = 'Setting';
+  static const String generalText = 'General';
+  static const String fontfamilyMonserrat = "Montserrat";
+  static const String fontfamilyPoppins = "Poppins";
+  static const String fontfamilyInter = "Inter";
+  static const String theme = "Theme";
+  static const String language = "Language";
+  static const String eng = "English";
+  static const String notifications = "Notifications";
+  static const String account = "Account";
+  static const String profile = "Profile";
+  static const String other = "Other";
+  static const String privacyPolicy = "Privacy Policy";
+  static const String aboutUs = "About Us";
+  static const String favorite = "Favorite";
+  static const String category = "Category";
+  static const String bedroom = "Bedroom";
+  static const String livingRoom = "Living room";
+  static const String bathroom = "Bathroom";
+  static const String Kitchen = "Kitchen";
+  static const String receptions = "Receptions";
+  static const String diningRoom = "Dining room";
+  static const String modern = "Modern";
+  static const String classic = "Classic";
+  static const String minimalist = "Minimalist";
+  static const String asion = "Asion";
+  static const String scandinavion = "Scandinavion";
+  static const String colonial = "Colonial";
 }
-
-class OnBoardingAssets {
-  static const image1 = 'assets/images/pana.png';
-  static const image2 = 'assets/images/pana2.png';
-  
-  static const image3 = 'assets/images/rafiki.png';
-  static const title1 = 'The title of the language';
-  static const body1 = 'The body of the language';
-  static const title2 = 'Discover The World Of Beauty';
-  static const body2 = 'Discover the world of beauty and creativity with our company’s images \nwhere wondrful ideas meet exceptional design';
-  static const title3 = 'Direct communication with\n             the company';
-  static const body3 = 'Direct communication with \nthe company through a chat ';
-    static const skip = 'Skip';
-    static const done = 'Done';
-
-
-  static const arabicButton = 'عربي';
-  static const englishButton = 'English';
-  static const signUpButton = 'Sign Up';
-  static const continueAsGuestButton = 'Conitnue as a Guest';
-
-
+class FontWeightManager {
+  static const FontWeight light = FontWeight.w300;
+  static const FontWeight bold = FontWeight.w700;
+  static const FontWeight semiBold = FontWeight.w600;
+  static const FontWeight regular = FontWeight.w400;
+  static const FontWeight medium = FontWeight.w500;
 }

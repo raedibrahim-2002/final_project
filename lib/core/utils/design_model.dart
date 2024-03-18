@@ -42,7 +42,7 @@ class DesignModel extends StatelessWidget {
               ],
             ),
           ),
-        ),
+
         Padding(
           padding: EdgeInsets.only(
             bottom: 5,
