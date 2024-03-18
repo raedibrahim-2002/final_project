@@ -15,12 +15,11 @@ class SlidingText extends StatelessWidget {
     return AnimatedBuilder(
         animation: slidingAnimation,
         // _ to full the place
-        builder: (context,_) {
+        builder: (context, _) {
           return SlideTransition(
             position: slidingAnimation,
             child: Image.asset("assets/images/logo_for_photo.png"),
           );
-        }
-    );
+        });
   }
 }

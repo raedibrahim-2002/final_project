@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/core/utils/design_model.dart';
+import 'package:flutter_final_graduation_project/features/home/presentation/views/notifications_view.dart';
 import 'package:flutter_final_graduation_project/features/naveBar/presentation/view/navBar_view.dart';
 
 class HomeView extends StatefulWidget {
@@ -46,7 +48,7 @@ class _HomeViewState extends State<HomeView> {
                           ),
                         ),
                         Text(
-                          "Search",
+                          AssetsStrings.searchAppString,
                           style: TextStyle(
                               color: Colors.black38,
                               fontWeight: FontWeight.bold,
@@ -64,7 +66,7 @@ class _HomeViewState extends State<HomeView> {
                 ],
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * .02,
+                height: MediaQuery.of(context).size.height * .01,
               ),
               Expanded(
                 child: GridView.builder(
@@ -74,8 +76,8 @@ class _HomeViewState extends State<HomeView> {
                     crossAxisCount: 2,
                     childAspectRatio:
                         (MediaQuery.of(context).size.width - 15 - 15) /
-                            (2 * 240),
-                    mainAxisSpacing: 15,
+                            (2 * 230),
+                    // mainAxisSpacing: 2,
                     crossAxisSpacing: 10,
                   ),
                   itemCount: 10,
@@ -98,6 +100,7 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 }
+
 class AppBarBody extends StatelessWidget {
   const AppBarBody({
     super.key,
@@ -113,7 +116,7 @@ class AppBarBody extends StatelessWidget {
           width: MediaQuery.of(context).size.width * .09,
         ),
         Text(
-          "Home",
+          AssetsStrings.homeString,
           style: Theme.of(context).textTheme.displayLarge,
         ),
         Spacer(),
@@ -139,7 +142,16 @@ class AppBarBody extends StatelessWidget {
               ],
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return NotificationView();
+                    },
+                  ),
+                );
+              },
               icon: Icon(CupertinoIcons.bell),
             ),
           ],
