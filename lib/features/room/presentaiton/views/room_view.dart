@@ -13,7 +13,11 @@ class RoomView extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 0,
-          title: Center(child: Text('Living Room')),
+          title: Center(
+              child: Text(
+            'Living Room',
+            style: Theme.of(context).textTheme.displayMedium,
+          )),
           actions: [
             IconButton(
               onPressed: () {},
@@ -28,7 +32,10 @@ class RoomView extends StatelessWidget {
               color: Color(0xFF1D2046),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(
-                    Radius.circular(10)), // تم تغيير القيمة إلى 15
+                  Radius.circular(
+                    15,
+                  ),
+                ),
               ),
             ),
             isScrollable: true,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_final_graduation_project/core/utils/colors.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
@@ -33,7 +34,7 @@ class _NotificationViewState extends State<NotificationView> {
         centerTitle: true,
         title: Text(
           'Notifications',
-          style: Theme.of(context).textTheme.displayLarge,
+          style: Theme.of(context).textTheme.displayMedium,
         ),
         actions: [
           Center(
@@ -43,7 +44,7 @@ class _NotificationViewState extends State<NotificationView> {
                 onTap: clearAllNotifications, // Calling the clear function here
                 child: Text(
                   'Clear all',
-                  style: Theme.of(context).textTheme.bodySmall,
+                  style: Theme.of(context).textTheme.displaySmall,
                 ),
               ),
             ),
@@ -71,14 +72,14 @@ class CustomNotification extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 5),
           child: Text(
             'Super Offer',
-            style: Theme.of(context).textTheme.bodyMedium,
+            style: Theme.of(context).textTheme.displaySmall,
           ),
         ),
-        subtitle: const Padding(
+        subtitle: Padding(
           padding: EdgeInsets.symmetric(vertical: 0),
           child: Text(
             'Get 60% off in our first booking',
-            style: TextStyle(color: Colors.grey, fontSize: 15),
+            style: Theme.of(context).textTheme.labelMedium,
           ),
         ),
         leading: CircleAvatar(

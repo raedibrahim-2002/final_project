@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/core/utils/design_model.dart';
+import 'package:flutter_final_graduation_project/features/favorite/presentation/view/favorite_view.dart';
+import 'package:flutter_final_graduation_project/features/filter/presentation/views/fiter_view.dart';
 import 'package:flutter_final_graduation_project/features/home/presentation/views/notifications_view.dart';
 import 'package:flutter_final_graduation_project/features/naveBar/presentation/view/navBar_view.dart';
 
@@ -48,7 +50,7 @@ class _HomeViewState extends State<HomeView> {
                           ),
                         ),
                         Text(
-                          AssetsStrings.searchAppString,
+                          AppString.searchAppString,
                           style: TextStyle(
                               color: Colors.black38,
                               fontWeight: FontWeight.bold,
@@ -58,7 +60,16 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return FilterScreen();
+                          },
+                        ),
+                      );
+                    },
                     icon: Icon(
                       CupertinoIcons.slider_horizontal_3,
                     ),
@@ -116,8 +127,8 @@ class AppBarBody extends StatelessWidget {
           width: MediaQuery.of(context).size.width * .09,
         ),
         Text(
-          AssetsStrings.homeString,
-          style: Theme.of(context).textTheme.displayLarge,
+          AppString.home,
+          style: Theme.of(context).textTheme.displayMedium,
         ),
         Spacer(),
         Row(
@@ -125,7 +136,16 @@ class AppBarBody extends StatelessWidget {
             Stack(
               children: [
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return FavoriteView();
+                          },
+                        ),
+                      );
+                    },
                     icon: Icon(CupertinoIcons.heart)), // أيقونة القلب
                 Positioned(
                   top: 13,

@@ -12,7 +12,7 @@ TextStyle _getTextStyle(
 }
 
 TextStyle getRegularTextStyleInter(
-    {double fontSize = 22, required Color color}) {
+    {required double fontSize , required Color color}) {
   return _getTextStyle(
     fontSize,
     FontWeightManager.regular,
@@ -41,7 +41,7 @@ TextStyle getSemiBoldTextStyleInter(
 }
 
 TextStyle getMediumTextStyleInter(
-    {double fontSize = 22, required Color color}) {
+    {double fontSize = 16, required Color color}) {
   return _getTextStyle(
     fontSize,
     FontWeightManager.medium,
@@ -49,6 +49,7 @@ TextStyle getMediumTextStyleInter(
     AppString.fontfamilyInter,
   );
 }
+
 
 TextStyle getMediumTextStyleMontserrat(
     {double fontSize = 22, required Color color}) {

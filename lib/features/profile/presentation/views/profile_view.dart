@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
+import 'package:flutter_final_graduation_project/core/utils/colors.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -12,7 +13,10 @@ class ProfileView extends StatelessWidget {
       appBar: AppBar(
         elevation: 0.0,
         centerTitle: true,
-        title: Text(AppString.profile),
+        title: Text(
+          AppString.profile,
+          style: Theme.of(context).textTheme.displayMedium,
+        ),
         leadingWidth: 48,
         actions: [
           CircleAvatar(
@@ -78,7 +82,6 @@ class ProfileView extends StatelessWidget {
             // )
           ],
         ),
-
       ),
     );
   }

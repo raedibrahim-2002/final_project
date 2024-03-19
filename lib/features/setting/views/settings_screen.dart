@@ -3,39 +3,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/core/utils/colors.dart';
 import 'package:flutter_final_graduation_project/core/utils/styles.dart';
-import 'package:flutter_final_graduation_project/features/search/widgets/item_row_icon.dart';
+import 'package:flutter_final_graduation_project/features/setting/widgets/item_row_icon.dart';
 
-class SearchScreen extends StatefulWidget {
-  const SearchScreen({super.key});
+class SettingsScreen extends StatefulWidget {
+  const SettingsScreen({super.key});
 
   @override
-  State<SearchScreen> createState() => _SearchScreenState();
+  State<SettingsScreen> createState() => _SettingsScreenState();
 }
 
-class _SearchScreenState extends State<SearchScreen> {
+class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
-        leadingWidth: 48,
-        leading: Padding(
-          padding: EdgeInsets.only(
-            left: 16,
-            top: 12,
-            bottom: 12,
-          ),
-          child: Icon(
-            Icons.chevron_left,
-            size: 34,
-          ),
+        title: Text(
+          AppString.titleAppBarSettings,
+          style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                color: Color(0XFF000000),
+              ),
         ),
-        title: Text(AppString.titleAppBarSearch,
-            style: Theme.of(context)
-                .textTheme
-                .titleLarge!
-                .copyWith(color: Color(0XFF000000))),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(
@@ -134,9 +123,7 @@ class _SearchScreenState extends State<SearchScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ItemRowIcon(
-                    icon: Icons.person,
-                    sizeIcon: 30,
-                    title: AppString.profile),
+                    icon: Icons.person, sizeIcon: 30, title: AppString.profile),
                 const Spacer(),
                 IconButton(
                   onPressed: () {},

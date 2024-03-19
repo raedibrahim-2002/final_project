@@ -16,7 +16,8 @@ class DesignModel extends StatelessWidget {
               children: [
                 InkWell(
                   onTap: () {},
-                  child: Image.asset("assets/images/home_2.jpeg",
+                  child: Image.asset(
+                    "assets/images/home_2.jpeg",
                     fit: BoxFit.fill,
                     height: double.maxFinite,
                     // height: MediaQuery.of(context).size.height * .23,
@@ -42,35 +43,30 @@ class DesignModel extends StatelessWidget {
               ],
             ),
           ),
-
+        ),
         Padding(
           padding: EdgeInsets.only(
             bottom: 5,
           ),
           child: Padding(
-            padding: const EdgeInsets.only(left: 10.0,top: 2),
+            padding: const EdgeInsets.only(left: 10.0, top: 2),
             child: Align(
               alignment: Alignment.bottomLeft,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "BedRoom",
-                    style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black.withOpacity(1),
-                    ),
+                    "Bed Room",
+                    style: Theme.of(context).textTheme.headlineSmall,
                   ),
-                  SizedBox(height: 2,),
+                  SizedBox(
+                    height: 2,
+                  ),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 8.0),
                     child: Text(
                       "Modern Style",
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.black87.withOpacity(.8)),
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
                   )
                 ],

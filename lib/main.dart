@@ -6,7 +6,8 @@ import 'package:flutter_final_graduation_project/features/favorite/presentation/
 import 'package:flutter_final_graduation_project/features/filter/presentation/views/fiter_view.dart';
 import 'package:flutter_final_graduation_project/features/home/presentation/views/home_view.dart';
 import 'package:flutter_final_graduation_project/features/profile/presentation/views/profile_view.dart';
-import 'package:flutter_final_graduation_project/features/search/views/search_screen.dart';
+import 'package:flutter_final_graduation_project/features/setting/views/settings_screen.dart';
+import 'package:flutter_final_graduation_project/features/splash/presentation/view/splash_view.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -19,8 +20,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: getAppTheme(),
-      home: FilterScreen(),
-
+      home: SplashView(),
     );
   }
 }

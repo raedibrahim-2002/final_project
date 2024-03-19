@@ -8,24 +8,24 @@ class ChatView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(
-      automaticallyImplyLeading: false,
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Spacer(),
-          SizedBox(
-            width: MediaQuery.of(context).size.width * .09,
-          ),
-          Text(
-            AssetsStrings.chatString,
-            style: Theme.of(context).textTheme.displayLarge,
-          ),
-          Spacer(),
-          IconButton(onPressed: () {}, icon: Icon(CupertinoIcons.bell_fill))
-        ],
-      )
-    ),
+    return Scaffold(
+      appBar: AppBar(
+          automaticallyImplyLeading: false,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Spacer(),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * .09,
+              ),
+              Text(
+                AppString.chat,
+                style: Theme.of(context).textTheme.displayMedium,
+              ),
+              Spacer(),
+              IconButton(onPressed: () {}, icon: Icon(CupertinoIcons.bell_fill))
+            ],
+          )),
       body: ChatViewBody(),
     );
   }

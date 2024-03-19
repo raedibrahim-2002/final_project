@@ -17,6 +17,7 @@ class _CategoryViewBodyState extends State<CategoryViewBody> {
       _isLogin = !_isLogin;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -24,7 +25,7 @@ class _CategoryViewBodyState extends State<CategoryViewBody> {
         // showModalBottomSheet(
         //   context: context,
         //   builder: (BuildContext context) {
-        //     return 
+        //     return
         //     Container(
         //       height: 200,
         //       padding: EdgeInsets.all(16.0),
@@ -50,7 +51,7 @@ class _CategoryViewBodyState extends State<CategoryViewBody> {
           child: Center(
             child: Text(
               "Bed Room",
-              style: Theme.of(context).textTheme.headlineLarge,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
           ),
           width: double.maxFinite,

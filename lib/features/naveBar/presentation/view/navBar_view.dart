@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
+import 'package:flutter_final_graduation_project/features/setting/views/settings_screen.dart';
 
 class NavBarView extends StatelessWidget {
   const NavBarView({Key? key}) : super(key: key);
@@ -15,11 +16,11 @@ class NavBarView extends StatelessWidget {
               decoration: BoxDecoration(color: Colors.white),
               accountName: Text(
                 "Raeid Ibrahim",
-                style: Theme.of(context).textTheme.displayLarge,
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
               accountEmail: Text(
                 "raed.ibrahim@gmail.com",
-                style: Theme.of(context).textTheme.bodyMedium,
+                style: Theme.of(context).textTheme.bodySmall,
               ),
               currentAccountPicture: Container(
                 child: ClipOval(
@@ -36,8 +37,8 @@ class NavBarView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    AssetsStrings.homeString,
-                    style: Theme.of(context).textTheme.bodySmall,
+                    AppString.home,
+                    style: Theme.of(context).textTheme.titleMedium,
                   ),
                   Icon(Icons.arrow_forward_ios_outlined)
                 ],
@@ -50,8 +51,8 @@ class NavBarView extends StatelessWidget {
                   Icon(CupertinoIcons.sun_min_fill), // أيقونة الشمس
                   SizedBox(width: 8), // ترك مسافة بين الأيقونة والنص
                   Text(
-                    AssetsStrings.themeString,
-                    style: Theme.of(context).textTheme.bodySmall,
+                    AppString.theme,
+                    style: Theme.of(context).textTheme.titleMedium,
                   ),
                 ],
               ),
@@ -64,8 +65,8 @@ class NavBarView extends StatelessWidget {
                   Icon(CupertinoIcons.bell_fill), // أيقونة الشمس
                   SizedBox(width: 8), // ترك مسافة بين الأيقونة والنص
                   Text(
-                    AssetsStrings.notificationdString,
-                    style: Theme.of(context).textTheme.bodySmall,
+                    AppString.notifications,
+                    style: Theme.of(context).textTheme.titleMedium,
                   ),
                 ],
               ),
@@ -75,8 +76,8 @@ class NavBarView extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.person_add),
               title: Text(
-                AssetsStrings.inviteFriendsString,
-                style: Theme.of(context).textTheme.bodySmall,
+                AppString.inviteFriendsString,
+                style: Theme.of(context).textTheme.titleMedium,
               ),
               onTap: () {},
             ),
@@ -86,13 +87,22 @@ class NavBarView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    AssetsStrings.settingsString,
-                    style: Theme.of(context).textTheme.bodySmall,
+                    AppString.settingsString,
+                    style: Theme.of(context).textTheme.titleMedium,
                   ),
                   Icon(Icons.arrow_forward_ios_outlined)
                 ],
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return SettingsScreen();
+                    },
+                  ),
+                );
+              },
             ),
             ListTile(
               leading: Icon(Icons.info),
@@ -100,8 +110,8 @@ class NavBarView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    AssetsStrings.aboutUsString,
-                    style: Theme.of(context).textTheme.bodySmall,
+                    AppString.aboutUs,
+                    style: Theme.of(context).textTheme.titleMedium,
                   ),
                   Icon(Icons.arrow_forward_ios_outlined)
                 ],

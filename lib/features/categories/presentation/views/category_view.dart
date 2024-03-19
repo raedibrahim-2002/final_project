@@ -43,8 +43,8 @@ class AppBarCategoryViewBody extends StatelessWidget {
           width: MediaQuery.of(context).size.width * .09,
         ),
         Text(
-          AssetsStrings.categoryString,
-          style: Theme.of(context).textTheme.displayLarge,
+          AppString.category,
+          style: Theme.of(context).textTheme.displayMedium,
         ),
         Spacer(),
         IconButton(onPressed: () {}, icon: Icon(Icons.search))

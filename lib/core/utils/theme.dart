@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 
 ThemeData getAppTheme() {
   return ThemeData(
-    
     scaffoldBackgroundColor: Colors.white,
     primaryColorLight: BaseColors.primaryColor,
     appBarTheme: AppBarTheme(
@@ -16,12 +15,23 @@ ThemeData getAppTheme() {
       size: 28,
     ),
     textTheme: TextTheme(
-      titleMedium: getRegularTextStylePoppins(color:BaseColors.subTitle ),
+        titleMedium: getRegularTextStylePoppins(color: BaseColors.subTitle),
         displayLarge: getBoldTextStyleInter(color: BaseColors.blackColor),
-           displayMedium: getBoldTextStyleInter(color: BaseColors.blackColor),
-        headlineLarge: getBoldTextStyleInter(color: BaseColors.whiteColor),
-        bodyMedium: getSemiBoldTextStyleInter(
-            color: BaseColors.primaryColor, fontSize: 18)),
-          
+        displayMedium:
+            getMediumTextStyleInter(color: BaseColors.blackColor, fontSize: 20),
+        displaySmall: getSemiBoldTextStyleInter(
+            color: BaseColors.blackColor, fontSize: 16),
+        bodyLarge: getSemiBoldTextStyleInter(
+            color: BaseColors.whiteColor, fontSize: 18),
+        headlineMedium:
+            getMediumTextStyleInter(color: BaseColors.blackColor, fontSize: 16),
+        headlineSmall:
+            getMediumTextStyleInter(color: BaseColors.blackColor, fontSize: 12),
+        bodyMedium:
+            getRegularTextStyleInter(color: BaseColors.grey, fontSize: 12),
+        labelMedium:
+            getRegularTextStyleInter(fontSize: 16, color: BaseColors.grey),
+        bodySmall: getRegularTextStyleInter(
+            color: BaseColors.blackColor, fontSize: 10)),
   );
 }
