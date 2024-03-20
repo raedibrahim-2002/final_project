@@ -1,67 +1,56 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_final_graduation_project/core/utils/colors.dart';
 
 class SignupScreen extends StatelessWidget {
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            onPressed: (){},
-            icon: const Icon(
-              Icons.keyboard_arrow_left,
-              size: 50,
-            ),
-          ),
-
-        ),
-
+      appBar: AppBar(),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child:  Center(
+        padding: const EdgeInsets.all(10.0),
+        child: Center(
           child: SingleChildScrollView(
             child: Column(
-
               children: [
-                const Image(image: AssetImage("Images/create.png"),
-                  height: 300,
-                  width: 350,
+                Image(
+                  image: AssetImage("assets/images/create.png"),
+                  height: MediaQuery.of(context).size.height * .2,
+                  width: double.infinity,
                   alignment: Alignment.topCenter,
                 ),
-
-                 Text("Create your account",
-                  style: Theme.of(context).textTheme.displayLarge,
+                Text(
+                  "Create your account",
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyLarge!
+                      .copyWith(color: BaseColors.blackColor),
                 ),
                 const SizedBox(
                   height: 30,
                 ),
                 TextFormField(
-
                   controller: emailController,
                   keyboardType: TextInputType.emailAddress,
-                  onFieldSubmitted: (String value )
-                  {
+                  onFieldSubmitted: (String value) {
                     print(value);
                   },
-                  onChanged: (String value )
-                  {
+                  onChanged: (String value) {
                     print(value);
                   },
-
-                  decoration:const InputDecoration(
+                  decoration: InputDecoration(
                     labelText: "Email",
-                    prefixIcon:Icon(
+                    labelStyle: Theme.of(context).textTheme.headlineMedium,
+                    prefixIcon: Icon(
                       Icons.email,
-                    ) ,
-                    border: OutlineInputBorder(
-
                     ),
-                  ) ,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
@@ -70,83 +59,69 @@ class SignupScreen extends StatelessWidget {
                   controller: passwordController,
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: true,
-                  onFieldSubmitted: (String value )
-                  {
+                  onFieldSubmitted: (String value) {
                     print(value);
                   },
-                  onChanged: (String value )
-                  {
+                  onChanged: (String value) {
                     print(value);
                   },
-
-                  decoration:const InputDecoration(
+                  decoration: InputDecoration(
                     labelText: "Password",
-                    prefixIcon:Icon(
+                    labelStyle: Theme.of(context).textTheme.headlineMedium,
+                    prefixIcon: Icon(
                       Icons.lock,
-                    ) ,
+                    ),
                     suffixIcon: Icon(
                       Icons.remove_red_eye,
                     ),
                     border: OutlineInputBorder(
-
+                      borderRadius: BorderRadius.circular(15),
                     ),
-                  ) ,
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-
                 TextFormField(
                   controller: passwordController,
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: true,
-                  onFieldSubmitted: (String value )
-                  {
+                  onFieldSubmitted: (String value) {
                     print(value);
                   },
-                  onChanged: (String value )
-                  {
+                  onChanged: (String value) {
                     print(value);
                   },
-
-                  decoration:const InputDecoration(
+                  decoration: InputDecoration(
                     labelText: " Confirm Password",
-                    prefixIcon:Icon(
+                    labelStyle: Theme.of(context).textTheme.headlineMedium,
+                    prefixIcon: Icon(
                       Icons.lock,
-                    ) ,
+                    ),
                     suffixIcon: Icon(
                       Icons.remove_red_eye,
                     ),
                     border: OutlineInputBorder(
-
+                      borderRadius: BorderRadius.circular(15),
                     ),
-                  ) ,
-                ),
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    TextButton(onPressed: (){
-
-                    },
-                      child: const Text("Forget password "),
-                    ),
-                  ],
+                  ),
                 ),
                 const SizedBox(
-                  height: 5,
+                  height: 15,
                 ),
                 Container(
                   width: double.infinity,
-
-
-                  child: MaterialButton(onPressed: ()
-                  {
-                    print(emailController.text);
-                    print(passwordController.text);
-
-                  },
-                    child:  Text("Sign up",style: Theme.of(context).textTheme.headlineLarge,
+                  child: MaterialButton(
+                    onPressed: () {
+                      print(emailController.text);
+                      print(passwordController.text);
+                    },
+                    child: Text(
+                      "Sign up",
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineMedium!
+                          .copyWith(fontSize: 18, color: BaseColors.whiteColor),
                     ),
                   ),
                   decoration: BoxDecoration(
@@ -154,24 +129,11 @@ class SignupScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15),
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("Don\'t have an account",style: Theme.of(context).textTheme.headlineMedium,),
-                    TextButton(onPressed: (){
-
-                    },
-                      child: const Text("Sign in "),
-                    ),
-                  ],
-                ),
-
               ],
             ),
           ),
         ),
       ),
     );
-
   }
 }

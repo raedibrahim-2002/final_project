@@ -1,89 +1,94 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_final_graduation_project/core/utils/colors.dart';
+import 'package:flutter_final_graduation_project/features/login_and_signUp/views/get_code_view.dart';
 
-class ForgetPasswordScreen extends StatelessWidget {
+class ForgetPasswordView extends StatelessWidget {
   var emailController = TextEditingController();
-
-
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: (){},
-          icon: const Icon(
-            Icons.keyboard_arrow_left,
-            size: 50,
-          ),
-        ),
-
-      ),
+      appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child:  Center(
+        child: Center(
           child: SingleChildScrollView(
             child: Column(
-
               children: [
-                const Image(image: AssetImage("Images/forget.png"),
-                  height: 350,
-                  width: 400,
+                Image(
+                  image: AssetImage("assets/images/forget.png"),
+                  height: MediaQuery.of(context).size.height * .25,
+                  width: double.infinity,
                   alignment: Alignment.topCenter,
-
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.width * .09,
                 ),
-                 Text("Forget Password",
-                  style: Theme.of(context).textTheme.displayLarge,
+                Text(
+                  "Forget Password",
+                  style: Theme.of(context)
+                      .textTheme
+                      .displayMedium!
+                      .copyWith(fontSize: 25),
                 ),
                 const SizedBox(
-                  height: 5,
+                  height: 10,
                 ),
-                 Text("Enter your email address below, and we'll send you a link to reset your password",
-                  style: Theme.of(context).textTheme.headlineSmall,),
+                Text(
+                  "Enter your email address below, and we'll send you a link to reset your password",
+                  style: Theme.of(context)
+                      .textTheme
+                      .headlineMedium!
+                      .copyWith(fontSize: 14),
+                ),
                 const SizedBox(
                   height: 20,
                 ),
                 TextFormField(
                   controller: emailController,
                   keyboardType: TextInputType.emailAddress,
-                  onFieldSubmitted: (String value )
-                  {
+                  onFieldSubmitted: (String value) {
                     print(value);
                   },
-                  onChanged: (String value )
-                  {
+                  onChanged: (String value) {
                     print(value);
                   },
-
-                  decoration:const InputDecoration(
+                  decoration: InputDecoration(
                     labelText: "Email",
-                    prefixIcon:Icon(
+                    labelStyle: Theme.of(context).textTheme.headlineMedium,
+                    prefixIcon: Icon(
                       Icons.email,
-                    ) ,
-                    border: OutlineInputBorder(
-
                     ),
-                  ) ,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                  ),
                 ),
-
-
-                 SizedBox(
+                SizedBox(
                   height: 20,
                 ),
                 Container(
                   width: double.infinity,
-
-
-                  child: MaterialButton(onPressed: ()
-                  {
-                    print(emailController.text);
-
-                  },
-                    child:  Text("Next", style: Theme.of(context).textTheme.headlineLarge,
+                  child: MaterialButton(
+                    onPressed: () {
+                      print(emailController.text);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return GetCodeView();
+                          },
+                        ),
+                      );
+                    },
+                    child: Text(
+                      "Next",
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineMedium!
+                          .copyWith(fontSize: 18, color: BaseColors.whiteColor),
                     ),
                   ),
                   decoration: BoxDecoration(
@@ -91,14 +96,11 @@ class ForgetPasswordScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15),
                   ),
                 ),
-
-
               ],
             ),
           ),
         ),
       ),
     );
-
   }
 }

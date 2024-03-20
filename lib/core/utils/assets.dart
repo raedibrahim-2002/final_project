@@ -58,8 +58,8 @@ class OnBoardingAssets {
   static const image2 = 'assets/images/pana2.png';
 
   static const image3 = 'assets/images/rafiki.png';
-  static const title1 = 'The title of the language';
-  static const body1 = 'The body of the language';
+  static const title1 = '';
+  static const body1 = '';
   static const title2 = 'Discover The World Of Beauty';
   static const body2 =
       'Discover the world of beauty and creativity with our company’s images \nwhere wondrful ideas meet exceptional design';
