@@ -47,7 +47,6 @@ class AppBarCategoryViewBody extends StatelessWidget {
           style: Theme.of(context).textTheme.displayMedium,
         ),
         Spacer(),
-        IconButton(onPressed: () {}, icon: Icon(Icons.search))
       ],
     );
   }

@@ -5,6 +5,9 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_final_graduation_project/core/utils/colors.dart';
+import 'package:flutter_final_graduation_project/features/chat/presentation/views/chat_view.dart';
+import 'package:flutter_final_graduation_project/features/favorite/presentation/view/favorite_view.dart';
+import 'package:flutter_final_graduation_project/features/home/presentation/views/notifications_view.dart';
 
 class DetailsScreen extends StatelessWidget {
   @override
@@ -28,7 +31,16 @@ class DetailsScreen extends StatelessWidget {
                 Stack(
                   children: [
                     IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return FavoriteView();
+                              },
+                            ),
+                          );
+                        },
                         icon: Icon(CupertinoIcons.heart)), // أيقونة القلب
                     Positioned(
                       top: 13,
@@ -45,7 +57,16 @@ class DetailsScreen extends StatelessWidget {
                   ],
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return NotificationView();
+                        },
+                      ),
+                    );
+                  },
                   icon: Icon(CupertinoIcons.bell),
                 ),
               ],
@@ -266,7 +287,16 @@ class DetailsScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton.extended(
         backgroundColor: const Color(0xFF1D2046),
         splashColor: Color.fromARGB(255, 232, 233, 236),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return ChatView();
+              },
+            ),
+          );
+        },
         label: Padding(
           padding: const EdgeInsets.all(18.0),
           child: Text(

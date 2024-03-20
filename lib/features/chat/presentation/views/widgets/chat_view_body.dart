@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_chat_bubble/chat_bubble.dart';
 import 'package:flutter_final_graduation_project/features/chat/presentation/views/widgets/Const_chat.dart';
+import 'package:flutter_final_graduation_project/features/favorite/presentation/view/favorite_view.dart';
+import 'package:flutter_final_graduation_project/features/home/presentation/views/notifications_view.dart';
 
 class ChatViewBody extends StatefulWidget {
   @override
@@ -34,7 +36,16 @@ class _ChatViewBodyState extends State<ChatViewBody> {
                 Stack(
                   children: [
                     IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return FavoriteView();
+                              },
+                            ),
+                          );
+                        },
                         icon: Icon(CupertinoIcons.heart)), // أيقونة القلب
                     Positioned(
                       top: 13,
@@ -51,7 +62,16 @@ class _ChatViewBodyState extends State<ChatViewBody> {
                   ],
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return NotificationView();
+                        },
+                      ),
+                    );
+                  },
                   icon: Icon(CupertinoIcons.bell),
                 ),
               ],

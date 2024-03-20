@@ -4,6 +4,7 @@ import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/core/utils/colors.dart';
 import 'package:flutter_final_graduation_project/core/utils/list_view_design.dart';
 import 'package:flutter_final_graduation_project/core/utils/styles.dart';
+import 'package:flutter_final_graduation_project/features/home/presentation/views/notifications_view.dart';
 
 class FavoriteView extends StatelessWidget {
   const FavoriteView({super.key});
@@ -21,7 +22,16 @@ class FavoriteView extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return NotificationView();
+                  },
+                ),
+              );
+            },
             icon: Icon(CupertinoIcons.bell),
           ),
         ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_final_graduation_project/core/utils/design_model.dart';
 import 'package:flutter_final_graduation_project/core/utils/list_view_design.dart';
+import 'package:flutter_final_graduation_project/features/home/presentation/views/search_view.dart';
 
 class RoomView extends StatelessWidget {
   const RoomView({Key? key});
@@ -18,14 +19,6 @@ class RoomView extends StatelessWidget {
             'Living Room',
             style: Theme.of(context).textTheme.displayMedium,
           )),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.search,
-              ),
-            ),
-          ],
           bottom: TabBar(
             dividerColor: Colors.white,
             indicator: ShapeDecoration(
@@ -48,37 +41,37 @@ class RoomView extends StatelessWidget {
               Tab(
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text("Modern1"),
+                  child: Text("Modern"),
                 ),
               ),
               Tab(
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text("Modern2"),
+                  child: Text("Minimalist"),
                 ),
               ),
               Tab(
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text("Modern3"),
+                  child: Text("Japandi"),
                 ),
               ),
               Tab(
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text("Modern4"),
+                  child: Text("Poho"),
                 ),
               ),
               Tab(
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text("Modern5"),
+                  child: Text("Classic"),
                 ),
               ),
               Tab(
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text("Modern6"),
+                  child: Text("New classic"),
                 ),
               ),
             ],

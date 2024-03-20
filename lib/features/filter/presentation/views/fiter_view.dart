@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/core/utils/colors.dart';
 import 'package:flutter_final_graduation_project/core/utils/styles.dart';
+import 'package:flutter_final_graduation_project/features/categories/presentation/views/category_view.dart';
 import 'package:flutter_final_graduation_project/features/filter/presentation/views/widgets/elevated_button.dart';
 import 'package:flutter_final_graduation_project/features/filter/presentation/views/widgets/item_type_category.dart';
 
@@ -47,7 +48,16 @@ class FilterScreen extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return CategoryView();
+                        },
+                      ),
+                    );
+                  },
                   icon: Icon(CupertinoIcons.chevron_right),
                 ),
               ],
@@ -68,9 +78,7 @@ class FilterScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ItemTypecategory(
-                    onTap: () {
-                      
-                    },
+                    onTap: () {},
                     title: AppString.bedroom,
                     color: BaseColors.primaryColor,
                   ),
@@ -107,64 +115,6 @@ class FilterScreen extends StatelessWidget {
                     title: AppString.diningRoom,
                     color: BaseColors.primaryColor,
                   ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-              child: Divider(
-                //   height: 55,
-                color: BaseColors.grey,
-              ),
-            ),
-            Text('Style'),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  ItemTypecategory(
-                    onTap: () {},
-                    title: AppString.modern,
-                    color: BaseColors.primaryColor,
-                  ),
-                  ItemTypecategory(
-                    onTap: () {},
-                    title: AppString.classic,
-                    color: BaseColors.primaryColor,
-                  ),
-                  ItemTypecategory(
-                    onTap: () {},
-                    title: AppString.minimalist,
-                    color: BaseColors.primaryColor,
-                  ),
-                  ItemTypecategory(
-                    onTap: () {},
-                    title: AppString.asion,
-                    color: BaseColors.primaryColor,
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  ItemTypecategory(
-                    onTap: () {},
-                    title: AppString.scandinavion,
-                    color: BaseColors.primaryColor,
-                  ),
-                  const SizedBox(
-                    width: 13,
-                  ),
-                  ItemTypecategory(
-                    onTap: () {},
-                    title: AppString.colonial,
-                    color: BaseColors.primaryColor,
-                  ),
-                  const Spacer(),
                 ],
               ),
             ),
