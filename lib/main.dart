@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_final_graduation_project/core/utils/theme.dart';
 import 'package:flutter_final_graduation_project/features/categories/presentation/views/category_view.dart';
 import 'package:flutter_final_graduation_project/features/categories/presentation/views/widgets/category_view_body.dart';
+import 'package:flutter_final_graduation_project/features/chat/presentation/views/chat_view.dart';
+import 'package:flutter_final_graduation_project/features/details/views/details_view.dart';
 import 'package:flutter_final_graduation_project/features/favorite/presentation/view/favorite_view.dart';
 import 'package:flutter_final_graduation_project/features/filter/presentation/views/fiter_view.dart';
 import 'package:flutter_final_graduation_project/features/home/presentation/views/home_view.dart';

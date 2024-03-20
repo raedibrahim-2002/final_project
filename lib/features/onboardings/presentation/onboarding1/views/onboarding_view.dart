@@ -14,7 +14,7 @@ class OnBoardingView1 extends StatefulWidget {
 class _OnBoardingView1State extends State<OnBoardingView1> {
   void initState() {
     super.initState();
-    // checkOnBoarding();
+    checkOnBoarding();
   }
 
   void checkOnBoarding() async {
@@ -193,9 +193,8 @@ class _OnBoardingView1State extends State<OnBoardingView1> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        automaticallyImplyLeading: false
-      ),
+          backgroundColor: Colors.transparent,
+          automaticallyImplyLeading: false),
       body: IntroductionScreen(
         globalBackgroundColor: Colors.white,
         pages: pages,
@@ -208,7 +207,7 @@ class _OnBoardingView1State extends State<OnBoardingView1> {
             activeShape: BeveledRectangleBorder(
                 borderRadius: BorderRadius.circular(25))),
         showDoneButton: true,
-        done: Text(OnBoardingAssets.done),
+        done: Text("Done"),
         showSkipButton: true,
         skip: Text(OnBoardingAssets.skip),
         showNextButton: true,
@@ -221,10 +220,13 @@ class _OnBoardingView1State extends State<OnBoardingView1> {
   void onDone(context) async {
     final pres = await SharedPreferences.getInstance();
     pres.setBool("onBoarding", true);
-    Navigator.pushReplacement(context, MaterialPageRoute(
-      builder: (context) {
-        return BottomNavigationBarHelper();
-      },
-    ));
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return BottomNavigationBarHelper();
+        },
+      ),
+    );
   }
 }

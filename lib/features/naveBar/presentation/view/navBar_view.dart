@@ -31,20 +31,6 @@ class NavBarView extends StatelessWidget {
                 ),
               ),
             ),
-            ListTile(
-              leading: Icon(Icons.home),
-              title: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    AppString.home,
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                  Icon(Icons.arrow_forward_ios_outlined)
-                ],
-              ),
-              onTap: () {},
-            ),
             SwitchListTile(
               title: Row(
                 children: [
@@ -72,14 +58,6 @@ class NavBarView extends StatelessWidget {
               ),
               value: true,
               onChanged: (bool? value) {},
-            ),
-            ListTile(
-              leading: Icon(Icons.person_add),
-              title: Text(
-                AppString.inviteFriendsString,
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-              onTap: () {},
             ),
             ListTile(
               leading: Icon(Icons.settings),

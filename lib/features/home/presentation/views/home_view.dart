@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/core/utils/design_model.dart';
 import 'package:flutter_final_graduation_project/features/favorite/presentation/view/favorite_view.dart';
 import 'package:flutter_final_graduation_project/features/filter/presentation/views/fiter_view.dart';
 import 'package:flutter_final_graduation_project/features/home/presentation/views/notifications_view.dart';
+import 'package:flutter_final_graduation_project/features/home/presentation/views/search_view.dart';
 import 'package:flutter_final_graduation_project/features/naveBar/presentation/view/navBar_view.dart';
 
 class HomeView extends StatefulWidget {
@@ -32,31 +34,44 @@ class _HomeViewState extends State<HomeView> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    height: MediaQuery.of(context).size.height * .06,
-                    width: MediaQuery.of(context).size.width * .83,
-                    decoration: BoxDecoration(
-                      // color: Color(0xFF7F8Fa),
-                      color: Colors.black12,
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 15.0, right: 10),
-                          child: Icon(
-                            Icons.search,
-                            color: Colors.black38,
-                          ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return SearchScreen();
+                          },
                         ),
-                        Text(
-                          AppString.searchAppString,
-                          style: TextStyle(
+                      );
+                    },
+                    child: Container(
+                      height: MediaQuery.of(context).size.height * .06,
+                      width: MediaQuery.of(context).size.width * .83,
+                      decoration: BoxDecoration(
+                        // color: Color(0xFF7F8Fa),
+                        color: Colors.black12,
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(left: 15.0, right: 10),
+                            child: Icon(
+                              Icons.search,
                               color: Colors.black38,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15),
-                        )
-                      ],
+                            ),
+                          ),
+                          Text(
+                            AppString.searchAppString,
+                            style: TextStyle(
+                                color: Colors.black38,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   IconButton(

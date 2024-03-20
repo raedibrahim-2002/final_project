@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_final_graduation_project/features/details/views/details_view.dart';
 
 class DesignModel extends StatelessWidget {
   const DesignModel({super.key});
@@ -10,12 +11,21 @@ class DesignModel extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(25),
           child: Container(
-            color: Colors.yellow,
+            // color: Colors.yellow,
             height: MediaQuery.of(context).size.height * .22,
             child: Stack(
               children: [
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return DetailsScreen();
+                        },
+                      ),
+                    );
+                  },
                   child: Image.asset(
                     "assets/images/home_2.jpeg",
                     fit: BoxFit.fill,

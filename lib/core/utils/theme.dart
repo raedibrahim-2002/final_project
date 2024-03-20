@@ -32,6 +32,8 @@ ThemeData getAppTheme() {
         labelMedium:
             getRegularTextStyleInter(fontSize: 16, color: BaseColors.grey),
         bodySmall: getRegularTextStyleInter(
-            color: BaseColors.blackColor, fontSize: 10)),
+            color: BaseColors.blackColor, fontSize: 10),
+        labelLarge: getMediumTextStylePoppins(
+            color: BaseColors.blackColor, fontSize: 14)),
   );
 }
