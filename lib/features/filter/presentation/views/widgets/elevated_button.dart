@@ -27,7 +27,7 @@ class ElevatedButtonItem extends StatelessWidget {
               backgroundColor: colorButton,
               // padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
               shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(2)),
+                borderRadius: BorderRadius.all(Radius.circular(6)),
               ),
               side: BorderSide(color: colorBorderSide ?? colorButton)),
           onPressed: onTap,

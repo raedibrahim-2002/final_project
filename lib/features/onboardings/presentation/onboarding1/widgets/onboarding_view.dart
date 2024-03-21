@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_final_graduation_project/bottom_navigation_bar.dart';
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
+import 'package:flutter_final_graduation_project/core/utils/colors.dart';
+import 'package:flutter_final_graduation_project/features/filter/presentation/views/widgets/elevated_button.dart';
 import 'package:flutter_final_graduation_project/features/login_and_signUp/views/login_view.dart';
-import 'package:flutter_final_graduation_project/features/onboardings/presentation/onboarding1/widgets/pages.dart';
-import 'package:flutter_final_graduation_project/features/onboardings/presentation/onboarding1/widgets/elevatedButtons.dart';
+import 'package:flutter_final_graduation_project/features/onboardings/presentation/onboarding1/views/onBoarding_pages_view.dart';
+import 'package:flutter_final_graduation_project/features/onboardings/presentation/onboarding1/widgets/onBoardingelevatedButtons.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -74,7 +77,22 @@ class _OnBoardingView1State extends State<OnBoardingView1> {
             OnBoardingAssets.signUpButton,
           ),
         ),
-        globalFooter: ElevatedButtonForContinuingAsGuest(),
+        globalFooter: ElevatedButtonItem(
+          title: OnBoardingAssets.continueAsGuestButton,
+          color: BaseColors.blackColor,
+          colorButton: BaseColors.whiteColor,
+          colorBorderSide: BaseColors.blackColor,
+          onTap: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return BottomNavigationBarHelper();
+                },
+              ),
+            );
+          },
+        ),
         showSkipButton: true,
         skip: Text(OnBoardingAssets.skip),
         showNextButton: true,

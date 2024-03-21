@@ -9,7 +9,7 @@ class RoomView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 6,
+      length: 7,
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
@@ -74,11 +74,18 @@ class RoomView extends StatelessWidget {
                   child: Text("New classic"),
                 ),
               ),
+              Tab(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Text("Art Deco"),
+                ),
+              ),
             ],
           ),
         ),
         body: TabBarView(
           children: [
+            GrideViewBuilderForDesigns(),
             GrideViewBuilderForDesigns(),
             GrideViewBuilderForDesigns(),
             GrideViewBuilderForDesigns(),

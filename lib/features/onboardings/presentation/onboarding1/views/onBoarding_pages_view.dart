@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
-import 'package:flutter_final_graduation_project/features/onboardings/presentation/onboarding1/widgets/elevatedButtons.dart';
+import 'package:flutter_final_graduation_project/features/onboardings/presentation/onboarding1/widgets/onBoardingelevatedButtons.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 PageViewModel OnBoardingPageView1() {
@@ -12,8 +12,14 @@ PageViewModel OnBoardingPageView1() {
     footer: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        ElevatedButtonForArabic(),
-        ElevatedButtonForEnglish(),
+        OnBoardingElevatedButtonLanguages(
+          title: OnBoardingAssets.arabicButton,
+          onPress: () {},
+        ),
+        OnBoardingElevatedButtonLanguages(
+          title: OnBoardingAssets.englishButton,
+          onPress: () {},
+        )
       ],
     ),
     image: Image.asset(
