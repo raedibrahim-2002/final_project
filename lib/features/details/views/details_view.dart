@@ -32,7 +32,7 @@ class DetailsScreen extends StatelessWidget {
                   children: [
                     IconButton(
                         onPressed: () {
-                          Navigator.push(
+                          Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
                               builder: (context) {
@@ -58,7 +58,7 @@ class DetailsScreen extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                         builder: (context) {

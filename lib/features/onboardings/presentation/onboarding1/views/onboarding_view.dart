@@ -4,8 +4,9 @@ import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/core/utils/colors.dart';
 import 'package:flutter_final_graduation_project/features/filter/presentation/views/widgets/elevated_button.dart';
 import 'package:flutter_final_graduation_project/features/login_and_signUp/views/login_view.dart';
-import 'package:flutter_final_graduation_project/features/onboardings/presentation/onboarding1/views/onBoarding_pages_view.dart';
+import 'package:flutter_final_graduation_project/features/onboardings/presentation/onboarding1/views/onBoarding_view.dart';
 import 'package:flutter_final_graduation_project/features/onboardings/presentation/onboarding1/widgets/onBoardingelevatedButtons.dart';
+import 'package:flutter_final_graduation_project/features/onboardings/presentation/onboarding1/widgets/onboarding_pages_view.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

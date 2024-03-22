@@ -9,6 +9,14 @@ class CategoryView extends StatefulWidget {
   State<CategoryView> createState() => _CategoryViewState();
 }
 
+List<CategoryViewBody> categoriesList = [
+  CategoryViewBody(categoryTitle: 'Bed Room', categoryImage: AssetsData.room,),
+  CategoryViewBody(categoryTitle: 'Living Room', categoryImage:AssetsData.room,),
+  CategoryViewBody(categoryTitle: 'Bath Room', categoryImage: AssetsData.room,),
+  CategoryViewBody(categoryTitle: 'Kids Room', categoryImage: AssetsData.room,),
+  CategoryViewBody(categoryTitle: "Kitchen Room", categoryImage: AssetsData.room,),
+];
+
 class _CategoryViewState extends State<CategoryView> {
   @override
   Widget build(BuildContext context) {
@@ -19,9 +27,9 @@ class _CategoryViewState extends State<CategoryView> {
         title: AppBarCategoryViewBody(),
       ),
       body: ListView.builder(
-        itemCount: 5,
+        itemCount: categoriesList.length,
         itemBuilder: (context, index) {
-          return CategoryViewBody();
+          return categoriesList[index];
         },
       ),
     );

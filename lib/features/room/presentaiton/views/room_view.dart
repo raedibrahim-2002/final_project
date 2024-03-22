@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_final_graduation_project/core/utils/design_model.dart';
 import 'package:flutter_final_graduation_project/core/utils/list_view_design.dart';
-import 'package:flutter_final_graduation_project/features/home/presentation/views/search_view.dart';
+import 'package:flutter_final_graduation_project/features/room/presentaiton/views/widgets/custom_tab.dart';
 
 class RoomView extends StatelessWidget {
-  const RoomView({Key? key});
+  final String roomTitle;
+  const RoomView({Key? key, required this.roomTitle});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class RoomView extends StatelessWidget {
           elevation: 0,
           title: Center(
               child: Text(
-            'Living Room',
+            this.roomTitle,
             style: Theme.of(context).textTheme.displayMedium,
           )),
           bottom: TabBar(
@@ -38,48 +38,15 @@ class RoomView extends StatelessWidget {
             indicatorWeight: 1,
             padding: EdgeInsets.all(5),
             tabs: [
-              Tab(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text("Modern"),
-                ),
+              CustomTab(
+                title: 'Modern',
               ),
-              Tab(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text("Minimalist"),
-                ),
-              ),
-              Tab(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text("Japandi"),
-                ),
-              ),
-              Tab(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text("Poho"),
-                ),
-              ),
-              Tab(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text("Classic"),
-                ),
-              ),
-              Tab(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text("New classic"),
-                ),
-              ),
-              Tab(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text("Art Deco"),
-                ),
-              ),
+              CustomTab(title: 'Minimalist'),
+              CustomTab(title: 'Japandi'),
+              CustomTab(title: 'Poho'),
+              CustomTab(title: 'Classic'),
+              CustomTab(title: 'New classic'),
+              CustomTab(title: 'Art Deco'),
             ],
           ),
         ),

@@ -1,9 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_final_graduation_project/bottom_navigation_bar.dart';
 import 'package:flutter_final_graduation_project/core/utils/colors.dart';
-import 'package:flutter_final_graduation_project/features/home/presentation/views/home_view.dart';
 import 'package:flutter_final_graduation_project/features/login_and_signUp/views/forget_password_view.dart';
 import 'package:flutter_final_graduation_project/features/login_and_signUp/views/signUp_view.dart';
 
@@ -42,13 +39,14 @@ class LoginScreen extends StatelessWidget {
                     controller: emailController,
                     keyboardType: TextInputType.emailAddress,
                     onFieldSubmitted: (String value) {
-                      print(value);
+                      // print(value);
                     },
                     onChanged: (String value) {
-                      print(value);
+                      // print(value);
                     },
                     decoration: InputDecoration(
                       labelText: "Email",
+                      hintStyle: Theme.of(context).textTheme.headlineMedium,
                       labelStyle: Theme.of(context).textTheme.headlineMedium,
                       prefixIcon: Icon(
                         Icons.email,
@@ -57,6 +55,7 @@ class LoginScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(15),
                       ),
                     ),
+                    style: Theme.of(context).textTheme.headlineMedium,
                   ),
                 ),
                 const SizedBox(
@@ -71,10 +70,10 @@ class LoginScreen extends StatelessWidget {
                     keyboardType: TextInputType.visiblePassword,
                     obscureText: true,
                     onFieldSubmitted: (String value) {
-                      print(value);
+                      // print(value);
                     },
                     onChanged: (String value) {
-                      print(value);
+                      // print(value);
                     },
                     decoration: InputDecoration(
                       labelText: "Password",
@@ -89,6 +88,7 @@ class LoginScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(15),
                       ),
                     ),
+                    style: Theme.of(context).textTheme.headlineMedium,
                   ),
                 ),
                 Row(

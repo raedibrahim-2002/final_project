@@ -6,6 +6,7 @@ class AssetsData {
   static const splash = 'assets/images/img_splash.png';
   static const logoForPhoto = 'assets/images/logo_for_photo.png';
   static const profile = 'assets/images/profile.png';
+  static const room = "assets/images/home_3.jpeg";
 }
 
 // all strings in app

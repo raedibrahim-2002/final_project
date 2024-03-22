@@ -109,13 +109,6 @@ class _HomeViewState extends State<HomeView> {
                   itemCount: 10,
                   itemBuilder: (_, i) {
                     return DesignModel();
-                    // return OverflowBox(
-                    //   maxHeight: 290.0 + 70.0,
-                    //   child: Container(
-                    //     margin: EdgeInsets.only(top: 70),
-                    //     child: DesignModel(),
-                    //   ),
-                    // );
                   },
                 ),
               )

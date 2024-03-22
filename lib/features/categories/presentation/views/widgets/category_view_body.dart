@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_final_graduation_project/features/room/presentaiton/views/room_view.dart';
 
 class CategoryViewBody extends StatefulWidget {
-  const CategoryViewBody({super.key});
+  final String categoryTitle;
+    final String categoryImage;
+
+  const CategoryViewBody({super.key, required this.categoryTitle, required this.categoryImage});
+
   @override
   State<CategoryViewBody> createState() => _CategoryViewBodyState();
 }
@@ -32,7 +36,9 @@ class _CategoryViewBodyState extends State<CategoryViewBody> {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return RoomView();
+              return RoomView(
+                roomTitle: this.widget.categoryTitle,
+              );
             },
           ),
         );
@@ -42,7 +48,7 @@ class _CategoryViewBodyState extends State<CategoryViewBody> {
         child: Container(
           child: Center(
             child: Text(
-              "Bed Room",
+              this.widget.categoryTitle,
               style: Theme.of(context).textTheme.bodyLarge,
             ),
           ),
@@ -52,7 +58,7 @@ class _CategoryViewBodyState extends State<CategoryViewBody> {
             borderRadius: BorderRadius.circular(20),
             image: DecorationImage(
                 image: AssetImage(
-                  "assets/images/home_3.jpeg",
+                  this.widget.categoryImage,
                 ),
                 fit: BoxFit.fill),
           ),

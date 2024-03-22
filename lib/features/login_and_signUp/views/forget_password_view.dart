@@ -65,6 +65,7 @@ class ForgetPasswordView extends StatelessWidget {
                       borderRadius: BorderRadius.circular(15),
                     ),
                   ),
+                  style: Theme.of(context).textTheme.headlineMedium,
                 ),
                 SizedBox(
                   height: 20,
