@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -8,15 +9,16 @@ import 'package:flutter_final_graduation_project/features/home/presentation/view
 import 'package:flutter_final_graduation_project/models/chat_model.dart';
 import 'package:chat_bubbles/chat_bubbles.dart';
 
-class ChatViewBody extends StatefulWidget {
+class _Chat2_ViewState extends StatefulWidget {
+  _Chat2_ViewState({super.key});
+
   @override
-  State<ChatViewBody> createState() => _ChatViewBodyState();
+  State<_Chat2_ViewState> createState() => __Chat2_ViewStateState();
 }
 
-class _ChatViewBodyState extends State<ChatViewBody> {
+class __Chat2_ViewStateState extends State<_Chat2_ViewState> {
   TextEditingController text = TextEditingController();
-  String myname = 'chat1';
-
+  String myname = 'chat2';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +32,7 @@ class _ChatViewBodyState extends State<ChatViewBody> {
               width: MediaQuery.of(context).size.width * .2,
             ),
             Text(
-              "Chat 1",
+              "Chat 2",
               style: Theme.of(context).textTheme.displayLarge,
             ),
             Spacer(),

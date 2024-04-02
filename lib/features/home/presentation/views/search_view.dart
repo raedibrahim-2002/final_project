@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_final_graduation_project/features/favorite/presentation/view/favorite_view.dart';
+import 'package:flutter_final_graduation_project/features/filter/presentation/views/fiter_view.dart';
+import 'package:flutter_final_graduation_project/features/home/presentation/views/notifications_view.dart';
 
 class SearchScreen extends StatelessWidget {
-   SearchScreen({super.key});
+  SearchScreen({super.key});
   var searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -25,7 +28,16 @@ class SearchScreen extends StatelessWidget {
                 Stack(
                   children: [
                     IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return FavoriteView();
+                              },
+                            ),
+                          );
+                        },
                         icon: Icon(CupertinoIcons.heart)), // أيقونة القلب
                     Positioned(
                       top: 13,
@@ -42,7 +54,16 @@ class SearchScreen extends StatelessWidget {
                   ],
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return NotificationView();
+                        },
+                      ),
+                    );
+                  },
                   icon: Icon(CupertinoIcons.bell),
                 ),
               ],
@@ -50,44 +71,41 @@ class SearchScreen extends StatelessWidget {
           ],
         ),
       ),
-
-
-      body:
-
-      Padding(
+      body: Padding(
         padding: EdgeInsets.all(10),
         child: TextFormField(
-        
           controller: searchController,
-        
-          onFieldSubmitted: (String value )
-          {
+          onFieldSubmitted: (String value) {
             print(value);
           },
-          onChanged: (String value )
-          {
+          onChanged: (String value) {
             print(value);
           },
-        
           decoration: InputDecoration(
-            filled:true ,
+            filled: true,
             fillColor: Colors.black12,
             labelText: "search",
-            prefixIcon:const Icon(
+            prefixIcon: const Icon(
               Icons.search,
-            ) ,
-
+            ),
             suffixIcon: IconButton(
               icon: Icon(CupertinoIcons.slider_horizontal_3),
               onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return FilterScreen();
+                    },
+                  ),
+                );
               },
             ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8.0),
               borderSide: BorderSide.none,
             ),
-          ) ,
-        
+          ),
         ),
       ),
     );
