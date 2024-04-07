@@ -3,5 +3,19 @@
     "sittings" :"Sittings",
     "language" :"Language",
     "theme" : "Theme",
-    "english" :"English"
+    "english" :"English",
+    "general":"General",
+    "notifications":"Notifications",
+    "account":"Account",
+    "profile":"profile",
+    "other":"Other",
+    "privacypolicy":"PrivacyPolicy",
+    "aboutus":"AboutUs",
+    "favorite":"Favorite",
+    "category":"Category",
+    "chat":"Chat",
+    "home":"Home",
+    "search":"Search"
+    
+    
 }

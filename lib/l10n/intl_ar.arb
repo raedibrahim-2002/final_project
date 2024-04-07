@@ -3,5 +3,19 @@
     "sittings" :"الاعدادات",
     "language" :"اللغة",
     "theme" : "المظهر",
-    "English" :"الانجليزية"
+    "english" :"الانجليزية",
+    "general":"عام",
+    "notifications":"الرسائل",
+    "account":"الحساب",
+    "profile":"حساب شخصي",
+    "other":"اخري",
+    "privacypolicy":"الخصوصية",
+    "aboutus":"معلومات عن",
+    "favorite":"المفضلة",
+    "category":"الفئات",
+    "chat":"محادثة",
+    "home":"الرئيسية",
+    "search":"بحث"
+    
+    
 }

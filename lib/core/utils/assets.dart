@@ -11,21 +11,21 @@ class AssetsData {
 // all strings in app
 class AppString {
   static String titleAppBarSettings = S().sittings;
-  static const String generalText = 'General';
+  static String generalText = S().general;
   static const String fontfamilyMonserrat = "Montserrat";
   static const String fontfamilyPoppins = "Poppins";
   static const String fontfamilyInter = "Inter";
   static String theme = S().theme;
   static String language = S().language;
   static String eng = S().english;
-  static const String notifications = "Notifications";
-  static const String account = "Account";
-  static const String profile = "Profile";
-  static const String other = "Other";
-  static const String privacyPolicy = "Privacy Policy";
-  static const String aboutUs = "About Us";
-  static const String favorite = "Favorite";
-  static const String category = "Category";
+  static String notifications = S().notifications;
+  static String account = S().account;
+  static String profile = S().profile;
+  static String other = S().other;
+  static String privacyPolicy = S().privacypolicy;
+  static String aboutUs = S().aboutus;
+  static String favorite = S().favorite;
+  static String category = S().category;
   static const String bedroom = "Bedroom";
   static const String livingRoom = "Living room";
   static const String bathroom = "Bathroom";
@@ -38,11 +38,10 @@ class AppString {
   static const String asion = "Asion";
   static const String scandinavion = "Scandinavion";
   static const String colonial = "Colonial";
-  static const chat = "Chat";
-  static const home = "Home";
-  static const searchAppString = "Search";
-  static const inviteFriendsString = "Invite friends";
-  static const settingsString = "Settings";
+  static String chat = S().chat;
+  static String home = S().home;
+  static String searchAppString = S().search;
+  static String settingsString = S().sittings;
 }
 
 class FontWeightManager {
