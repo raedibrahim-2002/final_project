@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/core/utils/colors.dart';
+import 'package:flutter_final_graduation_project/core/utils/shared_prefrences.dart';
 import 'package:flutter_final_graduation_project/core/utils/styles.dart';
 import 'package:flutter_final_graduation_project/features/setting/widgets/item_row_icon.dart';
 
@@ -48,6 +50,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ItemRowIcon(
                   icon: CupertinoIcons.sun_min_fill,
                   title: AppString.theme,
+                  value: '',
                 ),
                 const Spacer(),
                 SizedBox(
@@ -72,35 +75,105 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const SizedBox(
               height: 24,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ItemRowIcon(
-                    icon: CupertinoIcons.globe, title: AppString.language),
-                const Spacer(),
-                Padding(
-                  padding: const EdgeInsets.only(top: 4),
-                  child: Text(
-                    AppString.eng,
-                    style: Theme.of(context).textTheme.titleMedium,
+            GestureDetector(
+              onTap: () {
+                showModalBottomSheet<void>(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return Container(
+                      height: 200,
+                      decoration: BoxDecoration(),
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.max,
+                          children: <Widget>[
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            const Text('Select Language'),
+                            InkWell(
+                              onTap: () async {
+                                await PreferenceUtils.setString(
+                                  PrefKeys.language,
+                                  'En',
+                                );
+                                Navigator.pop(context);
+                              },
+                              child: Container(
+                                width: double.infinity,
+                                padding: const EdgeInsets.all(10),
+                                child: const Text(
+                                  'En',
+                                  style: TextStyle(
+                                    fontSize: 22,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            InkWell(
+                              onTap: () async {
+                                await PreferenceUtils.setString(
+                                  PrefKeys.language,
+                                  'Ar',
+                                );
+                                Navigator.pop(context);
+                              },
+                              child: Container(
+                                width: double.infinity,
+                                padding: const EdgeInsets.all(10),
+                                child: const Text(
+                                  'Ar',
+                                  style: TextStyle(
+                                    fontSize: 22,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                );
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ItemRowIcon(
+                      value: PreferenceUtils.getString(PrefKeys.language, 'En'),
+                      icon: CupertinoIcons.globe,
+                      title: AppString.language),
+                  const Spacer(),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 4),
+                    child: Text(
+                      AppString.eng,
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
                   ),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    CupertinoIcons.chevron_right,
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      CupertinoIcons.chevron_right,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ItemRowIcon(
-                    icon: CupertinoIcons.bell_fill,
-                    title: AppString.notifications),
+                  icon: CupertinoIcons.bell_fill,
+                  title: AppString.notifications,
+                  value: '',
+                ),
                 const Spacer(),
                 IconButton(
                   onPressed: () {},
@@ -123,7 +196,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ItemRowIcon(
-                    icon: Icons.person, sizeIcon: 30, title: AppString.profile),
+                  icon: Icons.person,
+                  sizeIcon: 30,
+                  title: AppString.profile,
+                  value: '',
+                ),
                 const Spacer(),
                 IconButton(
                   onPressed: () {},
@@ -146,9 +223,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ItemRowIcon(
-                    icon: CupertinoIcons.lock_fill,
-                    sizeIcon: 30,
-                    title: AppString.privacyPolicy),
+                  icon: CupertinoIcons.lock_fill,
+                  sizeIcon: 30,
+                  title: AppString.privacyPolicy,
+                  value: '',
+                ),
                 const Spacer(),
                 IconButton(
                   onPressed: () {},
@@ -161,9 +240,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ItemRowIcon(
-                    icon: CupertinoIcons.info_circle_fill,
-                    sizeIcon: 30,
-                    title: AppString.aboutUs),
+                  icon: CupertinoIcons.info_circle_fill,
+                  sizeIcon: 30,
+                  title: AppString.aboutUs,
+                  value: '',
+                ),
                 const Spacer(),
                 IconButton(
                   onPressed: () {},

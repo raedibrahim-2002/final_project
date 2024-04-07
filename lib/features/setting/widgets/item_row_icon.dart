@@ -8,12 +8,14 @@ class ItemRowIcon extends StatelessWidget {
   final double sizeIcon;
   final String title;
   final Color color;
+  final String value = '';
   const ItemRowIcon(
       {super.key,
       required this.icon,
       this.sizeIcon = 24,
       required this.title,
-      this.color = BaseColors.primaryColor});
+      this.color = BaseColors.primaryColor,
+      required String value});
 
   @override
   Widget build(BuildContext context) {
