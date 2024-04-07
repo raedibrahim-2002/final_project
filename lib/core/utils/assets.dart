@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_final_graduation_project/generated/l10n.dart';
+
 class AssetsData {
   static const splash = 'assets/images/img_splash.png';
   static const logoForPhoto = 'assets/images/logo_for_photo.png';
@@ -8,14 +10,14 @@ class AssetsData {
 
 // all strings in app
 class AppString {
-  static const String titleAppBarSettings = 'Setting';
+  static String titleAppBarSettings = S().sittings;
   static const String generalText = 'General';
   static const String fontfamilyMonserrat = "Montserrat";
   static const String fontfamilyPoppins = "Poppins";
   static const String fontfamilyInter = "Inter";
-  static const String theme = "Theme";
-  static const String language = "Language";
-  static const String eng = "English";
+  static String theme = S().theme;
+  static String language = S().language;
+  static String eng = S().english;
   static const String notifications = "Notifications";
   static const String account = "Account";
   static const String profile = "Profile";
@@ -72,6 +74,7 @@ class OnBoardingAssets {
   static const signUpButton = 'Sign Up';
   static const continueAsGuestButton = 'Conitnue as a Guest';
 }
+
 class EndPoints {
   static const String baseUrl = 'https://student.valuxapps.com/api/';
   static const String login = 'login';

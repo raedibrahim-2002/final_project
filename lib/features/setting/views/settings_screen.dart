@@ -91,12 +91,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             const SizedBox(
                               height: 20,
                             ),
-                            const Text('Select Language'),
+                            const Text(
+                              'Select Language',
+                              style: TextStyle(
+                                fontSize: 25,
+                                color: Colors.black,
+                              ),
+                            ),
                             InkWell(
                               onTap: () async {
                                 await PreferenceUtils.setString(
                                   PrefKeys.language,
-                                  'En',
+                                  'en',
                                 );
                                 Navigator.pop(context);
                               },
@@ -104,9 +110,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 width: double.infinity,
                                 padding: const EdgeInsets.all(10),
                                 child: const Text(
-                                  'En',
+                                  'en',
                                   style: TextStyle(
-                                    fontSize: 22,
+                                    fontSize: 25,
+                                    color: Colors.black,
                                   ),
                                 ),
                               ),
@@ -118,7 +125,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                               onTap: () async {
                                 await PreferenceUtils.setString(
                                   PrefKeys.language,
-                                  'Ar',
+                                  'ar',
                                 );
                                 Navigator.pop(context);
                               },
@@ -126,9 +133,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 width: double.infinity,
                                 padding: const EdgeInsets.all(10),
                                 child: const Text(
-                                  'Ar',
+                                  'ar',
                                   style: TextStyle(
-                                    fontSize: 22,
+                                    fontSize: 25,
+                                    color: Colors.black,
                                   ),
                                 ),
                               ),
@@ -145,7 +153,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   ItemRowIcon(
-                      value: PreferenceUtils.getString(PrefKeys.language, 'En'),
+                      value: PreferenceUtils.getString(PrefKeys.language, 'en'),
                       icon: CupertinoIcons.globe,
                       title: AppString.language),
                   const Spacer(),
@@ -158,9 +166,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(
-                      CupertinoIcons.chevron_right,
-                    ),
+                    icon: Icon(Icons.arrow_forward_ios),
                   ),
                 ],
               ),
@@ -177,7 +183,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 const Spacer(),
                 IconButton(
                   onPressed: () {},
-                  icon: Icon(CupertinoIcons.chevron_right),
+                  icon: Icon(Icons.arrow_forward_ios),
                 ),
               ],
             ),
@@ -204,7 +210,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 const Spacer(),
                 IconButton(
                   onPressed: () {},
-                  icon: Icon(CupertinoIcons.chevron_right),
+                  icon: Icon(Icons.arrow_forward_ios),
                 ),
               ],
             ),
@@ -231,7 +237,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 const Spacer(),
                 IconButton(
                   onPressed: () {},
-                  icon: Icon(CupertinoIcons.chevron_right),
+                  icon: Icon(Icons.arrow_forward_ios),
                 ),
               ],
             ),
@@ -248,7 +254,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 const Spacer(),
                 IconButton(
                   onPressed: () {},
-                  icon: Icon(CupertinoIcons.chevron_right),
+                  icon: Icon(Icons.arrow_forward_ios),
                 ),
               ],
             ),
