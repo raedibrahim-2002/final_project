@@ -3,9 +3,10 @@ import 'package:flutter_final_graduation_project/features/room/presentaiton/view
 
 class CategoryViewBody extends StatefulWidget {
   final String categoryTitle;
-    final String categoryImage;
+  final String categoryImage;
 
-  const CategoryViewBody({super.key, required this.categoryTitle, required this.categoryImage});
+  const CategoryViewBody(
+      {super.key, required this.categoryTitle, required this.categoryImage});
 
   @override
   State<CategoryViewBody> createState() => _CategoryViewBodyState();

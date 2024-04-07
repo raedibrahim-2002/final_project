@@ -76,7 +76,7 @@ class EditProfileView extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              CustomTextFormField(), 
+              CustomTextFormField(),
             ],
           ),
         ),

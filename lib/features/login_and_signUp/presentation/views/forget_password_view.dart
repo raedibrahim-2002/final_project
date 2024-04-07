@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_final_graduation_project/core/utils/colors.dart';
-import 'package:flutter_final_graduation_project/features/login_and_signUp/views/get_code_view.dart';
+import 'package:flutter_final_graduation_project/features/login_and_signUp/presentation/views/get_code_view.dart';
 
 class ForgetPasswordView extends StatelessWidget {
   var emailController = TextEditingController();

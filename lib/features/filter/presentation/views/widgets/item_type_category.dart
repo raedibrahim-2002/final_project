@@ -23,11 +23,10 @@ class _ItemTypecategoryState extends State<ItemTypecategory> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: widget.onTap,
-      
       child: Container(
         padding: EdgeInsets.all(8),
-        decoration:
-            BoxDecoration(borderRadius: BorderRadius.circular(5), color: widget.color),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(5), color: widget.color),
         child: Text(
           widget.title,
           style: getRegularTextStyleInter(

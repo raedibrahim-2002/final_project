@@ -10,11 +10,26 @@ class CategoryView extends StatefulWidget {
 }
 
 List<CategoryViewBody> categoriesList = [
-  CategoryViewBody(categoryTitle: 'Bed Room', categoryImage: AssetsData.room,),
-  CategoryViewBody(categoryTitle: 'Living Room', categoryImage:AssetsData.room,),
-  CategoryViewBody(categoryTitle: 'Bath Room', categoryImage: AssetsData.room,),
-  CategoryViewBody(categoryTitle: 'Kids Room', categoryImage: AssetsData.room,),
-  CategoryViewBody(categoryTitle: "Kitchen Room", categoryImage: AssetsData.room,),
+  CategoryViewBody(
+    categoryTitle: 'Bed Room',
+    categoryImage: AssetsData.room,
+  ),
+  CategoryViewBody(
+    categoryTitle: 'Living Room',
+    categoryImage: AssetsData.room,
+  ),
+  CategoryViewBody(
+    categoryTitle: 'Bath Room',
+    categoryImage: AssetsData.room,
+  ),
+  CategoryViewBody(
+    categoryTitle: 'Kids Room',
+    categoryImage: AssetsData.room,
+  ),
+  CategoryViewBody(
+    categoryTitle: "Kitchen Room",
+    categoryImage: AssetsData.room,
+  ),
 ];
 
 class _CategoryViewState extends State<CategoryView> {

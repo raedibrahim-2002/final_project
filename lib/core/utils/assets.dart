@@ -1,7 +1,4 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 class AssetsData {
   static const splash = 'assets/images/img_splash.png';
   static const logoForPhoto = 'assets/images/logo_for_photo.png';
@@ -74,4 +71,16 @@ class OnBoardingAssets {
   static const englishButton = 'English';
   static const signUpButton = 'Sign Up';
   static const continueAsGuestButton = 'Conitnue as a Guest';
+}
+class EndPoints {
+  static const String baseUrl = 'https://student.valuxapps.com/api/';
+  static const String login = 'login';
+  static const String register = 'register';
+  static const String notifications = 'notifications';
+  static const String categories = 'categories';
+  static const String home = 'home';
+  static const String favorites = 'favorites';
+  static const String carts = 'carts';
+  static const String addresses = 'addresses';
+  static const String orders = 'orders';
 }
