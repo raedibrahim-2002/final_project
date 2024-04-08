@@ -22,21 +22,28 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "aboutus": MessageLookupByLibrary.simpleMessage("معلومات عن"),
+        "aboutus": MessageLookupByLibrary.simpleMessage("حول البرنامج"),
         "account": MessageLookupByLibrary.simpleMessage("الحساب"),
+        "arabic": MessageLookupByLibrary.simpleMessage("عربي"),
         "category": MessageLookupByLibrary.simpleMessage("الفئات"),
         "chat": MessageLookupByLibrary.simpleMessage("محادثة"),
+        "done": MessageLookupByLibrary.simpleMessage("تم"),
         "english": MessageLookupByLibrary.simpleMessage("الانجليزية"),
         "favorite": MessageLookupByLibrary.simpleMessage("المفضلة"),
         "general": MessageLookupByLibrary.simpleMessage("عام"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "language": MessageLookupByLibrary.simpleMessage("اللغة"),
+        "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "notifications": MessageLookupByLibrary.simpleMessage("الرسائل"),
         "other": MessageLookupByLibrary.simpleMessage("اخري"),
         "privacypolicy": MessageLookupByLibrary.simpleMessage("الخصوصية"),
         "profile": MessageLookupByLibrary.simpleMessage("حساب شخصي"),
+        "register": MessageLookupByLibrary.simpleMessage("تسجيل"),
         "search": MessageLookupByLibrary.simpleMessage("بحث"),
+        "selectLanguage": MessageLookupByLibrary.simpleMessage("اختار اللغة"),
+        "signup": MessageLookupByLibrary.simpleMessage("تسجيل الدخول "),
         "sittings": MessageLookupByLibrary.simpleMessage("الاعدادات"),
+        "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
         "theme": MessageLookupByLibrary.simpleMessage("المظهر")
       };
 }

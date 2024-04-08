@@ -65,24 +65,25 @@ class OnBoardingAssets {
   static const title3 = 'Direct communication with\n             the company';
   static const body3 =
       'Direct communication with \nthe company through a chat ';
-  static const skip = 'Skip';
-  static const done = 'Done';
+  static String skip = S().skip;
+  static String done = S().done;
 
-  static const arabicButton = 'عربي';
-  static const englishButton = 'English';
-  static const signUpButton = 'Sign Up';
+  static String arabicButton = S().arabic;
+  static String englishButton = S().english;
+  static String selectLanguage = S().selectLanguage;
+  static const signUpButton = 'Sign up';
   static const continueAsGuestButton = 'Conitnue as a Guest';
 }
 
 class EndPoints {
   static const String baseUrl = 'https://student.valuxapps.com/api/';
-  static const String login = 'login';
-  static const String register = 'register';
-  static const String notifications = 'notifications';
-  static const String categories = 'categories';
-  static const String home = 'home';
-  static const String favorites = 'favorites';
+  static String login = S().login;
+  static String register = S().register;
+  static String notifications = S().notifications;
+  static String categories = S().category;
+  static String home = S().home;
+  static String favorites = S().favorite;
   static const String carts = 'carts';
   static const String addresses = 'addresses';
-  static const String orders = 'orders';
+  static String orders = S().other;
 }

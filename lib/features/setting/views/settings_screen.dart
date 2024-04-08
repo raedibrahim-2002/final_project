@@ -5,6 +5,8 @@ import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/core/utils/colors.dart';
 import 'package:flutter_final_graduation_project/core/utils/shared_prefrences.dart';
 import 'package:flutter_final_graduation_project/core/utils/styles.dart';
+import 'package:flutter_final_graduation_project/features/home/presentation/views/notifications_view.dart';
+import 'package:flutter_final_graduation_project/features/profile/presentation/views/profile_view.dart';
 import 'package:flutter_final_graduation_project/features/setting/widgets/item_row_icon.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -146,7 +148,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       ),
                     );
                   },
-                );
+                ).then((value) {
+                  Navigator.pushNamedAndRemoveUntil(context, '/', (_) => false);
+                });
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -165,7 +169,81 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      showModalBottomSheet<void>(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Container(
+                            height: 200,
+                            decoration: BoxDecoration(),
+                            child: Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.max,
+                                children: <Widget>[
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  const Text(
+                                    'Select Language',
+                                    style: TextStyle(
+                                      fontSize: 25,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                  InkWell(
+                                    onTap: () async {
+                                      await PreferenceUtils.setString(
+                                        PrefKeys.language,
+                                        'en',
+                                      );
+                                      Navigator.pop(context);
+                                    },
+                                    child: Container(
+                                      width: double.infinity,
+                                      padding: const EdgeInsets.all(10),
+                                      child: const Text(
+                                        'en',
+                                        style: TextStyle(
+                                          fontSize: 25,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  InkWell(
+                                    onTap: () async {
+                                      await PreferenceUtils.setString(
+                                        PrefKeys.language,
+                                        'ar',
+                                      );
+                                      Navigator.pop(context);
+                                    },
+                                    child: Container(
+                                      width: double.infinity,
+                                      padding: const EdgeInsets.all(10),
+                                      child: const Text(
+                                        'ar',
+                                        style: TextStyle(
+                                          fontSize: 25,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      ).then((value) {
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, '/', (_) => false);
+                      });
+                    },
                     icon: Icon(Icons.arrow_forward_ios),
                   ),
                 ],
@@ -182,7 +260,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
                 const Spacer(),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return NotificationView();
+                        },
+                      ),
+                    );
+                  },
                   icon: Icon(Icons.arrow_forward_ios),
                 ),
               ],
@@ -209,7 +296,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
                 const Spacer(),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return ProfileView();
+                        },
+                      ),
+                    );
+                  },
                   icon: Icon(Icons.arrow_forward_ios),
                 ),
               ],

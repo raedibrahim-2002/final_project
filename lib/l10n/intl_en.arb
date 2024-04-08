@@ -15,7 +15,15 @@
     "category":"Category",
     "chat":"Chat",
     "home":"Home",
-    "search":"Search"
+    "search":"Search",
+    "login":"Login",
+    "register":"Register",
+    "signup":"Signup",
+    "arabic":"Arabic",
+    "skip":"Skip",
+    "done":"Done",
+    "selectLanguage":"SelectLanguage"
+    
     
     
 }

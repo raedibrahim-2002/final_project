@@ -10,12 +10,19 @@
     "profile":"حساب شخصي",
     "other":"اخري",
     "privacypolicy":"الخصوصية",
-    "aboutus":"معلومات عن",
+    "aboutus":"حول البرنامج",
     "favorite":"المفضلة",
     "category":"الفئات",
     "chat":"محادثة",
     "home":"الرئيسية",
-    "search":"بحث"
+    "search":"بحث",
+    "login":"تسجيل الدخول",
+    "register":"تسجيل",
+    "signup":"تسجيل الدخول ",
+    "arabic":"عربي",
+    "skip":"تخطي",
+    "done":"تم",
+    "selectLanguage":"اختار اللغة"
     
     
 }

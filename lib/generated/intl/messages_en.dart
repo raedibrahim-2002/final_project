@@ -24,19 +24,27 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "aboutus": MessageLookupByLibrary.simpleMessage("AboutUs"),
         "account": MessageLookupByLibrary.simpleMessage("Account"),
+        "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "category": MessageLookupByLibrary.simpleMessage("Category"),
         "chat": MessageLookupByLibrary.simpleMessage("Chat"),
+        "done": MessageLookupByLibrary.simpleMessage("Done"),
         "english": MessageLookupByLibrary.simpleMessage("English"),
         "favorite": MessageLookupByLibrary.simpleMessage("Favorite"),
         "general": MessageLookupByLibrary.simpleMessage("General"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
+        "login": MessageLookupByLibrary.simpleMessage("Login"),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "other": MessageLookupByLibrary.simpleMessage("Other"),
         "privacypolicy": MessageLookupByLibrary.simpleMessage("PrivacyPolicy"),
         "profile": MessageLookupByLibrary.simpleMessage("profile"),
+        "register": MessageLookupByLibrary.simpleMessage("Register"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
+        "selectLanguage":
+            MessageLookupByLibrary.simpleMessage("SelectLanguage"),
+        "signup": MessageLookupByLibrary.simpleMessage("Signup"),
         "sittings": MessageLookupByLibrary.simpleMessage("Sittings"),
+        "skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "theme": MessageLookupByLibrary.simpleMessage("Theme")
       };
 }
