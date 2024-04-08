@@ -30,6 +30,7 @@ class AppString {
   static const String livingRoom = "Living room";
   static const String bathroom = "Bathroom";
   static const String Kitchen = "Kitchen";
+  static const String kids = 'Kids Room';
   static const String receptions = "Receptions";
   static const String diningRoom = "Dining room";
   static const String modern = "Modern";

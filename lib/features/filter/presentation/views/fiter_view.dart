@@ -7,6 +7,7 @@ import 'package:flutter_final_graduation_project/core/utils/styles.dart';
 import 'package:flutter_final_graduation_project/features/categories/presentation/views/category_view.dart';
 import 'package:flutter_final_graduation_project/features/filter/presentation/views/widgets/elevated_button.dart';
 import 'package:flutter_final_graduation_project/features/filter/presentation/views/widgets/item_type_category.dart';
+import 'package:flutter_final_graduation_project/features/room/presentaiton/views/room_view.dart';
 
 class FilterScreen extends StatelessWidget {
   const FilterScreen({super.key});
@@ -78,17 +79,44 @@ class FilterScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ItemTypecategory(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return RoomView(roomTitle: 'Bed Room');
+                          },
+                        ),
+                      );
+                    },
                     title: AppString.bedroom,
                     color: BaseColors.primaryColor,
                   ),
                   ItemTypecategory(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return RoomView(roomTitle: 'Living Room');
+                          },
+                        ),
+                      );
+                    },
                     title: AppString.livingRoom,
                     color: BaseColors.primaryColor,
                   ),
                   ItemTypecategory(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return RoomView(roomTitle: 'Bath Room');
+                          },
+                        ),
+                      );
+                    },
                     title: AppString.bathroom,
                     color: BaseColors.primaryColor,
                   ),
@@ -101,37 +129,64 @@ class FilterScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ItemTypecategory(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return RoomView(roomTitle: 'Kitchen Room');
+                          },
+                        ),
+                      );
+                    },
                     title: AppString.Kitchen,
                     color: BaseColors.primaryColor,
                   ),
+                  // ItemTypecategory(
+                  //   onTap: () {
+                  //     Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute(
+                  //         builder: (context) {
+                  //           return RoomView(roomTitle: '');
+                  //         },
+                  //       ),
+                  //     );
+                  //   },
+                  //   title: AppString.receptions,
+                  //   color: BaseColors.primaryColor,
+                  // ),
                   ItemTypecategory(
-                    onTap: () {},
-                    title: AppString.receptions,
-                    color: BaseColors.primaryColor,
-                  ),
-                  ItemTypecategory(
-                    onTap: () {},
-                    title: AppString.diningRoom,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return RoomView(roomTitle: 'Kids Room');
+                          },
+                        ),
+                      );
+                    },
+                    title: AppString.kids,
                     color: BaseColors.primaryColor,
                   ),
                 ],
               ),
             ),
-            const Spacer(),
-            ElevatedButtonItem(
-              title: 'Apply',
-              color: BaseColors.whiteColor,
-              onTap: () {},
-              colorButton: BaseColors.primaryColor,
-            ),
-            ElevatedButtonItem(
-              colorBorderSide: BaseColors.primaryColor,
-              title: 'Reset',
-              color: BaseColors.primaryColor,
-              onTap: () {},
-              colorButton: BaseColors.whiteColor,
-            ),
+            // const Spacer(),
+            // ElevatedButtonItem(
+            //   title: 'Apply',
+            //   color: BaseColors.whiteColor,
+            //   onTap: () {},
+            //   colorButton: BaseColors.primaryColor,
+            // ),
+            // ElevatedButtonItem(
+            //   colorBorderSide: BaseColors.primaryColor,
+            //   title: 'Reset',
+            //   color: BaseColors.primaryColor,
+            //   onTap: () {},
+            //   colorButton: BaseColors.whiteColor,
+            // ),
           ],
         ),
       ),
