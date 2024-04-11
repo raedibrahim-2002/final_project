@@ -18,7 +18,7 @@ class OnBoardingView1 extends StatefulWidget {
 class _OnBoardingView1State extends State<OnBoardingView1> {
   void initState() {
     super.initState();
-    //checkOnBoarding();
+    checkOnBoarding();
   }
 
   void checkOnBoarding() async {
@@ -28,7 +28,7 @@ class _OnBoardingView1State extends State<OnBoardingView1> {
       // إذا كانت قيمة onBoarding تساوي true، انتقل مباشرة لصفحة BottomNavigationBarHelper
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => LoginScreen()),
+        MaterialPageRoute(builder: (context) => const LoginScreen()),
       );
     }
   }
@@ -49,11 +49,11 @@ class _OnBoardingView1State extends State<OnBoardingView1> {
         globalBackgroundColor: Colors.white,
         pages: pages,
         dotsDecorator: DotsDecorator(
-            size: Size.square(10),
-            color: Color.fromARGB(255, 120, 112, 5),
-            activeSize: Size(20, 20),
-            activeColor: Color.fromARGB(255, 5, 20, 56),
-            spacing: EdgeInsets.symmetric(horizontal: 5),
+            size: const Size.square(10),
+            color: const Color.fromARGB(255, 120, 112, 5),
+            activeSize: const Size(20, 20),
+            activeColor: const Color.fromARGB(255, 5, 20, 56),
+            spacing: const EdgeInsets.symmetric(horizontal: 5),
             activeShape: BeveledRectangleBorder(
                 borderRadius: BorderRadius.circular(25))),
         showDoneButton: true,
@@ -76,26 +76,10 @@ class _OnBoardingView1State extends State<OnBoardingView1> {
             OnBoardingAssets.signUpButton,
           ),
         ),
-        globalFooter: ElevatedButtonItem(
-          title: OnBoardingAssets.continueAsGuestButton,
-          color: BaseColors.blackColor,
-          colorButton: BaseColors.whiteColor,
-          colorBorderSide: BaseColors.blackColor,
-          onTap: () {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return BottomNavigationBarHelper();
-                },
-              ),
-            );
-          },
-        ),
         showSkipButton: true,
         skip: Text(OnBoardingAssets.skip),
         showNextButton: true,
-        next: Icon(Icons.arrow_forward),
+        next: const Icon(Icons.arrow_forward),
         onDone: () => onDone(context),
       ),
     );
@@ -108,7 +92,7 @@ class _OnBoardingView1State extends State<OnBoardingView1> {
       context,
       MaterialPageRoute(
         builder: (context) {
-          return LoginScreen();
+          return const LoginScreen();
         },
       ),
     );

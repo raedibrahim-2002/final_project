@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
+import 'package:flutter_final_graduation_project/core/utils/shared_prefrences.dart';
 import 'package:flutter_final_graduation_project/features/onboardings/presentation/onboarding1/widgets/onBoardingelevatedButtons.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
@@ -14,11 +15,15 @@ PageViewModel OnBoardingPageView1() {
       children: [
         OnBoardingElevatedButtonLanguages(
           title: OnBoardingAssets.arabicButton,
-          onPress: () {},
+          onPress: () {
+            PreferenceUtils.setString(PrefKeys.language, "ar");
+          },
         ),
         OnBoardingElevatedButtonLanguages(
           title: OnBoardingAssets.englishButton,
-          onPress: () {},
+          onPress: () {
+            PreferenceUtils.setString(PrefKeys.language, "en");
+          },
         )
       ],
     ),

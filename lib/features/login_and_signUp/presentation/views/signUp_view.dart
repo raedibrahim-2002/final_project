@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_final_graduation_project/bottom_navigation_bar.dart';
 
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/core/utils/colors.dart';
@@ -30,7 +31,7 @@ class _SignupScreenState extends State<SignupScreen> {
       listener: (context, state) {
         if (state is RegisterSuccessState) {
           Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => const HomeView()));
+              MaterialPageRoute(builder: (context) => const BottomNavigationBarHelper()));
         } else if (state is FailedToRegisterState) {
           showDialog(
               context: context,
@@ -48,202 +49,200 @@ class _SignupScreenState extends State<SignupScreen> {
           appBar: AppBar(),
           body: Padding(
             padding: const EdgeInsets.all(10.0),
-            child: Container(
-              child: Center(
-                child: SingleChildScrollView(
-                  child: Form(
-                    key: formKey,
-                    child: Column(
-                      children: [
-                        Image(
-                          image: const AssetImage("assets/images/create.png"),
-                          height: MediaQuery.of(context).size.height * .2,
-                          width: double.infinity,
-                          alignment: Alignment.topCenter,
-                        ),
-                        Text(
-                          "Create your account",
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyLarge!
-                              .copyWith(color: BaseColors.blackColor),
-                        ),
-                        const SizedBox(
-                          height: 30,
-                        ),
-                        Container(
-                          height: MediaQuery.of(context).size.height / 1.7,
-                          width: double.infinity,
-                          color: BaseColors.whiteColor,
-                          child: ListView(
-                            children: [
-                              TextFormField(
-                                controller: nameController,
-                                keyboardType: TextInputType.name,
-                                validator: (input) {
-                                  if (nameController.text.isEmpty) {
-                                    return "Please enter name!";
-                                  } else {
-                                    return null;
-                                  }
-                                },
-                                decoration: InputDecoration(
-                                  labelText: "Name",
-                                  hintStyle: Theme.of(context)
-                                      .textTheme
-                                      .headlineMedium,
-                                  labelStyle: Theme.of(context)
-                                      .textTheme
-                                      .headlineMedium,
-                                  prefixIcon: const Icon(
-                                    Icons.person,
-                                  ),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
+            child: Center(
+              child: SingleChildScrollView(
+                child: Form(
+                  key: formKey,
+                  child: Column(
+                    children: [
+                      Image(
+                        image: const AssetImage("assets/images/create.png"),
+                        height: MediaQuery.of(context).size.height * .2,
+                        width: double.infinity,
+                        alignment: Alignment.topCenter,
+                      ),
+                      Text(
+                        "Create your account",
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyLarge!
+                            .copyWith(color: BaseColors.blackColor),
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      Container(
+                        height: MediaQuery.of(context).size.height / 1.7,
+                        width: double.infinity,
+                        color: BaseColors.whiteColor,
+                        child: ListView(
+                          children: [
+                            TextFormField(
+                              controller: nameController,
+                              keyboardType: TextInputType.name,
+                              validator: (input) {
+                                if (nameController.text.isEmpty) {
+                                  return "Please enter name!";
+                                } else {
+                                  return null;
+                                }
+                              },
+                              decoration: InputDecoration(
+                                labelText: "Name",
+                                hintStyle: Theme.of(context)
+                                    .textTheme
+                                    .headlineMedium,
+                                labelStyle: Theme.of(context)
+                                    .textTheme
+                                    .headlineMedium,
+                                prefixIcon: const Icon(
+                                  Icons.person,
                                 ),
-                                style:
-                                    Theme.of(context).textTheme.headlineMedium,
-                              ),
-                              const SizedBox(
-                                height: 20,
-                              ),
-                              TextFormField(
-                                controller: emailController,
-                                keyboardType: TextInputType.emailAddress,
-                                validator: (input) {
-                                  if (emailController.text.isEmpty) {
-                                    return "Please enter email!";
-                                  } else {
-                                    return null;
-                                  }
-                                },
-                                decoration: InputDecoration(
-                                  labelText: "Email",
-                                  labelStyle: Theme.of(context)
-                                      .textTheme
-                                      .headlineMedium,
-                                  prefixIcon: const Icon(
-                                    Icons.email,
-                                  ),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                ),
-                                style:
-                                    Theme.of(context).textTheme.headlineMedium,
-                              ),
-                              const SizedBox(
-                                height: 20,
-                              ),
-                              TextFormField(
-                                controller: passwordController,
-                                validator: (input) {
-                                  if (passwordController.text.isEmpty) {
-                                    return "Please enter password!";
-                                  } else {
-                                    return null;
-                                  }
-                                },
-                                obscureText: obscure1,
-                                decoration: InputDecoration(
-                                  labelText: "Password",
-                                  labelStyle: Theme.of(context)
-                                      .textTheme
-                                      .headlineMedium,
-                                  prefixIcon: const Icon(
-                                    Icons.password,
-                                  ),
-                                  suffixIcon: IconButton(
-                                    onPressed: () {
-                                      obscure1 = !obscure1;
-                                      setState(() {});
-                                    },
-                                    icon: Icon(
-                                      obscure1 == true
-                                          ? Icons.visibility_off_outlined
-                                          : Icons.visibility_outlined,
-                                      color: BaseColors.primaryColor,
-                                    ),
-                                  ),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                ),
-                                style:
-                                    Theme.of(context).textTheme.headlineMedium,
-                              ),
-                              const SizedBox(
-                                height: 20,
-                              ),
-                              TextFormField(
-                                controller: phoneController,
-                                keyboardType: TextInputType.phone,
-                                validator: (input) {
-                                  if (phoneController.text.isEmpty) {
-                                    return "Please enter phone!";
-                                  } else {
-                                    return null;
-                                  }
-                                },
-                                decoration: InputDecoration(
-                                  labelText: "phone",
-                                  hintStyle: Theme.of(context)
-                                      .textTheme
-                                      .headlineMedium,
-                                  labelStyle: Theme.of(context)
-                                      .textTheme
-                                      .headlineMedium,
-                                  prefixIcon: const Icon(
-                                    Icons.phone,
-                                  ),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                ),
-                                style:
-                                    Theme.of(context).textTheme.headlineMedium,
-                              ),
-                              const SizedBox(
-                                height: 15,
-                              ),
-                              Container(
-                                width: double.infinity,
-                                child: MaterialButton(
-                                  onPressed: () {
-                                    if (formKey.currentState!.validate()) {
-                                      //register
-                                      BlocProvider.of<AuthCubit>(context)
-                                          .register(
-                                              name: nameController.text,
-                                              email: emailController.text,
-                                              phone: phoneController.text,
-                                              password:
-                                                  passwordController.text);
-                                    }
-                                  },
-                                  child: Text(
-                                    state is RegisterLoadingState
-                                        ? "Loading...."
-                                        : "Sign up",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headlineMedium!
-                                        .copyWith(
-                                            fontSize: 18,
-                                            color: BaseColors.whiteColor),
-                                  ),
-                                ),
-                                decoration: BoxDecoration(
-                                  color: Color(0xFF1D2046),
+                                border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(15),
                                 ),
                               ),
-                            ],
-                          ),
+                              style:
+                                  Theme.of(context).textTheme.headlineMedium,
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            TextFormField(
+                              controller: emailController,
+                              keyboardType: TextInputType.emailAddress,
+                              validator: (input) {
+                                if (emailController.text.isEmpty) {
+                                  return "Please enter email!";
+                                } else {
+                                  return null;
+                                }
+                              },
+                              decoration: InputDecoration(
+                                labelText: "Email",
+                                labelStyle: Theme.of(context)
+                                    .textTheme
+                                    .headlineMedium,
+                                prefixIcon: const Icon(
+                                  Icons.email,
+                                ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                              ),
+                              style:
+                                  Theme.of(context).textTheme.headlineMedium,
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            TextFormField(
+                              controller: passwordController,
+                              validator: (input) {
+                                if (passwordController.text.isEmpty) {
+                                  return "Please enter password!";
+                                } else {
+                                  return null;
+                                }
+                              },
+                              obscureText: obscure1,
+                              decoration: InputDecoration(
+                                labelText: "Password",
+                                labelStyle: Theme.of(context)
+                                    .textTheme
+                                    .headlineMedium,
+                                prefixIcon: const Icon(
+                                  Icons.password,
+                                ),
+                                suffixIcon: IconButton(
+                                  onPressed: () {
+                                    obscure1 = !obscure1;
+                                    setState(() {});
+                                  },
+                                  icon: Icon(
+                                    obscure1 == true
+                                        ? Icons.visibility_off_outlined
+                                        : Icons.visibility_outlined,
+                                    color: BaseColors.primaryColor,
+                                  ),
+                                ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                              ),
+                              style:
+                                  Theme.of(context).textTheme.headlineMedium,
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            TextFormField(
+                              controller: phoneController,
+                              keyboardType: TextInputType.phone,
+                              validator: (input) {
+                                if (phoneController.text.isEmpty) {
+                                  return "Please enter phone!";
+                                } else {
+                                  return null;
+                                }
+                              },
+                              decoration: InputDecoration(
+                                labelText: "phone",
+                                hintStyle: Theme.of(context)
+                                    .textTheme
+                                    .headlineMedium,
+                                labelStyle: Theme.of(context)
+                                    .textTheme
+                                    .headlineMedium,
+                                prefixIcon: const Icon(
+                                  Icons.phone,
+                                ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                              ),
+                              style:
+                                  Theme.of(context).textTheme.headlineMedium,
+                            ),
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            Container(
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                color: Color(0xFF1D2046),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: MaterialButton(
+                                onPressed: () {
+                                  if (formKey.currentState!.validate()) {
+                                    //register
+                                    BlocProvider.of<AuthCubit>(context)
+                                        .register(
+                                            name: nameController.text,
+                                            email: emailController.text,
+                                            phone: phoneController.text,
+                                            password:
+                                                passwordController.text);
+                                  }
+                                },
+                                child: Text(
+                                  state is RegisterLoadingState
+                                      ? "Loading...."
+                                      : "Sign up",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineMedium!
+                                      .copyWith(
+                                          fontSize: 18,
+                                          color: BaseColors.whiteColor),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),

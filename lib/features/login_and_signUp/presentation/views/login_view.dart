@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_final_graduation_project/bottom_navigation_bar.dart';
-
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/core/utils/colors.dart';
-import 'package:flutter_final_graduation_project/core/utils/flutter_toast.dart';
-import 'package:flutter_final_graduation_project/core/utils/shared_prefrences.dart';
 import 'package:flutter_final_graduation_project/features/home/presentation/views/home_view.dart';
 import 'package:flutter_final_graduation_project/features/login_and_signUp/presentation/views/auth_cubit/auth_cubit.dart';
 import 'package:flutter_final_graduation_project/features/login_and_signUp/presentation/views/auth_cubit/auth_states.dart';
@@ -42,8 +38,10 @@ class _LoginScreenState extends State<LoginScreen> {
           listener: (context, state) {
             if (state is LoginSuccessState) {
               Navigator.pop(context);
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => const HomeView()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const BottomNavigationBarHelper()));
             }
             if (state is FailedToLoginState) {
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -190,6 +188,10 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             Container(
                               width: double.infinity,
+                              decoration: BoxDecoration(
+                                color: Color(0xFF1D2046),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
                               child: MaterialButton(
                                 onPressed: () {
                                   if (formKey.currentState!.validate() ==
@@ -211,9 +213,36 @@ class _LoginScreenState extends State<LoginScreen> {
                                           color: BaseColors.whiteColor),
                                 ),
                               ),
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            Container(
+                              width: double.infinity,
                               decoration: BoxDecoration(
                                 color: Color(0xFF1D2046),
                                 borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: MaterialButton(
+                                onPressed: () {
+                                  Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) {
+                                        return const BottomNavigationBarHelper();
+                                      },
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  OnBoardingAssets.continueAsGuestButton,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineMedium!
+                                      .copyWith(
+                                          fontSize: 18,
+                                          color: BaseColors.whiteColor),
+                                ),
                               ),
                             ),
                             Row(
