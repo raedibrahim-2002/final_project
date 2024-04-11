@@ -15,14 +15,17 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await PreferenceUtils.init();
+
   await CacheNetwork.cacheInitialization();
   token = CacheNetwork.getCacheData(key: "token");
   print("token is : $token");
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
