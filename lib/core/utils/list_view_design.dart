@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_final_graduation_project/core/utils/design_model.dart';
+import 'package:flutter_final_graduation_project/core/utils/design_view.dart';
 
 class GrideViewBuilderForDesigns extends StatelessWidget {
   const GrideViewBuilderForDesigns({super.key});
@@ -20,7 +20,7 @@ class GrideViewBuilderForDesigns extends StatelessWidget {
         ),
         itemCount: 10,
         itemBuilder: (_, i) {
-          return DesignModel();
+          return DesignView();
           // return OverflowBox(
           //   maxHeight: 290.0 + 70.0,
           //   child: Container(

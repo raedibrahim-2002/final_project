@@ -4,6 +4,8 @@ import 'package:flutter_final_graduation_project/core/utils/constans.dart';
 import 'package:flutter_final_graduation_project/core/utils/local_network.dart';
 import 'package:flutter_final_graduation_project/core/utils/shared_prefrences.dart';
 import 'package:flutter_final_graduation_project/core/utils/theme.dart';
+import 'package:flutter_final_graduation_project/features/categories/cubit/categories_cubit.dart';
+import 'package:flutter_final_graduation_project/features/home/cubit/home_cubit.dart';
 import 'package:flutter_final_graduation_project/features/login_and_signUp/presentation/views/auth_cubit/auth_cubit.dart';
 import 'package:flutter_final_graduation_project/features/login_and_signUp/presentation/views/login_view.dart';
 import 'package:flutter_final_graduation_project/features/splash/presentation/view/splash_view.dart';
@@ -21,6 +23,7 @@ void main() async {
 
   runApp(const MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -29,6 +32,9 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
         providers: [
           BlocProvider(create: (context) => AuthCubit()),
+          BlocProvider(create: (context) => CategoriesCubit()..getCategoriesData()),
+          BlocProvider(create: (context) => HomeCubit()..getProducts()),
+
         ],
         child: GetMaterialApp(
           locale: Locale(PreferenceUtils.getString(PrefKeys.language, 'en')),

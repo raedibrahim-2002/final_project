@@ -25,7 +25,7 @@ class _ChatViewBodyState extends State<ChatViewBody> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Spacer(),
+            const Spacer(),
             SizedBox(
               width: MediaQuery.of(context).size.width * .2,
             ),
@@ -33,7 +33,7 @@ class _ChatViewBodyState extends State<ChatViewBody> {
               "Chat 1",
               style: Theme.of(context).textTheme.displayLarge,
             ),
-            Spacer(),
+            const Spacer(),
             Row(
               children: [
                 Stack(
@@ -44,19 +44,19 @@ class _ChatViewBodyState extends State<ChatViewBody> {
                             context,
                             MaterialPageRoute(
                               builder: (context) {
-                                return FavoriteView();
+                                return const FavoriteView();
                               },
                             ),
                           );
                         },
-                        icon: Icon(CupertinoIcons.heart)), // أيقونة القلب
+                        icon: const Icon(CupertinoIcons.heart)), // أيقونة القلب
                     Positioned(
                       top: 13,
                       right: 10,
                       child: Container(
                         width: 10,
                         height: 10,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Colors.red,
                           shape: BoxShape.circle,
                         ),
@@ -70,12 +70,12 @@ class _ChatViewBodyState extends State<ChatViewBody> {
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return NotificationView();
+                          return const NotificationView();
                         },
                       ),
                     );
                   },
-                  icon: Icon(CupertinoIcons.bell),
+                  icon: const Icon(CupertinoIcons.bell),
                 ),
               ],
             ),
@@ -93,16 +93,16 @@ class _ChatViewBodyState extends State<ChatViewBody> {
                     isSender: Chat[index].sender_name == myname ? true : false,
                     text: Chat[index].text.toString(),
                     color: Chat[index].sender_name == myname
-                        ? Color(0xFF1D2046)
+                        ? const Color(0xFF1D2046)
                         : Colors.grey,
                     tail: true,
-                    textStyle: TextStyle(color: Colors.white, fontSize: 16),
+                    textStyle: const TextStyle(color: Colors.white, fontSize: 16),
                   ),
                 ),
               ),
               Container(
-                padding: EdgeInsets.all(15),
-                color: Color.fromARGB(255, 255, 255, 255),
+                padding: const EdgeInsets.all(15),
+                color: const Color.fromARGB(255, 255, 255, 255),
                 height: 100,
                 width: double.infinity,
                 child: Row(
@@ -110,7 +110,7 @@ class _ChatViewBodyState extends State<ChatViewBody> {
                     Expanded(
                       child: TextField(
                         controller: text,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black,
                         ),
                       ),
@@ -122,14 +122,14 @@ class _ChatViewBodyState extends State<ChatViewBody> {
                             text.text = "";
                           });
                         },
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.send,
                           color: Color(0xFF1D2046),
                         ))
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 80,
               )
             ],

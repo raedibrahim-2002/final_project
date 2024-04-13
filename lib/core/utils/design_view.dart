@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_final_graduation_project/features/details/views/details_view.dart';
 
-class DesignModel extends StatelessWidget {
-  const DesignModel({super.key});
+class DesignView extends StatelessWidget {
+  const DesignView({super.key});
 
   @override
   Widget build(BuildContext context) {
