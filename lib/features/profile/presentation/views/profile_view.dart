@@ -5,6 +5,7 @@ import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/core/utils/colors.dart';
 import 'package:flutter_final_graduation_project/core/utils/styles.dart';
 import 'package:flutter_final_graduation_project/features/profile/cubit/user_cubit.dart';
+import 'package:flutter_final_graduation_project/features/profile/presentation/change_password.dart';
 import 'package:flutter_final_graduation_project/features/profile/presentation/views/edit_profile.dart';
 import 'package:flutter_final_graduation_project/features/profile/presentation/views/widgets/custom_circle_avatar.dart';
 import 'package:flutter_final_graduation_project/features/profile/presentation/views/widgets/decorated_item_profile.dart';
@@ -22,6 +23,8 @@ class ProfileView extends StatelessWidget {
         },
         builder: (context, state) {
           final cubit = BlocProvider.of<UserCubit>(context);
+          if (cubit.userModel == null) cubit.getUserData();
+
           return Scaffold(
             appBar: AppBar(
               automaticallyImplyLeading: false,
@@ -115,6 +118,34 @@ class ProfileView extends StatelessWidget {
                         DecoreaditemProfile(
                           title: cubit.userModel!.email!,
                           icon: CupertinoIcons.eye,
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: Color(0xFF1D2046),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: MaterialButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          ChangePasswordScreen()));
+                            },
+                            child: Text(
+                              "change password",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headlineMedium!
+                                  .copyWith(
+                                      fontSize: 18,
+                                      color: BaseColors.whiteColor),
+                            ),
+                          ),
                         ),
                       ],
                     ),

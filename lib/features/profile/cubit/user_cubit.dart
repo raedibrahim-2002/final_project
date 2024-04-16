@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter_final_graduation_project/core/utils/constans.dart';
+import 'package:flutter_final_graduation_project/core/utils/local_network.dart';
 import 'package:flutter_final_graduation_project/features/profile/data/user_model.dart';
 //import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -28,6 +29,38 @@ class UserCubit extends Cubit<UserState> {
       emit(GetUserDataSuccessState());
     } else {
       emit(FailedToGetUserDataState(error: responseData['message']));
+    }
+  }
+
+  void changePassword(
+      {required String userCurrentPassword,
+      required String newPassword}) async {
+    emit(ChangePasswordLoadingState());
+    Response response = await http.post(
+        Uri.parse("https://student.valuxapps.com/api/change-password"),
+        headers: {
+          'lang': 'en',
+          'Content-Type': 'application/json',
+          'Authorization': token!
+        },
+        body: {
+          'current_password': userCurrentPassword,
+          'new_password': newPassword,
+        });
+
+    var responseDecoded = jsonDecode(response.body);
+
+    if (response.statusCode == 200) {
+      if (responseDecoded['status'] == true) {
+        await CacheNetwork.insertToCache(key: 'password', value: newPassword);
+        currentPassword = await CacheNetwork.getCacheData(key: "password");
+        emit(ChangePasswordSuccessState());
+      } else {
+        emit(ChangePasswordWithFailureState(error: responseDecoded['message']));
+      }
+    } else {
+      emit(ChangePasswordWithFailureState(
+          error: "something went wrong , try again later "));
     }
   }
 }

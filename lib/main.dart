@@ -8,6 +8,7 @@ import 'package:flutter_final_graduation_project/features/categories/cubit/categ
 import 'package:flutter_final_graduation_project/features/home/cubit/home_cubit.dart';
 import 'package:flutter_final_graduation_project/features/login_and_signUp/presentation/views/auth_cubit/auth_cubit.dart';
 import 'package:flutter_final_graduation_project/features/login_and_signUp/presentation/views/login_view.dart';
+import 'package:flutter_final_graduation_project/features/profile/cubit/user_cubit.dart';
 import 'package:flutter_final_graduation_project/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter_final_graduation_project/generated/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -19,7 +20,9 @@ void main() async {
 
   await CacheNetwork.cacheInitialization();
   token = CacheNetwork.getCacheData(key: "token");
-  print("token is : $token");
+  currentPassword = CacheNetwork.getCacheData(key: "token");
+  debugPrint("token is : $token");
+  debugPrint("currentPassword is : $currentPassword");
 
   runApp(const MyApp());
 }
@@ -32,9 +35,10 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
         providers: [
           BlocProvider(create: (context) => AuthCubit()),
-          BlocProvider(create: (context) => CategoriesCubit()..getCategoriesData()),
+          BlocProvider(create: (context) => UserCubit()),
+          BlocProvider(
+              create: (context) => CategoriesCubit()..getCategoriesData()),
           BlocProvider(create: (context) => HomeCubit()..getProducts()),
-
         ],
         child: GetMaterialApp(
           locale: Locale(PreferenceUtils.getString(PrefKeys.language, 'en')),

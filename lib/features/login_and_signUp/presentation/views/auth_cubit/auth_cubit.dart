@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_final_graduation_project/core/utils/local_network.dart';
@@ -7,6 +8,8 @@ import 'package:flutter_final_graduation_project/features/login_and_signUp/prese
 
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
+
+import '../../../../../core/utils/constans.dart';
 
 class AuthCubit extends Cubit<AuthStates> {
   AuthCubit() : super(AuthInitialState());
@@ -59,6 +62,12 @@ class AuthCubit extends Cubit<AuthStates> {
             key: "token",
             value: responseData['data']['token'],
           );
+          await CacheNetwork.insertToCache(
+            key: "password",
+            value: password,
+          );
+          token = await CacheNetwork.getCacheData(key: "token");
+          currentPassword = await CacheNetwork.getCacheData(key: "password");
           emit(LoginSuccessState());
         } else {
           debugPrint("Failed to login, reason : ${responseData['message']}");
