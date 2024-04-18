@@ -15,7 +15,7 @@ import 'package:flutter_final_graduation_project/features/splash/presentation/vi
 import 'package:flutter_final_graduation_project/generated/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:flutter_windowmanager/flutter_windowmanager.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,11 +28,7 @@ void main() async {
   debugPrint("currentPassword is : $currentPassword");
 
   runApp(const MyApp());
-  WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
-    if (Platform.isAndroid) {
-      await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
-    }
-  });
+  
 }
 
 class MyApp extends StatelessWidget {
