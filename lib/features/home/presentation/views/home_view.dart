@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/features/details/views/details_view.dart';
+import 'package:flutter_final_graduation_project/features/favorite/cubit/favorite_cubit.dart';
+
 import 'package:flutter_final_graduation_project/features/favorite/presentation/view/favorite_view.dart';
 import 'package:flutter_final_graduation_project/features/filter/presentation/views/fiter_view.dart';
 import 'package:flutter_final_graduation_project/features/home/cubit/home_cubit.dart';
@@ -23,7 +25,7 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     ProductModel model;
     final cubit = BlocProvider.of<HomeCubit>(context);
-
+  final cubitFavorite = BlocProvider.of<FavoriteCubit>(context);
     return BlocConsumer<HomeCubit, HomeState>(
       listener: (context, state) {
         // TODO: implement listener
@@ -166,10 +168,18 @@ class _HomeViewState extends State<HomeView> {
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             20)),
-                                                child: const Icon(
-                                                  Icons.favorite_outlined,
-                                                  size: 25,
-                                                  color: Colors.red,
+                                                child:  GestureDetector(
+                                                  onTap: () {
+                                                    // todo 
+                                                 //     cubitFavorite.addOrRemoveFromFavorites(productID: model.id!.toString());
+                                                  },
+                                                  child: Icon(
+                                                    Icons.favorite_outlined,
+                                                    size: 25,
+                                                    // todo 
+                                                  //  color: cubitFavorite.favoritesID.contains(model.id.toString()) ? Colors.red : Colors.grey,
+                                                  
+                                                  ),
                                                 ),
                                               ),
                                             ),
