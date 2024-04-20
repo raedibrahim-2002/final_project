@@ -1,13 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/core/utils/colors.dart';
 import 'package:flutter_final_graduation_project/core/utils/shared_prefrences.dart';
 import 'package:flutter_final_graduation_project/core/utils/styles.dart';
 import 'package:flutter_final_graduation_project/features/home/presentation/views/notifications_view.dart';
 import 'package:flutter_final_graduation_project/features/profile/presentation/views/profile_view.dart';
+import 'package:flutter_final_graduation_project/features/setting/bloc/swicth_bloc.dart';
 import 'package:flutter_final_graduation_project/features/setting/widgets/item_row_icon.dart';
+
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -60,15 +63,27 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   width: 35,
                   child: FittedBox(
                     fit: BoxFit.fill,
-                    child: Switch(
-                      activeColor: BaseColors.whiteColor,
-                      activeTrackColor: BaseColors.switchActiveTrackColor,
-                      inactiveThumbColor: BaseColors.switchActiveTrackColor,
-                      inactiveTrackColor: BaseColors.whiteColor,
-                      splashRadius: 50.0,
-                      // boolean variable value
-                      value: true,
-                      onChanged: (value) {},
+                    child: BlocBuilder<SwicthBloc, SwicthState>(
+                      builder: (context, state) {
+                        return Switch(
+                          activeColor: BaseColors.whiteColor,
+                          activeTrackColor: BaseColors.switchActiveTrackColor,
+                          inactiveThumbColor: BaseColors.switchActiveTrackColor,
+                          inactiveTrackColor: BaseColors.whiteColor,
+                          splashRadius: 50.0,
+                          // boolean variable value
+                          value: state.switchValue,
+                          onChanged: (newValue) {
+                            newValue
+                                ? context
+                                    .read<SwicthBloc>()
+                                    .add(switchOnEvent())
+                                : context
+                                    .read<SwicthBloc>()
+                                    .add(switchOffEvent());
+                          },
+                        );
+                      },
                     ),
                   ),
                 ),
