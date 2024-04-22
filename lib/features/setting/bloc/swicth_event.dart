@@ -10,3 +10,4 @@ abstract class SwicthEvent extends Equatable {
  class switchOnEvent extends SwicthEvent {}
 
 class switchOffEvent extends SwicthEvent {}
+ 

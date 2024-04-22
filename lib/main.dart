@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
           create: (context) => SwicthBloc(),
         )
       ],
-     child: BlocBuilder<SwicthBloc, SwicthState>(
+      child: BlocBuilder<SwicthBloc, SwicthState>(
         builder: (context, state) {
           return GetMaterialApp(
             locale: Locale(PreferenceUtils.getString(PrefKeys.language, 'en')),

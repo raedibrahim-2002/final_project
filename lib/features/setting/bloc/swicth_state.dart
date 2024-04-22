@@ -7,19 +7,10 @@ class SwicthState extends Equatable {
   @override
   List<Object?> get props => [switchValue];
 
-  Map<String, dynamic> toMap() {
-    return {
-    'switchValue':switchValue, 
-    };
-  }
 
-  factory SwicthState.fromMap(Map<String, dynamic> map) {
-    return SwicthState(
-      switchValue: map['switchValue'] ?? false,
-    );
-  }
+ 
 }
 
 class SwicthInitial extends SwicthState {
-  SwicthInitial({required super.switchValue});
+ const   SwicthInitial({required super.switchValue});
 }
