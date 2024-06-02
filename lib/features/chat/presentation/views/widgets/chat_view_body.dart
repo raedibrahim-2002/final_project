@@ -15,7 +15,6 @@ class ChatViewBody extends StatefulWidget {
 
 class _ChatViewBodyState extends State<ChatViewBody> {
   TextEditingController text = TextEditingController();
-  String myname = 'chat1';
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +29,7 @@ class _ChatViewBodyState extends State<ChatViewBody> {
               width: MediaQuery.of(context).size.width * .2,
             ),
             Text(
-              "Chat 1",
+              "Chat ",
               style: Theme.of(context).textTheme.displayLarge,
             ),
             const Spacer(),
@@ -90,13 +89,11 @@ class _ChatViewBodyState extends State<ChatViewBody> {
                 child: ListView.builder(
                   itemCount: Chat.length,
                   itemBuilder: (_, index) => BubbleSpecialThree(
-                    isSender: Chat[index].sender_name == myname ? true : false,
-                    text: Chat[index].text.toString(),
-                    color: Chat[index].sender_name == myname
-                        ? const Color(0xFF1D2046)
-                        : Colors.grey,
+                    text: Chat[index].toString(),
+                    color: const Color(0xFF1D2046),
                     tail: true,
-                    textStyle: const TextStyle(color: Colors.white, fontSize: 16),
+                    textStyle:
+                        const TextStyle(color: Colors.white, fontSize: 16),
                   ),
                 ),
               ),
@@ -118,7 +115,7 @@ class _ChatViewBodyState extends State<ChatViewBody> {
                     IconButton(
                         onPressed: () {
                           setState(() {
-                            Chat.add(Model_chat(text.text, myname));
+                            Chat.add(text.text);
                             text.text = "";
                           });
                         },
