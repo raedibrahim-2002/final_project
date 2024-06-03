@@ -1,3 +1,1 @@
-List Chat = [
-  "",
-];
+List Chat = [];
