@@ -81,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               height: 40,
                             ),
                             Container(
-                              height: MediaQuery.of(context).size.height / 4.5,
+                              height: MediaQuery.of(context).size.height / 6,
                               width: double.infinity,
                               child: ListView(
                                 children: [

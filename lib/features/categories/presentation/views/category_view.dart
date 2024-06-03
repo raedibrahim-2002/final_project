@@ -17,7 +17,7 @@ class _CategoryViewState extends State<CategoryView> {
   Widget build(BuildContext context) {
     final cubit = BlocProvider.of<CategoriesCubit>(context);
     return BlocConsumer<CategoriesCubit, CategoriesState>(
-      listener: (context, state) {      },
+      listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
@@ -53,14 +53,14 @@ class _CategoryViewState extends State<CategoryView> {
                           MaterialPageRoute(
                             builder: (context) {
                               return RoomView(
-                                roomTitle: cubit.categories[index].title!,
+                                roomTitle: cubit.categories[index].name!,
                               );
                             },
                           ),
                         );
                       },
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(10.0),
                         child: Container(
                           width: double.maxFinite,
                           height: MediaQuery.of(context).size.height * .16,
@@ -68,12 +68,12 @@ class _CategoryViewState extends State<CategoryView> {
                             borderRadius: BorderRadius.circular(20),
                             image: DecorationImage(
                                 image: NetworkImage(
-                                    cubit.categories[index].image!),
+                                    cubit.categories[index].pictureUrl!),
                                 fit: BoxFit.fill),
                           ),
                           child: Center(
                             child: Text(
-                              cubit.categories[index].title!,
+                              cubit.categories[index].name!,
                               style: Theme.of(context).textTheme.bodyLarge,
                             ),
                           ),

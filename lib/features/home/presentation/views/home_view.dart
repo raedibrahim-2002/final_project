@@ -11,6 +11,7 @@ import 'package:flutter_final_graduation_project/features/home/cubit/home_cubit.
 import 'package:flutter_final_graduation_project/features/home/presentation/views/notifications_view.dart';
 import 'package:flutter_final_graduation_project/features/home/presentation/views/search_view.dart';
 import 'package:flutter_final_graduation_project/features/naveBar/presentation/view/navBar_view.dart';
+import 'package:flutter_final_graduation_project/models/design_model/design_model.dart';
 import 'package:flutter_final_graduation_project/models/product_model.dart';
 
 class HomeView extends StatefulWidget {
@@ -23,9 +24,9 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    ProductModel model;
+    DesignModel? model;
     final cubit = BlocProvider.of<HomeCubit>(context);
-  final cubitFavorite = BlocProvider.of<FavoriteCubit>(context);
+    final cubitFavorite = BlocProvider.of<FavoriteCubit>(context);
     return BlocConsumer<HomeCubit, HomeState>(
       listener: (context, state) {
         // TODO: implement listener
@@ -106,7 +107,7 @@ class _HomeViewState extends State<HomeView> {
                     height: MediaQuery.of(context).size.height * .01,
                   ),
                   Expanded(
-                    child: cubit.products.isEmpty
+                    child: cubit.designs.isEmpty
                         ? const CupertinoActivityIndicator()
                         : GridView.builder(
                             physics: const ScrollPhysics(),
@@ -118,73 +119,82 @@ class _HomeViewState extends State<HomeView> {
                                   (MediaQuery.of(context).size.width -
                                           15 -
                                           15) /
-                                      (2 * 230),
+                                      (2 * 240),
                               // mainAxisSpacing: 2,
                               crossAxisSpacing: 10,
                             ),
-                            itemCount: cubit.products.length,
+                            itemCount: cubit.designs.length,
                             itemBuilder: (context, index) {
                               return Column(
                                 children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(25),
-                                    child: Container(
-                                      // color: Colors.yellow,
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              .22,
-                                      child: Stack(
-                                        children: [
-                                          InkWell(
-                                            onTap: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) {
-                                                    return DetailsScreen();
-                                                  },
-                                                ),
-                                              );
-                                            },
-                                            child: Image.network(
-                                              cubit.products[index].image!,
-                                              fit: BoxFit.fill,
-                                              // height: double.maxFinite,
-                                              height: MediaQuery.of(context)
-                                                      .size
-                                                      .height *
-                                                  .23,
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.all(6),
-                                            child: Align(
-                                              alignment: Alignment.topRight,
-                                              child: Container(
-                                                padding:
-                                                    const EdgeInsets.all(8),
-                                                decoration: BoxDecoration(
-                                                    color: Colors.black12,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            20)),
-                                                child:  GestureDetector(
-                                                  onTap: () {
-                                                    // todo 
-                                                 //     cubitFavorite.addOrRemoveFromFavorites(productID: model.id!.toString());
-                                                  },
-                                                  child: Icon(
-                                                    Icons.favorite_outlined,
-                                                    size: 25,
-                                                    // todo 
-                                                  //  color: cubitFavorite.favoritesID.contains(model.id.toString()) ? Colors.red : Colors.grey,
-                                                  
-                                                  ),
+                                  Expanded(
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(25),
+                                      child: Container(
+                                        color: Colors.yellow,
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                .22,
+                                        child: Stack(
+                                          children: [
+                                            Container(
+                                              width: double.infinity,
+                                              child: InkWell(
+                                                onTap: () {
+                                                  Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) {
+                                                        return DetailsScreen(
+                                                            design:
+                                                                cubit.designs[
+                                                                    index]);
+                                                      },
+                                                    ),
+                                                  );
+                                                },
+                                                child: Image.network(
+                                                  cubit.designs[index].pictures!
+                                                      .first.pictureUrl
+                                                      .toString(),
+                                                  fit: BoxFit.fill,
+                                                  // height: double.maxFinite,
+                                                  height: MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      .23,
                                                 ),
                                               ),
                                             ),
-                                          )
-                                        ],
+                                            Padding(
+                                              padding: const EdgeInsets.all(6),
+                                              child: Align(
+                                                alignment: Alignment.topRight,
+                                                child: Container(
+                                                  padding:
+                                                      const EdgeInsets.all(8),
+                                                  decoration: BoxDecoration(
+                                                      color: Colors.black12,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20)),
+                                                  child: GestureDetector(
+                                                    onTap: () {
+                                                      // todo
+                                                      //     cubitFavorite.addOrRemoveFromFavorites(productID: model.id!.toString());
+                                                    },
+                                                    child: Icon(
+                                                      Icons.favorite_outlined,
+                                                      size: 25,
+                                                      // todo
+                                                      //  color: cubitFavorite.favoritesID.contains(model.id.toString()) ? Colors.red : Colors.grey,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            )
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -203,8 +213,8 @@ class _HomeViewState extends State<HomeView> {
                                           children: [
                                             Text(
                                               maxLines: 1,
-                                              overflow: TextOverflow.fade,
-                                              cubit.products[index].name!,
+                                              cubit.designs[index].name
+                                                  .toString(),
                                               style: Theme.of(context)
                                                   .textTheme
                                                   .headlineSmall,
@@ -218,8 +228,8 @@ class _HomeViewState extends State<HomeView> {
                                               child: Text(
                                                 maxLines: 2,
                                                 overflow: TextOverflow.ellipsis,
-                                                cubit.products[index]
-                                                    .descreption!,
+                                                cubit.designs[index].description
+                                                    .toString(),
                                                 style: Theme.of(context)
                                                     .textTheme
                                                     .bodySmall,

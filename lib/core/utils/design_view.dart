@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_final_graduation_project/features/details/views/details_view.dart';
+import 'package:flutter_final_graduation_project/features/favorite/presentation/view/favorite_view.dart';
 
 class DesignView extends StatelessWidget {
   const DesignView({super.key});
@@ -21,7 +22,8 @@ class DesignView extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return DetailsScreen();
+                          //ToDo هنرجعها لصفحه تاني غير الفافورت
+                          return FavoriteView();
                         },
                       ),
                     );

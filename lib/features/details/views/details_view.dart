@@ -8,8 +8,11 @@ import 'package:flutter_final_graduation_project/core/utils/colors.dart';
 import 'package:flutter_final_graduation_project/features/chat/presentation/views/chat_view.dart';
 import 'package:flutter_final_graduation_project/features/favorite/presentation/view/favorite_view.dart';
 import 'package:flutter_final_graduation_project/features/home/presentation/views/notifications_view.dart';
+import 'package:flutter_final_graduation_project/models/design_model/design_model.dart';
 
 class DetailsScreen extends StatelessWidget {
+  final DesignModel design;
+  DetailsScreen({required this.design});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,9 +85,9 @@ class DetailsScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image(
+              Image.network(
+                design.pictures!.first.pictureUrl!,
                 height: MediaQuery.of(context).size.height * .5,
-                image: AssetImage("assets/images/home_1.jpeg"),
                 fit: BoxFit.fill,
                 alignment: Alignment.topCenter,
               ),
@@ -93,7 +96,7 @@ class DetailsScreen extends StatelessWidget {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Japandi Style Bedroom",
+                      Text(design.name!,
                           style: Theme.of(context).textTheme.displaySmall),
                       Row(
                         children: [
@@ -109,8 +112,7 @@ class DetailsScreen extends StatelessWidget {
                       ),
                       Text("Discription",
                           style: Theme.of(context).textTheme.titleSmall),
-                      Text(
-                          "The Japandi decor style has risen in popularity these days, thanks to the lovely aesthetic and simplicity the style offers. This style combines the cozy comfort of hygge",
+                      Text(design.description!,
                           style: Theme.of(context)
                               .textTheme
                               .bodyMedium!
@@ -165,7 +167,7 @@ class DetailsScreen extends StatelessWidget {
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text(" (120 - 300) EGP ",
+                          child: Text(design.style!.priceOf3D!,
                               style: Theme.of(context).textTheme.labelLarge),
                         ),
                       ),
@@ -180,7 +182,7 @@ class DetailsScreen extends StatelessWidget {
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text("  (40 - 80) EGP  ",
+                          child: Text(design.style!.priceOf2D!,
                               style: Theme.of(context).textTheme.labelLarge),
                         ),
                       ),
@@ -270,7 +272,7 @@ class DetailsScreen extends StatelessWidget {
                           color: Colors.grey,
                           borderRadius: BorderRadius.circular(7),
                         ),
-                        child: Text(" (150 - 350) EGP ",
+                        child: Text(design.style!.offer!,
                             style: Theme.of(context).textTheme.labelLarge),
                       ),
                       const SizedBox(

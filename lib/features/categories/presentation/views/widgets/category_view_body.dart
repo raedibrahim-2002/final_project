@@ -4,7 +4,6 @@
 // class CategoryViewBody extends StatefulWidget {
 //   final String categoryTitle;
 //   final String categoryImage;
-  
 
 //   const CategoryViewBody(
 //       {super.key, required this.categoryTitle, required this.categoryImage});

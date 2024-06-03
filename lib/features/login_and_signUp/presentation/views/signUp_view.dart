@@ -30,8 +30,10 @@ class _SignupScreenState extends State<SignupScreen> {
     return BlocConsumer<AuthCubit, AuthStates>(
       listener: (context, state) {
         if (state is RegisterSuccessState) {
-          Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => const BottomNavigationBarHelper()));
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const BottomNavigationBarHelper()));
         } else if (state is FailedToRegisterState) {
           showDialog(
               context: context,
@@ -89,12 +91,10 @@ class _SignupScreenState extends State<SignupScreen> {
                               },
                               decoration: InputDecoration(
                                 labelText: "Name",
-                                hintStyle: Theme.of(context)
-                                    .textTheme
-                                    .headlineMedium,
-                                labelStyle: Theme.of(context)
-                                    .textTheme
-                                    .headlineMedium,
+                                hintStyle:
+                                    Theme.of(context).textTheme.headlineMedium,
+                                labelStyle:
+                                    Theme.of(context).textTheme.headlineMedium,
                                 prefixIcon: const Icon(
                                   Icons.person,
                                 ),
@@ -102,8 +102,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                   borderRadius: BorderRadius.circular(15),
                                 ),
                               ),
-                              style:
-                                  Theme.of(context).textTheme.headlineMedium,
+                              style: Theme.of(context).textTheme.headlineMedium,
                             ),
                             const SizedBox(
                               height: 20,
@@ -120,9 +119,8 @@ class _SignupScreenState extends State<SignupScreen> {
                               },
                               decoration: InputDecoration(
                                 labelText: "Email",
-                                labelStyle: Theme.of(context)
-                                    .textTheme
-                                    .headlineMedium,
+                                labelStyle:
+                                    Theme.of(context).textTheme.headlineMedium,
                                 prefixIcon: const Icon(
                                   Icons.email,
                                 ),
@@ -130,8 +128,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                   borderRadius: BorderRadius.circular(15),
                                 ),
                               ),
-                              style:
-                                  Theme.of(context).textTheme.headlineMedium,
+                              style: Theme.of(context).textTheme.headlineMedium,
                             ),
                             const SizedBox(
                               height: 20,
@@ -148,9 +145,8 @@ class _SignupScreenState extends State<SignupScreen> {
                               obscureText: obscure1,
                               decoration: InputDecoration(
                                 labelText: "Password",
-                                labelStyle: Theme.of(context)
-                                    .textTheme
-                                    .headlineMedium,
+                                labelStyle:
+                                    Theme.of(context).textTheme.headlineMedium,
                                 prefixIcon: const Icon(
                                   Icons.password,
                                 ),
@@ -170,8 +166,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                   borderRadius: BorderRadius.circular(15),
                                 ),
                               ),
-                              style:
-                                  Theme.of(context).textTheme.headlineMedium,
+                              style: Theme.of(context).textTheme.headlineMedium,
                             ),
                             const SizedBox(
                               height: 20,
@@ -188,12 +183,10 @@ class _SignupScreenState extends State<SignupScreen> {
                               },
                               decoration: InputDecoration(
                                 labelText: "phone",
-                                hintStyle: Theme.of(context)
-                                    .textTheme
-                                    .headlineMedium,
-                                labelStyle: Theme.of(context)
-                                    .textTheme
-                                    .headlineMedium,
+                                hintStyle:
+                                    Theme.of(context).textTheme.headlineMedium,
+                                labelStyle:
+                                    Theme.of(context).textTheme.headlineMedium,
                                 prefixIcon: const Icon(
                                   Icons.phone,
                                 ),
@@ -201,8 +194,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                   borderRadius: BorderRadius.circular(15),
                                 ),
                               ),
-                              style:
-                                  Theme.of(context).textTheme.headlineMedium,
+                              style: Theme.of(context).textTheme.headlineMedium,
                             ),
                             const SizedBox(
                               height: 15,
@@ -222,8 +214,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                             name: nameController.text,
                                             email: emailController.text,
                                             phone: phoneController.text,
-                                            password:
-                                                passwordController.text);
+                                            password: passwordController.text);
                                   }
                                 },
                                 child: Text(

@@ -96,7 +96,8 @@ class _ChatViewBodyState extends State<ChatViewBody> {
                         ? const Color(0xFF1D2046)
                         : Colors.grey,
                     tail: true,
-                    textStyle: const TextStyle(color: Colors.white, fontSize: 16),
+                    textStyle:
+                        const TextStyle(color: Colors.white, fontSize: 16),
                   ),
                 ),
               ),

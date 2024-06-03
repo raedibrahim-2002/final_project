@@ -1,8 +1,8 @@
 import 'dart:convert';
-import 'package:bloc/bloc.dart';
-import 'package:flutter_final_graduation_project/features/categories/data/category_model.dart';
-import 'package:http/http.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_final_graduation_project/features/categories/data/category_model/category_model.dart';
 import 'package:http/http.dart' as http;
+
 part 'categories_state.dart';
 
 class CategoriesCubit extends Cubit<CategoriesState> {
@@ -11,14 +11,16 @@ class CategoriesCubit extends Cubit<CategoriesState> {
   List<CategoryModel> categories = [];
 
   getCategoriesData() async {
-    Response response = await http
-        .get(Uri.parse("https://student.valuxapps.com/api/categories"));
+    final response =
+        await http.get(Uri.parse("http://granddeco.somee.com/api/Categories"));
     final responseBody = jsonDecode(response.body);
-    if (responseBody["status"] == true) {
-      for (var item in responseBody['data']['data']) {
-        categories.add(CategoryModel.fromJson(data: item));
-        print(categories[0].image);
+    print("Response: $responseBody");
+
+    if (response.statusCode == 200) {
+      for (var item in responseBody) {
+        categories.add(CategoryModel.fromJson(item));
       }
+      print("Categories: ${categories[3].designs!.length.toString()}");
       emit(GetCategoriesSuccessState());
     } else {
       emit(FailedToGetCategoriesState());

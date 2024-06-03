@@ -14,7 +14,6 @@ class FavoriteView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return BlocConsumer<FavoriteCubit, FavoriteState>(
         listener: (context, state) {},
         builder: (context, state) {
@@ -43,7 +42,7 @@ class FavoriteView extends StatelessWidget {
                 ),
               ],
             ),
-              body: const GrideViewBuilderForDesigns(),
+            body: const GrideViewBuilderForDesigns(),
           );
         });
   }

@@ -6,11 +6,8 @@ class SwicthState extends Equatable {
   const SwicthState({required this.switchValue});
   @override
   List<Object?> get props => [switchValue];
-
-
- 
 }
 
 class SwicthInitial extends SwicthState {
- const   SwicthInitial({required super.switchValue});
+  const SwicthInitial({required super.switchValue});
 }

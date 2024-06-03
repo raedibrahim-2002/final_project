@@ -18,7 +18,7 @@ class GrideViewBuilderForDesigns extends StatelessWidget {
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           childAspectRatio:
-              (MediaQuery.of(context).size.width - 15 - 15) / (2 * 235),
+              (MediaQuery.of(context).size.width - 15 - 15) / (2 * 240),
           // mainAxisSpacing: 2,
           crossAxisSpacing: 10,
         ),
@@ -34,16 +34,16 @@ class GrideViewBuilderForDesigns extends StatelessWidget {
                   child: Stack(
                     children: [
                       InkWell(
-                        onTap: () {
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return DetailsScreen();
-                              },
-                            ),
-                          );
-                        },
+                        // onTap: () {
+                        //   Navigator.pushReplacement(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //       builder: (context) {
+                        //         return DetailsScreen();
+                        //       },
+                        //     ),
+                        //   );
+                        // },
                         child: Image.asset(
                           cubit.favorites[i].image!,
                           fit: BoxFit.fill,
@@ -52,7 +52,7 @@ class GrideViewBuilderForDesigns extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding:const  EdgeInsets.all(6),
+                        padding: const EdgeInsets.all(6),
                         child: Align(
                           alignment: Alignment.topRight,
                           child: Container(
@@ -80,7 +80,7 @@ class GrideViewBuilderForDesigns extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding:const  EdgeInsets.only(
+                padding: const EdgeInsets.only(
                   bottom: 5,
                 ),
                 child: Padding(
@@ -94,7 +94,7 @@ class GrideViewBuilderForDesigns extends StatelessWidget {
                           "Bed Room",
                           style: Theme.of(context).textTheme.headlineSmall,
                         ),
-                   const      SizedBox(
+                        const SizedBox(
                           height: 2,
                         ),
                         Padding(

@@ -11,7 +11,6 @@ import 'package:flutter_final_graduation_project/features/profile/presentation/v
 import 'package:flutter_final_graduation_project/features/setting/bloc/swicth_bloc.dart';
 import 'package:flutter_final_graduation_project/features/setting/widgets/item_row_icon.dart';
 
-
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
 
