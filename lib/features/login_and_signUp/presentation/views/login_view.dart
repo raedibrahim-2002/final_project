@@ -6,6 +6,7 @@ import 'package:flutter_final_graduation_project/core/utils/colors.dart';
 import 'package:flutter_final_graduation_project/features/home/presentation/views/home_view.dart';
 import 'package:flutter_final_graduation_project/features/login_and_signUp/presentation/views/auth_cubit/auth_cubit.dart';
 import 'package:flutter_final_graduation_project/features/login_and_signUp/presentation/views/auth_cubit/auth_states.dart';
+import 'package:flutter_final_graduation_project/features/unsignedBottomnavigationBar2/bottom_navigation_bar_unsigned2.dart';
 
 import 'forget_password_view.dart';
 import 'signUp_view.dart';
@@ -225,11 +226,11 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                               child: MaterialButton(
                                 onPressed: () {
-                                  Navigator.pushReplacement(
+                                  Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) {
-                                        return const BottomNavigationBarHelper();
+                                        return const BottomNavigationBarHelperUnSigned2();
                                       },
                                     ),
                                   );

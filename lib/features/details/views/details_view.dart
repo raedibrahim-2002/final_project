@@ -90,6 +90,7 @@ class DetailsScreen extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * .5,
                 fit: BoxFit.fill,
                 alignment: Alignment.topCenter,
+                width: double.infinity,
               ),
               Padding(
                 padding: EdgeInsets.all(8),
@@ -276,9 +277,12 @@ class DetailsScreen extends StatelessWidget {
                             style: Theme.of(context).textTheme.labelLarge),
                       ),
                       const SizedBox(
-                        width: 40,
+                        width: 50,
                       ),
                     ],
+                  ),
+                  const SizedBox(
+                    height: 90,
                   ),
                 ],
               )

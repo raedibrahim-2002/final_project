@@ -9,6 +9,8 @@ import 'package:flutter_final_graduation_project/models/chat_model.dart';
 import 'package:chat_bubbles/chat_bubbles.dart';
 
 class ChatViewBody extends StatefulWidget {
+  const ChatViewBody({super.key});
+
   @override
   State<ChatViewBody> createState() => _ChatViewBodyState();
 }

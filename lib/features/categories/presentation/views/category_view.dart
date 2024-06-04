@@ -32,22 +32,6 @@ class _CategoryViewState extends State<CategoryView> {
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
-                        // showModalBottomSheet(
-                        //   context: context,
-                        //   builder: (BuildContext context) {
-                        //     return Container(
-                        //       height: 200,
-                        //       padding: EdgeInsets.all(16.0),
-                        //       child: Row(
-                        //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        //         children: [
-                        //           ElevatedButton(onPressed: () {}, child: Text('Login')),
-                        //           ElevatedButton(onPressed: () {}, child: Text('Sign Up')),
-                        //         ],
-                        //       ),
-                        //     );
-                        //   },
-                        // );
                         Navigator.push(
                           context,
                           MaterialPageRoute(

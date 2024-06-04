@@ -63,4 +63,26 @@ class UserCubit extends Cubit<UserState> {
           error: "something went wrong , try again later "));
     }
   }
+
+  void updateUserData(
+      {required String name,
+      required String phone,
+      required String email}) async {
+    emit(UpdateUserDataLoadingState());
+    try {
+      Response response = await http.put(
+          Uri.parse('https://student.valuxapps.com/api/update-profile'),
+          headers: {'lang': 'en', 'Authorization': token!},
+          body: {'name': name, 'phone': phone, 'email': email});
+      var responseBody = jsonDecode(response.body);
+      if (responseBody['status'] == true) {
+        getUserData();
+        emit(UpdateUserDataSuccessState());
+      } else {
+        emit(UpdateUserDataWithFailureState(error: responseBody['message']));
+      }
+    } catch (e) {
+      emit(UpdateUserDataWithFailureState(error: e.toString()));
+    }
+  }
 }

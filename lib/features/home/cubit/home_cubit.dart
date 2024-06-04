@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_final_graduation_project/models/product_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
@@ -31,5 +32,14 @@ class HomeCubit extends Cubit<HomeState> {
     } catch (e) {
       emit(FailedToGetProductsState());
     }
+  }
+
+  List<DesignModel> filteredProduct = [];
+  void filterProduct({required String input}) {
+    filteredProduct = designs
+        .where((element) =>
+            element.name!.toLowerCase().startsWith(input.toLowerCase()))
+        .toList();
+    emit(FilterProductsSuccessState());
   }
 }

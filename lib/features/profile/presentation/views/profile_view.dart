@@ -48,7 +48,7 @@ class ProfileView extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return const EditProfileView();
+                            return  EditProfileView();
                           },
                         ),
                       );

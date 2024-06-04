@@ -10,6 +10,8 @@ class CategoriesCubit extends Cubit<CategoriesState> {
 
   List<CategoryModel> categories = [];
 
+  get showDialog => null;
+
   getCategoriesData() async {
     final response =
         await http.get(Uri.parse("http://granddeco.somee.com/api/Categories"));

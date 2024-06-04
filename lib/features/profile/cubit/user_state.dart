@@ -24,3 +24,11 @@ class ChangePasswordWithFailureState extends UserState {
     required this.error,
   });
 }
+class UpdateUserDataSuccessState extends UserState {}
+
+class UpdateUserDataLoadingState extends UserState {}
+
+class UpdateUserDataWithFailureState extends UserState {
+  String error;
+  UpdateUserDataWithFailureState({required this.error});
+}
