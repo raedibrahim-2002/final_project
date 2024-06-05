@@ -1,7 +1,7 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_final_graduation_project/bottom_navigation_bar.dart';
 import 'package:flutter_final_graduation_project/core/utils/constans.dart';
 import 'package:flutter_final_graduation_project/core/utils/local_network.dart';
 import 'package:flutter_final_graduation_project/core/utils/shared_prefrences.dart';
@@ -24,9 +24,9 @@ void main() async {
 
   await CacheNetwork.cacheInitialization();
   token = CacheNetwork.getCacheData(key: "token");
-  currentPassword = CacheNetwork.getCacheData(key: "token");
-  debugPrint("token is : $token");
-  debugPrint("currentPassword is : $currentPassword");
+  // currentPassword = CacheNetwork.getCacheData(key: "token");
+  // debugPrint("token is : $token");
+  // debugPrint("currentPassword is : $currentPassword");
 
   runApp(const MyApp());
 }
@@ -63,7 +63,9 @@ class MyApp extends StatelessWidget {
             theme: state.switchValue
                 ? AppThemes.appThemeData[AppTheme.darkTheme]
                 : AppThemes.appThemeData[AppTheme.lightTheme],
-            home: token != null && token != "" ? SplashView() : LoginScreen(),
+            home: token != null && token != ""
+                ? const BottomNavigationBarHelper()
+                : const SplashView(),
           );
         },
       ),

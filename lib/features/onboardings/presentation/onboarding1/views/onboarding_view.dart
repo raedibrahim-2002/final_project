@@ -25,7 +25,7 @@ class _OnBoardingView1State extends State<OnBoardingView1> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool onBoarding = prefs.getBool("onBoarding") ?? false;
     if (onBoarding) {
-      // إذا كانت قيمة onBoarding تساوي true، انتقل مباشرة لصفحة BottomNavigationBarHelper
+      // إذا كانت قيمة onBoarding تساوي true، انتقل مباشرة لصفحة LoginScreen
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const LoginScreen()),

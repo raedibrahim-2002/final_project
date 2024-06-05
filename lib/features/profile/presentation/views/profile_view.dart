@@ -3,12 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/core/utils/colors.dart';
+import 'package:flutter_final_graduation_project/core/utils/local_network.dart';
 import 'package:flutter_final_graduation_project/core/utils/styles.dart';
+import 'package:flutter_final_graduation_project/features/login_and_signUp/presentation/views/login_view.dart';
 import 'package:flutter_final_graduation_project/features/profile/cubit/user_cubit.dart';
 import 'package:flutter_final_graduation_project/features/profile/presentation/change_password.dart';
 import 'package:flutter_final_graduation_project/features/profile/presentation/views/edit_profile.dart';
 import 'package:flutter_final_graduation_project/features/profile/presentation/views/widgets/custom_circle_avatar.dart';
 import 'package:flutter_final_graduation_project/features/profile/presentation/views/widgets/decorated_item_profile.dart';
+import 'package:flutter_final_graduation_project/features/splash/presentation/view/splash_view.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -48,7 +51,7 @@ class ProfileView extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return  EditProfileView();
+                            return EditProfileView();
                           },
                         ),
                       );
@@ -144,6 +147,48 @@ class ProfileView extends StatelessWidget {
                                   .copyWith(
                                       fontSize: 18,
                                       color: BaseColors.whiteColor),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: Color(0xFF1D2046),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: Container(
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: Color(0xFF1D2046),
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: MaterialButton(
+                              onPressed: () async {
+                                // مسح الـ token من الذاكرة المخبأة
+                                await CacheNetwork.deleteCacheItem(
+                                    key: "token");
+
+                                // توجيه المستخدم إلى صفحة البداية (صفحة تسجيل الدخول)
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => LoginScreen(),
+                                  ),
+                                );
+                              },
+                              child: Text(
+                                "log out",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headlineMedium!
+                                    .copyWith(
+                                      fontSize: 18,
+                                      color: BaseColors.whiteColor,
+                                    ),
+                              ),
                             ),
                           ),
                         ),

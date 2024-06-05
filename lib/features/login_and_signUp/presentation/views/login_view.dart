@@ -8,7 +8,6 @@ import 'package:flutter_final_graduation_project/features/login_and_signUp/prese
 import 'package:flutter_final_graduation_project/features/login_and_signUp/presentation/views/auth_cubit/auth_states.dart';
 import 'package:flutter_final_graduation_project/features/unsignedBottomnavigationBar2/bottom_navigation_bar_unsigned2.dart';
 
-import 'forget_password_view.dart';
 import 'signUp_view.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -32,7 +31,9 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: BlocConsumer<AuthCubit, AuthStates>(
@@ -160,32 +161,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ],
                               ),
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) {
-                                          return ForgetPasswordView();
-                                        },
-                                      ),
-                                    );
-                                  },
-                                  child: Text(
-                                    "Forget password ",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyMedium!
-                                        .copyWith(color: BaseColors.blackColor),
-                                  ),
-                                ),
-                              ],
-                            ),
                             const SizedBox(
-                              height: 5,
+                              height: 20,
                             ),
                             Container(
                               width: double.infinity,

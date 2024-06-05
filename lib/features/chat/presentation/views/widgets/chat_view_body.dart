@@ -24,61 +24,11 @@ class _ChatViewBodyState extends State<ChatViewBody> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Spacer(),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * .2,
-            ),
             Text(
               "Chat ",
-              style: Theme.of(context).textTheme.displayLarge,
-            ),
-            const Spacer(),
-            Row(
-              children: [
-                Stack(
-                  children: [
-                    IconButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return const FavoriteView();
-                              },
-                            ),
-                          );
-                        },
-                        icon: const Icon(CupertinoIcons.heart)), // أيقونة القلب
-                    Positioned(
-                      top: 13,
-                      right: 10,
-                      child: Container(
-                        width: 10,
-                        height: 10,
-                        decoration: const BoxDecoration(
-                          color: Colors.red,
-                          shape: BoxShape.circle,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                IconButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return const NotificationView();
-                        },
-                      ),
-                    );
-                  },
-                  icon: const Icon(CupertinoIcons.bell),
-                ),
-              ],
+              style: Theme.of(context).textTheme.displayMedium,
             ),
           ],
         ),
