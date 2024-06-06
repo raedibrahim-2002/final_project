@@ -9,6 +9,7 @@ import 'package:flutter_final_graduation_project/features/chat/presentation/view
 import 'package:flutter_final_graduation_project/features/favorite/presentation/view/favorite_view.dart';
 import 'package:flutter_final_graduation_project/features/home/presentation/views/notifications_view.dart';
 import 'package:flutter_final_graduation_project/models/design_model/design_model.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 
 class DetailsScreen extends StatelessWidget {
   final DesignModel design;
@@ -17,62 +18,13 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Spacer(),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * .2,
-            ),
             Text(
               "Details",
               style: Theme.of(context).textTheme.displayMedium,
-            ),
-            Spacer(),
-            Row(
-              children: [
-                Stack(
-                  children: [
-                    IconButton(
-                        onPressed: () {
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return FavoriteView();
-                              },
-                            ),
-                          );
-                        },
-                        icon: Icon(CupertinoIcons.heart)), // أيقونة القلب
-                    Positioned(
-                      top: 13,
-                      right: 10,
-                      child: Container(
-                        width: 10,
-                        height: 10,
-                        decoration: BoxDecoration(
-                          color: Colors.red,
-                          shape: BoxShape.circle,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                IconButton(
-                  onPressed: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return NotificationView();
-                        },
-                      ),
-                    );
-                  },
-                  icon: Icon(CupertinoIcons.bell),
-                ),
-              ],
             ),
           ],
         ),

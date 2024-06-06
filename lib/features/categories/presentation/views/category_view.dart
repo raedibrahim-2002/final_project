@@ -26,7 +26,7 @@ class _CategoryViewState extends State<CategoryView> {
             title: const AppBarCategoryViewBody(),
           ),
           body: cubit.categories.isEmpty
-              ? Center(child: const CupertinoActivityIndicator())
+              ? const Center(child: CupertinoActivityIndicator())
               : ListView.builder(
                   itemCount: cubit.categories.length,
                   itemBuilder: (context, index) {

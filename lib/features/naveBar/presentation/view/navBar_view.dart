@@ -34,20 +34,6 @@ class NavBarView extends StatelessWidget {
             SwitchListTile(
               title: Row(
                 children: [
-                  Icon(CupertinoIcons.sun_min_fill), // أيقونة الشمس
-                  SizedBox(width: 8), // ترك مسافة بين الأيقونة والنص
-                  Text(
-                    AppString.theme,
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                ],
-              ),
-              value: true,
-              onChanged: (bool? value) {},
-            ),
-            SwitchListTile(
-              title: Row(
-                children: [
                   Icon(CupertinoIcons.bell_fill), // أيقونة الشمس
                   SizedBox(width: 8), // ترك مسافة بين الأيقونة والنص
                   Text(

@@ -3,9 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_final_graduation_project/models/product_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-
 import '../../../models/design_model/design_model.dart';
-
 part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {

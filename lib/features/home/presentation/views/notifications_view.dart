@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:intl/intl.dart';
 
 class NotificationView extends StatefulWidget {
@@ -35,20 +34,7 @@ class _NotificationViewState extends State<NotificationView> {
           'Notifications',
           style: Theme.of(context).textTheme.displayMedium,
         ),
-        actions: [
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.only(right: 20),
-              child: GestureDetector(
-                onTap: clearAllNotifications, // Calling the clear function here
-                child: Text(
-                  'Clear all',
-                  style: Theme.of(context).textTheme.displaySmall,
-                ),
-              ),
-            ),
-          )
-        ],
+        actions: [],
       ),
       body: ListView.builder(
         itemBuilder: (context, index) => notifications[index],

@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/core/utils/colors.dart';
-import 'package:flutter_final_graduation_project/core/utils/list_view_design.dart';
+import 'package:flutter_final_graduation_project/core/utils/list_view_for_favorit_designs.dart';
 import 'package:flutter_final_graduation_project/core/utils/styles.dart';
 import 'package:flutter_final_graduation_project/features/favorite/cubit/favorite_cubit.dart';
+import 'package:flutter_final_graduation_project/features/home/cubit/home_cubit.dart';
 
 import 'package:flutter_final_graduation_project/features/home/presentation/views/notifications_view.dart';
 
@@ -14,6 +15,7 @@ class FavoriteView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return BlocConsumer<FavoriteCubit, FavoriteState>(
         listener: (context, state) {},
         builder: (context, state) {
@@ -42,7 +44,7 @@ class FavoriteView extends StatelessWidget {
                 ),
               ],
             ),
-            body: const GrideViewBuilderForDesigns(),
+            body: const GrideViewBuilderForFavoriteDesigns(),
           );
         });
   }

@@ -3,13 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_final_graduation_project/core/utils/colors.dart';
 import 'package:flutter_final_graduation_project/features/details/views/details_view.dart';
 import 'package:flutter_final_graduation_project/features/favorite/cubit/favorite_cubit.dart';
+import 'package:flutter_final_graduation_project/features/home/cubit/home_cubit.dart';
 
-class GrideViewBuilderForDesigns extends StatelessWidget {
-  const GrideViewBuilderForDesigns({super.key});
+class GrideViewBuilderForFavoriteDesigns extends StatelessWidget {
+  const GrideViewBuilderForFavoriteDesigns({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final cubit = BlocProvider.of<FavoriteCubit>(context);
+    final cubit = BlocProvider.of<HomeCubit>(context);
     return Padding(
       padding: const EdgeInsets.only(top: 14.0, left: 10, right: 10),
       child: GridView.builder(
@@ -18,11 +19,11 @@ class GrideViewBuilderForDesigns extends StatelessWidget {
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           childAspectRatio:
-              (MediaQuery.of(context).size.width - 15 - 15) / (2 * 240),
+              (MediaQuery.of(context).size.width - 15 - 15) / (2 * 252),
           // mainAxisSpacing: 2,
           crossAxisSpacing: 10,
         ),
-        itemCount: 9,
+        itemCount: 5,
         itemBuilder: (_, i) {
           return Column(
             children: [
@@ -45,9 +46,10 @@ class GrideViewBuilderForDesigns extends StatelessWidget {
                           //   );
                           // },
                           child: Image.network(
-                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz5M76SBxB71PJIHD_ys7a22uTlzS3INY74g&usqp=CAU",
+                        cubit.designs[i].pictures!.first.pictureUrl.toString(),
                         fit: BoxFit.fill,
-                        height: double.maxFinite,
+                        height: double.infinity,
+                        width: double.infinity,
                         // height: MediaQuery.of(context).size.height * 0.23,
                       )),
                       Padding(
@@ -61,14 +63,14 @@ class GrideViewBuilderForDesigns extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(20)),
                             child: IconButton(
                               onPressed: () {
-                                cubit.addOrRemoveFromFavorites(
-                                    productID:
-                                        cubit.favorites[i].id.toString());
+                                // cubit.addOrRemoveFromFavorites(
+                                //     productID:
+                                //         cubit.favorites[i].id.toString());
                               },
                               icon: const Icon(
                                 Icons.favorite_outlined,
                                 size: 25,
-                                color: BaseColors.grey,
+                                color: BaseColors.red,
                               ),
                             ),
                           ),
@@ -90,7 +92,8 @@ class GrideViewBuilderForDesigns extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Bed Room",
+                          cubit.designs[i].name.toString(),
+                          maxLines: 1,
                           style: Theme.of(context).textTheme.headlineSmall,
                         ),
                         const SizedBox(
@@ -99,7 +102,8 @@ class GrideViewBuilderForDesigns extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(bottom: 8.0),
                           child: Text(
-                            "Modern Style",
+                            maxLines: 2,
+                            cubit.designs[i].description.toString(),
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
                         )

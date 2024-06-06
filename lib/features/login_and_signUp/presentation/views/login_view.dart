@@ -7,27 +7,19 @@ import 'package:flutter_final_graduation_project/features/home/presentation/view
 import 'package:flutter_final_graduation_project/features/login_and_signUp/presentation/views/auth_cubit/auth_cubit.dart';
 import 'package:flutter_final_graduation_project/features/login_and_signUp/presentation/views/auth_cubit/auth_states.dart';
 import 'package:flutter_final_graduation_project/features/unsignedBottomnavigationBar2/bottom_navigation_bar_unsigned2.dart';
-
 import 'signUp_view.dart';
-
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
-
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
-
 class _LoginScreenState extends State<LoginScreen> {
   final formKey = GlobalKey<FormState>();
-
   //Sign in email
   TextEditingController emailController = TextEditingController();
-
   //Sign in password
   TextEditingController passwordController = TextEditingController();
-
   bool obscure = true;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

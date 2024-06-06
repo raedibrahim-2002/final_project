@@ -16,13 +16,13 @@ class CategoriesCubit extends Cubit<CategoriesState> {
     final response =
         await http.get(Uri.parse("http://granddeco.somee.com/api/Categories"));
     final responseBody = jsonDecode(response.body);
-    print("Response: $responseBody");
+    // print("Response for categories: $responseBody");
 
     if (response.statusCode == 200) {
       for (var item in responseBody) {
         categories.add(CategoryModel.fromJson(item));
       }
-      print("Categories: ${categories[3].designs!.length.toString()}");
+      print("Categories: ${categories[3].designs!.toList()}");
       emit(GetCategoriesSuccessState());
     } else {
       emit(FailedToGetCategoriesState());

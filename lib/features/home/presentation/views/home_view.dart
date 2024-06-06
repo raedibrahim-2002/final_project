@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
+import 'package:flutter_final_graduation_project/core/utils/colors.dart';
 import 'package:flutter_final_graduation_project/features/details/views/details_view.dart';
 import 'package:flutter_final_graduation_project/features/favorite/cubit/favorite_cubit.dart';
-
 import 'package:flutter_final_graduation_project/features/favorite/presentation/view/favorite_view.dart';
 import 'package:flutter_final_graduation_project/features/filter/presentation/views/fiter_view.dart';
 import 'package:flutter_final_graduation_project/features/home/cubit/home_cubit.dart';
@@ -16,7 +16,6 @@ import 'package:flutter_final_graduation_project/models/product_model.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
-
   @override
   State<HomeView> createState() => _HomeViewState();
 }
@@ -28,9 +27,7 @@ class _HomeViewState extends State<HomeView> {
     final cubit = BlocProvider.of<HomeCubit>(context);
     final cubitFavorite = BlocProvider.of<FavoriteCubit>(context);
     return BlocConsumer<HomeCubit, HomeState>(
-      listener: (context, state) {
-        // TODO: implement listener
-      },
+      listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
           drawer: const NavBarView(),
@@ -131,7 +128,7 @@ class _HomeViewState extends State<HomeView> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(25),
                                       child: Container(
-                                        color: Colors.yellow,
+                                        color: BaseColors.primaryColor,
                                         height:
                                             MediaQuery.of(context).size.height *
                                                 .22,
@@ -183,7 +180,7 @@ class _HomeViewState extends State<HomeView> {
                                                       // todo
                                                       //     cubitFavorite.addOrRemoveFromFavorites(productID: model.id!.toString());
                                                     },
-                                                    child: Icon(
+                                                    child: const Icon(
                                                       Icons.favorite_outlined,
                                                       size: 25,
                                                       // todo

@@ -67,15 +67,12 @@ class ProfileView extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const CustomCircleAvatar(
-                          image: AssetsData.profile,
-                        ),
                         const SizedBox(
                           height: 16,
                         ),
                         Align(
                           alignment: Alignment.center,
-                          child: Text("Name",
+                          child: Text(cubit.userModel!.name!,
                               style: Theme.of(context)
                                   .textTheme
                                   .displayMedium!
@@ -86,7 +83,7 @@ class ProfileView extends StatelessWidget {
                         const SizedBox(
                           height: 50,
                         ),
-                        Text('Frist Name',
+                        Text('Name',
                             style: getRegularTextStyleInter(
                                 fontSize: 18, color: BaseColors.blackColor)),
                         const SizedBox(

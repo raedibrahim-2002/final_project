@@ -4,7 +4,8 @@ import 'package:flutter_final_graduation_project/features/room/presentaiton/view
 
 class RoomView extends StatelessWidget {
   final String roomTitle;
-  const RoomView({Key? key, required this.roomTitle});
+
+   RoomView({Key? key, required this.roomTitle});
 
   @override
   Widget build(BuildContext context) {
@@ -16,12 +17,12 @@ class RoomView extends StatelessWidget {
           elevation: 0,
           title: Center(
               child: Text(
-            this.roomTitle,
+            roomTitle,
             style: Theme.of(context).textTheme.displayMedium,
           )),
           bottom: TabBar(
             dividerColor: Colors.white,
-            indicator: ShapeDecoration(
+            indicator: const ShapeDecoration(
               color: Color(0xFF1D2046),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(
@@ -36,8 +37,8 @@ class RoomView extends StatelessWidget {
             unselectedLabelColor: Colors.black,
             indicatorSize: TabBarIndicatorSize.values.first,
             indicatorWeight: 1,
-            padding: EdgeInsets.all(5),
-            tabs: [
+            padding: const EdgeInsets.all(5),
+            tabs: const [
               CustomTab(
                 title: 'Modern',
               ),
@@ -50,7 +51,7 @@ class RoomView extends StatelessWidget {
             ],
           ),
         ),
-        body: TabBarView(
+        body: const TabBarView(
           children: [
             GrideViewBuilderForDesigns(),
             GrideViewBuilderForDesigns(),
