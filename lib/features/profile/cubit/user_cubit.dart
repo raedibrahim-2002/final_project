@@ -12,6 +12,7 @@ part 'user_state.dart';
 class UserCubit extends Cubit<UserState> {
   UserCubit() : super(UserInitial());
   UserModel? userModel;
+  
   void getUserData() async {
     emit(GetUserDataLoadingState());
     Response response = await http.get(
