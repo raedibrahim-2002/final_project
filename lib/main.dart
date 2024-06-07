@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => UserCubit()),
         BlocProvider(
             create: (context) => CategoriesCubit()..getCategoriesData()),
-        BlocProvider(create: (context) => HomeCubit()..getProducts()),
+        BlocProvider(create: (context) => HomeCubit()..getHomeDesigns()..getAllDesigns()),
         BlocProvider(create: (context) => FavoriteCubit()..getFavorites()),
         BlocProvider(
           create: (context) => SwicthBloc(),

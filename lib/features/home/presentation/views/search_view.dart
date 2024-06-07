@@ -62,7 +62,7 @@ class SearchScreen extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: cubit.designs.isEmpty
+            child: cubit.allDesigns.isEmpty
                 ? const CupertinoActivityIndicator()
                 : GridView.builder(
                     physics: const ScrollPhysics(),
@@ -76,7 +76,7 @@ class SearchScreen extends StatelessWidget {
                       crossAxisSpacing: 10,
                     ),
                     itemCount: cubit.filteredProduct.isEmpty
-                        ? cubit.designs.length
+                        ? cubit.allDesigns.length
                         : cubit.filteredProduct.length,
                     itemBuilder: (context, index) {
                       return Padding(
@@ -98,7 +98,7 @@ class SearchScreen extends StatelessWidget {
                                           MaterialPageRoute(
                                             builder: (context) {
                                               return DetailsScreen(
-                                                design: cubit.designs[index],
+                                                design: cubit.allDesigns[index],
                                               );
                                             },
                                           ),
@@ -106,7 +106,7 @@ class SearchScreen extends StatelessWidget {
                                       },
                                       child: Image.network(
                                         cubit.filteredProduct.isEmpty
-                                            ? cubit.designs[index].pictures!
+                                            ? cubit.allDesigns[index].pictures!
                                                 .first.pictureUrl
                                                 .toString()
                                             : cubit.filteredProduct[index]
@@ -159,7 +159,7 @@ class SearchScreen extends StatelessWidget {
                                         maxLines: 1,
                                         overflow: TextOverflow.fade,
                                         cubit.filteredProduct.isEmpty
-                                            ? cubit.designs[index].name!
+                                            ? cubit.allDesigns[index].name!
                                             : cubit
                                                 .filteredProduct[index].name!,
                                         style: Theme.of(context)
@@ -176,8 +176,8 @@ class SearchScreen extends StatelessWidget {
                                           maxLines: 2,
                                           overflow: TextOverflow.ellipsis,
                                           cubit.filteredProduct.isEmpty
-                                              ? cubit
-                                                  .designs[index].description!
+                                              ? cubit.allDesigns[index]
+                                                  .description!
                                               : cubit.filteredProduct[index]
                                                   .description!,
                                           style: Theme.of(context)

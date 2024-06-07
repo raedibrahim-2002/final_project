@@ -5,7 +5,7 @@ import 'package:flutter_final_graduation_project/features/room/presentaiton/view
 class RoomView extends StatelessWidget {
   final String roomTitle;
 
-   RoomView({Key? key, required this.roomTitle});
+  RoomView({Key? key, required this.roomTitle});
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +40,9 @@ class RoomView extends StatelessWidget {
             padding: const EdgeInsets.all(5),
             tabs: const [
               CustomTab(
-                title: 'Modern',
+                title: 'Minimalist',
               ),
-              CustomTab(title: 'Minimalist'),
+              CustomTab(title: 'Modern'),
               CustomTab(title: 'Japandi'),
               CustomTab(title: 'Poho'),
               CustomTab(title: 'Classic'),
@@ -51,15 +51,24 @@ class RoomView extends StatelessWidget {
             ],
           ),
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: [
-            GrideViewBuilderForDesigns(),
-            GrideViewBuilderForDesigns(),
-            GrideViewBuilderForDesigns(),
-            GrideViewBuilderForDesigns(),
-            GrideViewBuilderForDesigns(),
-            GrideViewBuilderForDesigns(),
-            GrideViewBuilderForDesigns(),
+            GrideViewBuilderForDesigns(
+              styleName: 'Minimalist',
+              categoryName: roomTitle,
+            ),
+            GrideViewBuilderForDesigns(
+                styleName: 'Modern', categoryName: roomTitle),
+            GrideViewBuilderForDesigns(
+                styleName: 'Japandi', categoryName: roomTitle),
+            GrideViewBuilderForDesigns(
+                styleName: 'Poho', categoryName: roomTitle),
+            GrideViewBuilderForDesigns(
+                styleName: 'Classic', categoryName: roomTitle),
+            GrideViewBuilderForDesigns(
+                styleName: 'New classic', categoryName: roomTitle),
+            GrideViewBuilderForDesigns(
+                styleName: 'Art Deco', categoryName: roomTitle),
           ],
         ),
       ),

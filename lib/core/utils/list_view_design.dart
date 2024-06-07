@@ -1,117 +1,159 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_final_graduation_project/core/utils/colors.dart';
-import 'package:flutter_final_graduation_project/features/details/views/details_view.dart';
-import 'package:flutter_final_graduation_project/features/favorite/cubit/favorite_cubit.dart';
+import 'package:flutter_final_graduation_project/features/categories/cubit/categories_cubit.dart';
+import 'package:flutter_final_graduation_project/features/home/cubit/home_cubit.dart';
+import 'package:flutter_final_graduation_project/models/design_model/design_model.dart';
+import 'package:http/http.dart' as http;
 
-class GrideViewBuilderForDesigns extends StatelessWidget {
-  const GrideViewBuilderForDesigns({super.key});
+class GrideViewBuilderForDesigns extends StatefulWidget {
+  final String styleName;
+  final String categoryName;
+
+  GrideViewBuilderForDesigns({
+    Key? key,
+    required this.styleName,
+    required this.categoryName,
+  }) : super(key: key);
+
+  @override
+  _GrideViewBuilderForDesignsState createState() =>
+      _GrideViewBuilderForDesignsState();
+}
+
+class _GrideViewBuilderForDesignsState
+    extends State<GrideViewBuilderForDesigns> {
+  List<DesignModel> categoryDesigns = [];
+
+  @override
+  void initState() {
+    super.initState();
+    getCategoriesDesigns();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final cubit = BlocProvider.of<FavoriteCubit>(context);
+    final cubit = BlocProvider.of<HomeCubit>(context);
     return Padding(
       padding: const EdgeInsets.only(top: 14.0, left: 10, right: 10),
-      child: GridView.builder(
-        physics: const ScrollPhysics(),
-        shrinkWrap: true,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          childAspectRatio:
-              (MediaQuery.of(context).size.width - 15 - 15) / (2 * 240),
-          // mainAxisSpacing: 2,
-          crossAxisSpacing: 10,
-        ),
-        itemCount: 9,
-        itemBuilder: (_, i) {
-          return Column(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(25),
-                child: Container(
-                  color: Colors.yellow,
-                  height: MediaQuery.of(context).size.height * .22,
-                  child: Stack(
-                    children: [
-                      InkWell(
-                          // onTap: () {
-                          //   Navigator.pushReplacement(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //       builder: (context) {
-                          //         return DetailsScreen();
-                          //       },
-                          //     ),
-                          //   );
-                          // },
-                          child: Image.network(
-                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz5M76SBxB71PJIHD_ys7a22uTlzS3INY74g&usqp=CAU",
-                        fit: BoxFit.fill,
-                        height: double.maxFinite,
-                        // height: MediaQuery.of(context).size.height * 0.23,
-                      )),
-                      Padding(
-                        padding: const EdgeInsets.all(6),
-                        child: Align(
-                          alignment: Alignment.topRight,
-                          child: Container(
-                            padding: const EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                                color: Colors.black12,
-                                borderRadius: BorderRadius.circular(20)),
-                            child: IconButton(
-                              onPressed: () {
-                                cubit.addOrRemoveFromFavorites(
-                                    productID:
-                                        cubit.favorites[i].id.toString());
-                              },
-                              icon: const Icon(
-                                Icons.favorite_outlined,
-                                size: 25,
-                                color: BaseColors.grey,
-                              ),
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
+      child: categoryDesigns.isEmpty
+          ? const Center(
+              child:
+                  CircularProgressIndicator()) // عرض CircularProgressIndicator إذا كانت categoryDesigns فارغة
+          : GridView.builder(
+              physics: const ScrollPhysics(),
+              shrinkWrap: true,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio:
+                    (MediaQuery.of(context).size.width - 15 - 15) / (2 * 240),
+                crossAxisSpacing: 10,
+              ),
+              itemCount: categoryDesigns.length,
+              itemBuilder: (_, i) {
+                return _buildDesignItem(context, i);
+              },
+            ),
+    );
+  }
+
+  Widget _buildDesignItem(BuildContext context, int index) {
+    return Column(
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(25),
+          child: Container(
+            color: BaseColors.primaryColor,
+            height: MediaQuery.of(context).size.height * .20,
+            child: Stack(
+              children: [
+                InkWell(
+                  child: Image.network(
+                    categoryDesigns[index]
+                        .pictures!
+                        .first
+                        .pictureUrl
+                        .toString(),
+                    fit: BoxFit.fill,
+                    height: double.maxFinite,
+                    width: double.infinity,
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  bottom: 5,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 10.0, top: 2),
+                Padding(
+                  padding: const EdgeInsets.all(6),
                   child: Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Bed Room",
-                          style: Theme.of(context).textTheme.headlineSmall,
+                    alignment: Alignment.topRight,
+                    child: Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Colors.black12,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: IconButton(
+                        onPressed: () {
+                          // Add your favorite handling logic here
+                        },
+                        icon: const Icon(
+                          Icons.favorite_outlined,
+                          size: 25,
+                          color: BaseColors.grey,
                         ),
-                        const SizedBox(
-                          height: 2,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 8.0),
-                          child: Text(
-                            "Modern Style",
-                            style: Theme.of(context).textTheme.bodySmall,
-                          ),
-                        )
-                      ],
+                      ),
                     ),
                   ),
-                ),
-              )
-            ],
-          );
-        },
-      ),
+                )
+              ],
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 5),
+          child: Padding(
+            padding: const EdgeInsets.only(left: 10.0, top: 2),
+            child: Align(
+              alignment: Alignment.bottomLeft,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    categoryDesigns[index].name.toString(),
+                    maxLines: 1,
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                  const SizedBox(
+                    height: 2,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: Text(
+                      categoryDesigns[index].description.toString(),
+                      maxLines: 2,
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+        )
+      ],
     );
+  }
+
+  // Function to fetch category designs
+  Future<void> getCategoriesDesigns() async {
+    final response = await http.get(Uri.parse(
+        "http://granddeco.somee.com/api/Designs/GetDesigns/?categry=${widget.categoryName}&style=${widget.styleName}"));
+    final responseBody = jsonDecode(response.body);
+
+    if (response.statusCode == 200) {
+      for (var item in responseBody) {
+        categoryDesigns.add(DesignModel.fromJson(item, data: null));
+      }
+      setState(() {}); // Rebuild the GridView after receiving data
+    } else {
+      print("Error fetching data");
+    }
   }
 }

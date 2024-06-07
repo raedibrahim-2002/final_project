@@ -13,6 +13,7 @@ class FavoriteCubit extends Cubit<FavoriteState> {
   FavoriteCubit() : super(FavoriteInitial());
   List<ProductModel> favorites = [];
   Set<String> favoritesID = {};
+  
   Future<void> getFavorites() async {
     favorites.clear();
     Response response = await http.get(

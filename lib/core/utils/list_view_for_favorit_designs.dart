@@ -46,7 +46,8 @@ class GrideViewBuilderForFavoriteDesigns extends StatelessWidget {
                           //   );
                           // },
                           child: Image.network(
-                        cubit.designs[i].pictures!.first.pictureUrl.toString(),
+                        cubit.homeDesigns[i].pictures!.first.pictureUrl
+                            .toString(),
                         fit: BoxFit.fill,
                         height: double.infinity,
                         width: double.infinity,
@@ -92,7 +93,7 @@ class GrideViewBuilderForFavoriteDesigns extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          cubit.designs[i].name.toString(),
+                          cubit.homeDesigns[i].name.toString(),
                           maxLines: 1,
                           style: Theme.of(context).textTheme.headlineSmall,
                         ),
@@ -103,7 +104,7 @@ class GrideViewBuilderForFavoriteDesigns extends StatelessWidget {
                           padding: const EdgeInsets.only(bottom: 8.0),
                           child: Text(
                             maxLines: 2,
-                            cubit.designs[i].description.toString(),
+                            cubit.homeDesigns[i].description.toString(),
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
                         )

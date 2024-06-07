@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_final_graduation_project/features/categories/data/category_model/category_model.dart';
+import 'package:flutter_final_graduation_project/models/design_model/design_model.dart';
 import 'package:http/http.dart' as http;
 
 part 'categories_state.dart';
@@ -10,6 +11,7 @@ class CategoriesCubit extends Cubit<CategoriesState> {
 
   List<CategoryModel> categories = [];
 
+  List<DesignModel> categoryDesigns = [];
   get showDialog => null;
 
   getCategoriesData() async {
@@ -28,4 +30,6 @@ class CategoriesCubit extends Cubit<CategoriesState> {
       emit(FailedToGetCategoriesState());
     }
   }
+
+
 }

@@ -85,14 +85,14 @@ class _HomeViewState extends State<HomeView> {
                       ),
                       IconButton(
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return const FilterScreen();
-                              },
-                            ),
-                          );
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //     builder: (context) {
+                          //       return const FilterScreen();
+                          //     },
+                          //   ),
+                          // );
                         },
                         icon: const Icon(
                           CupertinoIcons.slider_horizontal_3,
@@ -104,7 +104,7 @@ class _HomeViewState extends State<HomeView> {
                     height: MediaQuery.of(context).size.height * .01,
                   ),
                   Expanded(
-                    child: cubit.designs.isEmpty
+                    child: cubit.homeDesigns.isEmpty
                         ? const CupertinoActivityIndicator()
                         : GridView.builder(
                             physics: const ScrollPhysics(),
@@ -120,7 +120,7 @@ class _HomeViewState extends State<HomeView> {
                               // mainAxisSpacing: 2,
                               crossAxisSpacing: 10,
                             ),
-                            itemCount: cubit.designs.length,
+                            itemCount: cubit.homeDesigns.length,
                             itemBuilder: (context, index) {
                               return Column(
                                 children: [
@@ -143,16 +143,19 @@ class _HomeViewState extends State<HomeView> {
                                                     MaterialPageRoute(
                                                       builder: (context) {
                                                         return DetailsScreen(
-                                                            design:
-                                                                cubit.designs[
-                                                                    index]);
+                                                            design: cubit
+                                                                    .homeDesigns[
+                                                                index]);
                                                       },
                                                     ),
                                                   );
                                                 },
                                                 child: Image.network(
-                                                  cubit.designs[index].pictures!
-                                                      .first.pictureUrl
+                                                  cubit
+                                                      .homeDesigns[index]
+                                                      .pictures!
+                                                      .first
+                                                      .pictureUrl
                                                       .toString(),
                                                   fit: BoxFit.fill,
                                                   // height: double.maxFinite,
@@ -210,7 +213,7 @@ class _HomeViewState extends State<HomeView> {
                                           children: [
                                             Text(
                                               maxLines: 1,
-                                              cubit.designs[index].name
+                                              cubit.homeDesigns[index].name
                                                   .toString(),
                                               style: Theme.of(context)
                                                   .textTheme
@@ -225,7 +228,8 @@ class _HomeViewState extends State<HomeView> {
                                               child: Text(
                                                 maxLines: 2,
                                                 overflow: TextOverflow.ellipsis,
-                                                cubit.designs[index].description
+                                                cubit.homeDesigns[index]
+                                                    .description
                                                     .toString(),
                                                 style: Theme.of(context)
                                                     .textTheme

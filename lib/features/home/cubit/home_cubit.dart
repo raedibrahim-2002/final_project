@@ -9,9 +9,30 @@ part 'home_state.dart';
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(HomeInitial());
 
-  List<DesignModel> designs = [];
+  List<DesignModel> homeDesigns = [];
+  List<DesignModel> allDesigns = [];
 
-  void getProducts() async {
+  void getHomeDesigns() async {
+    try {
+      Response response = await http.get(
+        Uri.parse('http://granddeco.somee.com/api/Designs/Home'),
+      );
+
+      if (response.statusCode == 200) {
+        var responseBody = jsonDecode(response.body);
+        homeDesigns = (responseBody as List)
+            .map((item) => DesignModel.fromJson(item, data: null))
+            .toList();
+        emit(GetProductsSuccessState());
+      } else {
+        emit(FailedToGetProductsState());
+      }
+    } catch (e) {
+      emit(FailedToGetProductsState());
+    }
+  }
+
+  void getAllDesigns() async {
     try {
       Response response = await http.get(
         Uri.parse('http://granddeco.somee.com/api/Designs/'),
@@ -19,10 +40,9 @@ class HomeCubit extends Cubit<HomeState> {
 
       if (response.statusCode == 200) {
         var responseBody = jsonDecode(response.body);
-        designs = (responseBody as List)
+        allDesigns = (responseBody as List)
             .map((item) => DesignModel.fromJson(item, data: null))
             .toList();
-
         emit(GetProductsSuccessState());
       } else {
         emit(FailedToGetProductsState());
@@ -34,7 +54,7 @@ class HomeCubit extends Cubit<HomeState> {
 
   List<DesignModel> filteredProduct = [];
   void filterProduct({required String input}) {
-    filteredProduct = designs
+    filteredProduct = allDesigns
         .where((element) =>
             element.name!.toLowerCase().startsWith(input.toLowerCase()))
         .toList();

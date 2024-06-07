@@ -29,6 +29,8 @@ class DesignModel {
             : Style.fromJson(json['style'] as Map<String, dynamic>),
       );
 
+  get title => null;
+
   Map<String, dynamic> toJson() => {
         'id': id,
         'name': name,

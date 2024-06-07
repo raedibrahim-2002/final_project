@@ -49,7 +49,7 @@ class _UnSignedHomeView2State extends State<UnSignedHomeView2> {
                       height: MediaQuery.of(context).size.height * .01,
                     ),
                     Expanded(
-                      child: cubit.designs.isEmpty
+                      child: cubit.homeDesigns.isEmpty
                           ? const CupertinoActivityIndicator()
                           : GridView.builder(
                               physics: const ScrollPhysics(),
@@ -65,7 +65,7 @@ class _UnSignedHomeView2State extends State<UnSignedHomeView2> {
                                 // mainAxisSpacing: 2,
                                 crossAxisSpacing: 10,
                               ),
-                              itemCount: cubit.designs.length,
+                              itemCount: cubit.homeDesigns.length,
                               itemBuilder: (context, index) {
                                 return Column(
                                   children: [
@@ -89,16 +89,16 @@ class _UnSignedHomeView2State extends State<UnSignedHomeView2> {
                                                       MaterialPageRoute(
                                                         builder: (context) {
                                                           return UnSignedDesignDetailsScreen(
-                                                              design:
-                                                                  cubit.designs[
-                                                                      index]);
+                                                              design: cubit
+                                                                      .homeDesigns[
+                                                                  index]);
                                                         },
                                                       ),
                                                     );
                                                   },
                                                   child: Image.network(
                                                     cubit
-                                                        .designs[index]
+                                                        .homeDesigns[index]
                                                         .pictures!
                                                         .first
                                                         .pictureUrl
@@ -133,7 +133,7 @@ class _UnSignedHomeView2State extends State<UnSignedHomeView2> {
                                             children: [
                                               Text(
                                                 maxLines: 1,
-                                                cubit.designs[index].name
+                                                cubit.homeDesigns[index].name
                                                     .toString(),
                                                 style: Theme.of(context)
                                                     .textTheme
@@ -149,7 +149,7 @@ class _UnSignedHomeView2State extends State<UnSignedHomeView2> {
                                                   maxLines: 2,
                                                   overflow:
                                                       TextOverflow.ellipsis,
-                                                  cubit.designs[index]
+                                                  cubit.homeDesigns[index]
                                                       .description
                                                       .toString(),
                                                   style: Theme.of(context)
