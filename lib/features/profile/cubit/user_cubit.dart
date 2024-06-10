@@ -33,35 +33,42 @@ class UserCubit extends Cubit<UserState> {
     }
   }
 
-  void changePassword(
-      {required String userCurrentPassword,
-      required String newPassword}) async {
+ void changePassword({
+    required String userCurrentPassword,
+    required String newPassword,
+  }) async {
     emit(ChangePasswordLoadingState());
-    Response response = await http.post(
+    try {
+      final response = await http.post(
         Uri.parse("https://student.valuxapps.com/api/change-password"),
         headers: {
           'lang': 'en',
           'Content-Type': 'application/json',
-          'Authorization': token!
+          'Authorization': token!,
         },
-        body: {
+        body: jsonEncode({
           'current_password': userCurrentPassword,
           'new_password': newPassword,
-        });
+        }),
+      );
 
-    var responseDecoded = jsonDecode(response.body);
+      final responseDecoded = jsonDecode(response.body);
 
-    if (response.statusCode == 200) {
-      if (responseDecoded['status'] == true) {
-        await CacheNetwork.insertToCache(key: 'password', value: newPassword);
-        currentPassword = await CacheNetwork.getCacheData(key: "password");
-        emit(ChangePasswordSuccessState());
+      if (response.statusCode == 200) {
+        if (responseDecoded['status'] == true) {
+          await CacheNetwork.insertToCache(key: 'password', value: newPassword);
+          currentPassword = await CacheNetwork.getCacheData(key: "password");
+          emit(ChangePasswordSuccessState());
+        } else {
+          emit(ChangePasswordWithFailureState(error: responseDecoded['message']));
+        }
       } else {
-        emit(ChangePasswordWithFailureState(error: responseDecoded['message']));
+        emit(ChangePasswordWithFailureState(
+            error: "something went wrong, try again later"));
       }
-    } else {
+    } catch (e) {
       emit(ChangePasswordWithFailureState(
-          error: "something went wrong , try again later "));
+          error: "An error occurred: ${e.toString()}"));
     }
   }
 

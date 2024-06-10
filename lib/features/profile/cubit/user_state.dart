@@ -19,7 +19,7 @@ class ChangePasswordLoadingState extends UserState {}
 class ChangePasswordSuccessState extends UserState {}
 
 class ChangePasswordWithFailureState extends UserState {
-  String error;
+  final String error;
   ChangePasswordWithFailureState({
     required this.error,
   });

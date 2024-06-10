@@ -21,13 +21,13 @@ import 'package:flutter_final_graduation_project/features/setting/cubit/setting_
 import 'package:flutter_final_graduation_project/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter_final_graduation_project/generated/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await PreferenceUtils.init();
-
   await CacheNetwork.cacheInitialization();
   token = CacheNetwork.getCacheData(key: "token");
   // currentPassword = CacheNetwork.getCacheData(key: "token");
@@ -35,6 +35,11 @@ void main() async {
   // debugPrint("currentPassword is : $currentPassword");
 
   runApp(const MyApp());
+  WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+    if (Platform.isAndroid) {
+      await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
+    }
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -56,7 +61,7 @@ class MyApp extends StatelessWidget {
       ],
       child: BlocBuilder<SettingCubit, SettingState>(
         builder: (context, state) {
-        MyLocalController controller=  Get.put(MyLocalController());
+          MyLocalController controller = Get.put(MyLocalController());
           return GetMaterialApp(
             locale: controller.initialLang,
             translations: MyLocal(),

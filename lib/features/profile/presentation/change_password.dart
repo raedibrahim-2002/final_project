@@ -1,7 +1,7 @@
-import 'package:bloc/bloc.dart';
-import 'package:flutter/cupertino.dart';
+import 'dart:convert'; // For jsonDecode
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:http/http.dart' as http;
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/core/utils/colors.dart';
 import 'package:flutter_final_graduation_project/core/utils/constans.dart';
@@ -77,26 +77,23 @@ class ChangePasswordScreen extends StatelessWidget {
                     ),
                     child: MaterialButton(
                       onPressed: () {
-                        if (currentPasswordController.text.trim() ==
-                            currentPassword) {
-                          if (newPasswordController.text.length >= 6) {
-                            cubit.changePassword(
-                              userCurrentPassword: currentPassword!,
-                              newPassword: newPasswordController.text.trim(),
-                            );
-                          } else {
-                            showSnackBarItem(
-                                context,
-                                "password must be at least 6 characters".tr,
-                                false);
-                          }
-                        } else {
+                        final currentPassword =
+                            currentPasswordController.text.trim();
+                        final newPassword = newPasswordController.text.trim();
+                        if (currentPassword.isEmpty || newPassword.isEmpty) {
                           showSnackBarItem(
-                              context,
-                              "please, verify current password ,try again later"
-                                  .tr,
-                              false);
+                              context, "Fields cannot be empty", false);
+                          return;
                         }
+                        if (newPassword.length < 6) {
+                          showSnackBarItem(context,
+                              "Password must be at least 6 characters", false);
+                          return;
+                        }
+                        cubit.changePassword(
+                          userCurrentPassword: currentPassword,
+                          newPassword: newPassword,
+                        );
                       },
                       child: Text(
                         state is ChangePasswordLoadingState

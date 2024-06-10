@@ -8,6 +8,8 @@ import 'package:flutter_final_graduation_project/features/unsignedBottomnavigati
 import 'package:flutter_final_graduation_project/features/unsignedBottomnavigationBar2/unSignedChat.dart';
 import 'package:flutter_final_graduation_project/features/unsignedBottomnavigationBar2/unsigned_home.dart';
 
+import '../../core/utils/shared_prefrences.dart';
+
 class BottomNavigationBarHelperUnSigned2 extends StatefulWidget {
   const BottomNavigationBarHelperUnSigned2({super.key});
   @override
@@ -32,7 +34,9 @@ class _BottomNavigationBarHelperUnSigned2State
         color: Colors.white, // لون خلفية ال bottom navigation bar
         backgroundColor: Colors.transparent,
         index: _selectedIndex,
-        buttonBackgroundColor: Colors.black,
+        buttonBackgroundColor: PreferenceUtils.getBool(PrefKeys.darkTheme)
+            ? Colors.white
+            : Colors.black,
         onTap: (index) {
           setState(() {
             _selectedIndex = index;
@@ -42,12 +46,27 @@ class _BottomNavigationBarHelperUnSigned2State
         items: [
           Icon(
             Icons.home,
-            color: _selectedIndex == 0 ? Colors.white : Colors.black,
+            color: _selectedIndex == 0 ? PreferenceUtils.getBool(PrefKeys.darkTheme)
+                ? Colors.black
+                : Colors.white
+                : PreferenceUtils.getBool(PrefKeys.darkTheme)
+                ? Colors.white
+                : Colors.black,
           ), // اللون يتغير بناءً على الاختيار المحدد
           Icon(Icons.category,
-              color: _selectedIndex == 1 ? Colors.white : Colors.black),
+              color: _selectedIndex == 1 ? PreferenceUtils.getBool(PrefKeys.darkTheme)
+                  ? Colors.black
+                  : Colors.white
+                  : PreferenceUtils.getBool(PrefKeys.darkTheme)
+                  ? Colors.white
+                  : Colors.black),
           Icon(Icons.chat,
-              color: _selectedIndex == 2 ? Colors.white : Colors.black),
+              color: _selectedIndex == 2 ? PreferenceUtils.getBool(PrefKeys.darkTheme)
+                  ? Colors.black
+                  : Colors.white
+                  : PreferenceUtils.getBool(PrefKeys.darkTheme)
+                  ? Colors.white
+                  : Colors.black),
         ],
       ),
       body: screens[_selectedIndex],

@@ -1,4 +1,4 @@
-import 'dart:math'; // Import the Random class
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_final_graduation_project/core/utils/shared_prefrences.dart';
@@ -16,103 +16,106 @@ class FavoriteView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text('14'.tr)),
+        centerTitle: true,
+        title: Text('14'.tr),
       ),
       body: BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
-          return ListView.builder(
+          return GridView.builder(
+            physics: const ScrollPhysics(),
+            shrinkWrap: true,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: (MediaQuery.of(context).size.width - 30) / (2 * 240),
+              crossAxisSpacing: 10,
+            ),
             itemCount: cubit.favoriteDesigns.length,
             itemBuilder: (context, index) {
               final design = cubit.favoriteDesigns[index];
-              double randomHeight =
-                  180 + random.nextInt(80).toDouble(); // Reduce height range
 
-              return GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return DetailsScreen(design: design);
-                      },
-                    ),
-                  );
-                },
-                child: Container(
-                  margin: const EdgeInsets.symmetric(
-                      vertical: 6.0, horizontal: 12.0), // Reduce margin
-                  padding: const EdgeInsets.all(6.0), // Reduce padding
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(
-                        12), // Slightly smaller border radius
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.black12,
-                        blurRadius: 6.0,
-                        spreadRadius: 2.0,
-                      ),
-                    ],
-                  ),
-                  child: Column(
-                    children: [
-                      Stack(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(
-                                12), // Slightly smaller border radius
-                            child: Image.network(
-                              design.pictures!.first.pictureUrl.toString(),
-                              height: 250,
-                              width: double.infinity,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          Positioned(
-                            top: 8,
-                            right: 8,
-                            child: GestureDetector(
+              return Column(
+                children: [
+                  Expanded(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(25),
+                      child: Container(
+                        color: Colors.white,
+                        child: Stack(
+                          children: [
+                            InkWell(
                               onTap: () {
-                                cubit.toggleFavoriteStatus(design);
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) {
+                                      return DetailsScreen(design: design);
+                                    },
+                                  ),
+                                );
                               },
-                              child: Icon(
-                                cubit.favoriteDesigns.contains(design)
-                                    ? Icons.favorite
-                                    : Icons.favorite_border,
-                                color: cubit.favoriteDesigns.contains(design)
-                                    ? Colors.red
-                                    : Colors.grey,
+                              child: Image.network(
+                                design.pictures!.first.pictureUrl.toString(),
+                                fit: BoxFit.fill,
+                                height: MediaQuery.of(context).size.height * .23,
+                                width: double.infinity,
                               ),
                             ),
+                            Padding(
+                              padding: const EdgeInsets.all(6),
+                              child: Align(
+                                alignment: Alignment.topRight,
+                                child: Container(
+                                  padding: const EdgeInsets.all(8),
+                                  decoration: BoxDecoration(
+                                    color: Colors.black12,
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      cubit.toggleFavoriteStatus(design);
+                                    },
+                                    child: Icon(
+                                      cubit.favoriteDesigns.contains(design)
+                                          ? Icons.favorite
+                                          : Icons.favorite_border,
+                                      size: 25,
+                                      color: cubit.favoriteDesigns.contains(design)
+                                          ? Colors.red
+                                          : Colors.grey,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 5, left: 10.0, top: 2),
+                    child: Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            design.name.toString(),
+                            maxLines: 1,
+                            style: Theme.of(context).textTheme.headlineSmall,
+                          ),
+                          const SizedBox(height: 2),
+                          Text(
+                            design.description.toString(),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: Theme.of(context).textTheme.bodySmall,
                           ),
                         ],
                       ),
-                      const SizedBox(height: 6.0), // Reduce space
-                      Text(
-                        design.name.toString(),
-                        style: Theme.of(context)
-                            .textTheme
-                            .displayMedium!
-                            .copyWith(
-                              color: PreferenceUtils.getBool(PrefKeys.darkTheme)
-                                  ? Colors.black
-                                  : Colors.black,
-                            ),
-                        textAlign: TextAlign.center,
-                      ),
-                      const SizedBox(height: 4.0),
-                      Text(
-                        design.description.toString(),
-                        style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                              color: PreferenceUtils.getBool(PrefKeys.darkTheme)
-                                  ? Colors.black
-                                  : Colors.black,
-                            ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
+                    ),
                   ),
-                ),
+                ],
               );
             },
           );

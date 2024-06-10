@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 
 class MyLocalController extends GetxController {
   Locale initialLang = PreferenceUtils.getString(PrefKeys.language) == "ar"
-      ? Locale("ar")
-      : Locale("en");
+      ? Locale("en")
+      : Locale("ar");
   changeLang(String codeLang) {
     Locale locale = Locale(codeLang);
     PreferenceUtils.setString(PrefKeys.language, codeLang);

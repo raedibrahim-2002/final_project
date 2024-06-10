@@ -39,7 +39,6 @@ class _NavBarViewState extends State<NavBarView> {
         'lang': 'en',
       },
     );
-
     final responseData = jsonDecode(response.body);
 
     if (responseData['status'] == true) {
@@ -60,98 +59,96 @@ class _NavBarViewState extends State<NavBarView> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: Container(
-        child: _isLoading
-            ? const Center(child: CircularProgressIndicator())
-            : _error != null
+      child: ListView(
+        children: [
+          UserAccountsDrawerHeader(
+            decoration: BoxDecoration(
+                color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                    ? Colors.black
+                    : Colors.white),
+            accountName: _isLoading
+                ? const Center(child: CircularProgressIndicator())
+                : _error != null
+                    ? Center(child: Text(_error!))
+                    : Text(
+                        _userModel?.name ?? "Unknown",
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
+            accountEmail: _error != null
                 ? Center(child: Text(_error!))
-                : ListView(
-                    children: [
-                      UserAccountsDrawerHeader(
-                        decoration: BoxDecoration(
-                            color: PreferenceUtils.getBool(PrefKeys.darkTheme)
-                                ? Colors.black
-                                : Colors.white),
-                        accountName: Text(
-                          _userModel?.name ?? "Unknown",
-                          style: Theme.of(context).textTheme.headlineMedium,
-                        ),
-                        accountEmail: Text(
-                          _userModel?.email ?? "Unknown",
-                          style: Theme.of(context).textTheme.bodySmall,
-                        ),
-                        currentAccountPicture: Container(
-                          child: ClipOval(
-                            child: Image.asset(
-                              'assets/images/pana.png',
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                        ),
-                      ),
-                      SwitchListTile(
-                        title: Row(
-                          children: [
-                            Icon(CupertinoIcons.bell_fill), // أيقونة الشمس
-                            SizedBox(width: 8), // ترك مسافة بين الأيقونة والنص
-                            Text(
-                              "8".tr,
-                              style: Theme.of(context).textTheme.titleMedium,
-                            ),
-                          ],
-                        ),
-                        value: valueNotification,
-                        onChanged: (bool value) {
-                          setState(() {
-                            valueNotification = value;
-                          });
-                        },
-                      ),
-                      ListTile(
-                        leading: const Icon(Icons.settings),
-                        title: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "3".tr,
-                              style: Theme.of(context).textTheme.titleMedium,
-                            ),
-                            const Icon(Icons.arrow_forward_ios_outlined)
-                          ],
-                        ),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return const SettingsScreen();
-                              },
-                            ),
-                          );
-                        },
-                      ),
-                      ListTile(
-                        leading: const Icon(Icons.info),
-                        title: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "13".tr,
-                              style: Theme.of(context).textTheme.titleMedium,
-                            ),
-                            const Icon(Icons.arrow_forward_ios_outlined)
-                          ],
-                        ),
-                        onTap: () {
-                          Navigator.push(context, MaterialPageRoute(
-                            builder: (context) {
-                              return const AboutUsPage();
-                            },
-                          ));
-                        },
-                      ),
-                    ],
+                : Text(
+                    _userModel?.email ?? "Unknown",
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
+            currentAccountPicture: ClipOval(
+              child: Image.asset(
+                'assets/images/pana.png',
+                fit: BoxFit.fill,
+              ),
+            ),
+          ),
+          SwitchListTile(
+            title: Row(
+              children: [
+                Icon(CupertinoIcons.bell_fill), // أيقونة الجرس
+                SizedBox(width: 8), // ترك مسافة بين الأيقونة والنص
+                Text(
+                  "8".tr,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+              ],
+            ),
+            value: valueNotification,
+            onChanged: (bool value) {
+              setState(() {
+                valueNotification = value;
+              });
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.settings),
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "3".tr,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                const Icon(Icons.arrow_forward_ios_outlined)
+              ],
+            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const SettingsScreen();
+                  },
+                ),
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.info),
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "13".tr,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                const Icon(Icons.arrow_forward_ios_outlined)
+              ],
+            ),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return const AboutUsPage();
+                },
+              ));
+            },
+          ),
+        ],
       ),
     );
   }

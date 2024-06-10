@@ -21,51 +21,49 @@ class SearchScreen extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
-            automaticallyImplyLeading: false,
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * .01,
-                ),
-                Text(
-                  "17".tr,
-                  style: Theme.of(context).textTheme.displayMedium,
-                ),
-              ],
+            centerTitle: true,
+            title: Text(
+              "17".tr,
+              style: Theme.of(context).textTheme.displayMedium,
             ),
           ),
           body: Column(
             children: [
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
-                child: TextFormField(
-                  controller: searchController,
-                  onFieldSubmitted: (String value) {
-                    // print(value);
-                  },
-                  onChanged: (input) {
-                    cubit.filterProduct(input: input);
-                  },
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Colors.grey,
-                    labelText: "17".tr,
-                    labelStyle: TextStyle(
-                        color: Colors.white), // Change text color to black
-                    prefixIcon: const Icon(
-                      Icons.search,
-                      color: Colors.white, // Change icon color to black
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: Container(
+                  height: MediaQuery.of(context).size.height * .06,
+                  width: MediaQuery.of(context).size.width * .88,
+                  child: TextFormField(
+                    controller: searchController,
+                    onFieldSubmitted: (String value) {
+                      // print(value);
+                    },
+                    onChanged: (input) {
+                      cubit.filterProduct(input: input);
+                    },
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.grey,
+                      labelText: "17".tr,
+                      labelStyle: TextStyle(
+                          color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                              ? Colors.white
+                              : Colors.black), // Change text color to black
+                      prefixIcon: const Icon(
+                        Icons.search,
+                        color: Colors.white, // Change icon color to black
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius:
+                            BorderRadius.circular(15.0), // More rounded corners
+                        borderSide: BorderSide.none,
+                      ),
                     ),
-                    border: OutlineInputBorder(
-                      borderRadius:
-                          BorderRadius.circular(20.0), // More rounded corners
-                      borderSide: BorderSide.none,
-                    ),
+                    style: TextStyle(
+                        color:
+                            Colors.black), // Change input text color to black
                   ),
-                  style: TextStyle(
-                      color: Colors.black), // Change input text color to black
                 ),
               ),
               Expanded(

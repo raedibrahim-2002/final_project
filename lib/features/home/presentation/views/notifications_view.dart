@@ -35,7 +35,15 @@ class _NotificationViewState extends State<NotificationView> {
                 color: PreferenceUtils.getBool(PrefKeys.darkTheme)
                     ? Colors.white
                     : Colors.black)),
-        actions: [],
+        actions: [
+          IconButton(
+            icon: Icon(Icons.clear_all),
+            onPressed: clearAllNotifications,
+            color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                ? Colors.white
+                : Colors.black,
+          ),
+        ],
       ),
       body: ListView.builder(
         itemBuilder: (context, index) => notifications[index],
@@ -51,39 +59,71 @@ class CustomNotification extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: const EdgeInsets.all(15),
+      decoration: BoxDecoration(
+        color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+            ? Colors.grey[850]
+            : Colors.white,
+        borderRadius: BorderRadius.circular(15),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 10,
+            offset: Offset(0, 5),
+          ),
+        ],
+      ),
       child: ListTile(
-        tileColor: Colors.white,
+        contentPadding: EdgeInsets.all(0),
         title: Padding(
-          padding: EdgeInsets.symmetric(vertical: 5),
+          padding: const EdgeInsets.only(bottom: 8),
           child: Text(
             'Super Offer'.tr,
             style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                color: PreferenceUtils.getBool(PrefKeys.darkTheme)
-                    ? Colors.black
-                    : Colors.white),
+              color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                  ? Colors.white
+                  : Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         subtitle: Padding(
-          padding: EdgeInsets.symmetric(vertical: 0),
+          padding: const EdgeInsets.only(bottom: 8),
           child: Text(
             'Get 60% off in our first booking'.tr,
-            style: Theme.of(context).textTheme.labelMedium,
+            style: Theme.of(context).textTheme.labelMedium!.copyWith(
+              color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                  ? Colors.white70
+                  : Colors.black87,
+            ),
           ),
         ),
         leading: CircleAvatar(
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.transparent,
           radius: 30,
-          backgroundImage: AssetImage(
-            "assets/images/home_3.jpeg",
-          ),
+          backgroundImage: AssetImage("assets/images/home_3.jpeg"),
         ),
-        trailing: Text(
-          style: Theme.of(context)
-              .textTheme
-              .displaySmall!
-              .copyWith(color: Colors.black),
-          '${DateFormat.E().format(DateTime.now())} ${DateFormat.jm().format(DateTime.now())}',
+        trailing: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              DateFormat.E().format(DateTime.now()),
+              style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                    ? Colors.white70
+                    : Colors.black54,
+              ),
+            ),
+            Text(
+              DateFormat.jm().format(DateTime.now()),
+              style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                    ? Colors.white70
+                    : Colors.black54,
+              ),
+            ),
+          ],
         ),
       ),
     );

@@ -22,8 +22,7 @@ class _CategoryViewState extends State<CategoryView> {
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
-            automaticallyImplyLeading: false,
-            elevation: 0,
+            centerTitle: true,
             title: const AppBarCategoryViewBody(),
           ),
           body: cubit.categories.isEmpty
@@ -80,19 +79,9 @@ class AppBarCategoryViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        const Spacer(),
-        SizedBox(
-          width: MediaQuery.of(context).size.width * .09,
-        ),
-        Text(
-          "2".tr,
-          style: Theme.of(context).textTheme.displayMedium,
-        ),
-        const Spacer(),
-      ],
+    return Text(
+      "2".tr,
+      style: Theme.of(context).textTheme.displayMedium,
     );
   }
 }

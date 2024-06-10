@@ -75,6 +75,20 @@ class _FilterScreenState extends State<FilterScreen> {
             ),
             FirstLineCategory(),
             SecondLineCategory(),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: ItemTypecategory(
+                onTap: () {
+                  setState(() {
+                    selectedCategory = AppString.Kitchen;
+                  });
+                },
+                title: AppString.Kitchen,
+                color: selectedCategory == AppString.Kitchen
+                    ? BaseColors.primaryColor
+                    : Colors.grey,
+              ),
+            ),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
               child: Divider(
@@ -158,7 +172,7 @@ class _FilterScreenState extends State<FilterScreen> {
 
   Padding SecondLineStyles() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 14),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -249,18 +263,18 @@ class _FilterScreenState extends State<FilterScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          ItemTypecategory(
-            onTap: () {
-              setState(() {
-                selectedCategory = AppString.Kitchen;
-              });
-            },
-            title: AppString.Kitchen,
-            color: selectedCategory == AppString.Kitchen
-                ? BaseColors.primaryColor
-                : Colors.grey,
-          ),
+        children: [   ItemTypecategory(
+          onTap: () {
+            setState(() {
+              selectedCategory = AppString.bedroom;
+            });
+          },
+          title: AppString.bedroom,
+          color: selectedCategory == AppString.bedroom
+              ? BaseColors.primaryColor
+              : Colors.grey,
+        ),
+
           ItemTypecategory(
             onTap: () {
               setState(() {
@@ -283,17 +297,7 @@ class _FilterScreenState extends State<FilterScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          ItemTypecategory(
-            onTap: () {
-              setState(() {
-                selectedCategory = AppString.bedroom;
-              });
-            },
-            title: AppString.bedroom,
-            color: selectedCategory == AppString.bedroom
-                ? BaseColors.primaryColor
-                : Colors.grey,
-          ),
+
           ItemTypecategory(
             onTap: () {
               setState(() {

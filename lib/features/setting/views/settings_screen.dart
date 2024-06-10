@@ -280,14 +280,23 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
                 Text(
                   'Select Theme'.tr,
-                  style: TextStyle(color: BaseColors.blackColor, fontSize: 22),
+                  style: TextStyle(
+                      color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                          ? BaseColors.whiteColor
+                          : BaseColors.blackColor,
+                      fontSize: 22),
                 ),
                 ElevatedButton(
                   onPressed: () async {
                     await PreferenceUtils.setBool(PrefKeys.darkTheme, false);
                     Navigator.pop(context);
                   },
-                  child: Text('light'.tr),
+                  child: Text('light'.tr,
+                      style: TextStyle(
+                        color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                            ? BaseColors.whiteColor
+                            : BaseColors.blackColor,
+                      )),
                 ),
                 const SizedBox(
                   height: 10,
@@ -297,7 +306,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     await PreferenceUtils.setBool(PrefKeys.darkTheme, true);
                     Navigator.pop(context);
                   },
-                  child: Text('dark'.tr),
+                  child: Text('dark'.tr,
+                      style: TextStyle(
+                        color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                            ? BaseColors.whiteColor
+                            : BaseColors.blackColor,
+                      )),
                 ),
               ],
             ),
@@ -325,14 +339,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   height: 20,
                 ),
                 Text('Select Language'.tr,
-                    style:
-                        TextStyle(color: BaseColors.blackColor, fontSize: 22)),
+                    style: TextStyle(
+                        color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                            ? BaseColors.whiteColor
+                            : BaseColors.blackColor,
+                        fontSize: 22)),
                 ElevatedButton(
                   onPressed: () async {
                     controllerLang.changeLang("en");
                     Navigator.pop(context);
                   },
-                  child: Text('6'.tr),
+                  child: Text('6'.tr,
+                      style: TextStyle(
+                        color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                            ? BaseColors.whiteColor
+                            : BaseColors.blackColor,
+                      )),
                 ),
                 const SizedBox(
                   height: 10,
@@ -343,7 +365,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
                     Navigator.pop(context);
                   },
-                  child: Text('20'.tr),
+                  child: Text('20'.tr,
+                      style: TextStyle(
+                        color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                            ? BaseColors.whiteColor
+                            : BaseColors.blackColor,
+                      )),
                 ),
               ],
             ),
@@ -351,7 +378,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         );
       },
     ).then((value) {
-      BlocProvider.of<SettingCubit>(context).chageTheme();
+      BlocProvider.of<SettingCubit>(context).chageLanguage();
     });
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/core/utils/colors.dart';
@@ -69,8 +70,17 @@ class ProfileView extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const SizedBox(
-                          height: 16,
+                        Center(
+                          child: SizedBox(
+                            height: 100,
+                            width: 100,
+                            child: ClipOval(
+                              child: Image.asset(
+                                'assets/images/pana.png',
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ),
                         ),
                         Align(
                           alignment: Alignment.center,
@@ -85,9 +95,6 @@ class ProfileView extends StatelessWidget {
                                               PrefKeys.darkTheme)
                                           ? Colors.white
                                           : Colors.black)),
-                        ),
-                        const SizedBox(
-                          height: 50,
                         ),
                         Text('37'.tr,
                             style: getRegularTextStyleInter(
@@ -187,11 +194,11 @@ class ProfileView extends StatelessWidget {
                                     key: "token");
 
                                 // توجيه المستخدم إلى صفحة البداية (صفحة تسجيل الدخول)
-                                Navigator.pushReplacement(
+                                Navigator.pushAndRemoveUntil(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => LoginScreen(),
-                                  ),
+                                      builder: (context) => SplashView()),
+                                  (Route<dynamic> route) => false,
                                 );
                               },
                               child: Text(

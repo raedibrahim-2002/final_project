@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_final_graduation_project/core/local/local_controller.dart';
+import 'package:flutter_final_graduation_project/core/utils/about_us.dart';
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/core/utils/colors.dart';
 import 'package:flutter_final_graduation_project/core/utils/shared_prefrences.dart';
@@ -131,7 +132,13 @@ class _UnSignedSettingsScreenState extends State<UnSignedSettingsScreen> {
                 ),
                 const Spacer(),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return AboutUsPage();
+                      },
+                    ));
+                  },
                   icon: Icon(Icons.arrow_forward_ios),
                 ),
               ],

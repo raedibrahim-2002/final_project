@@ -95,7 +95,7 @@ class _GrideViewBuilderForDesignsState
                             padding: const EdgeInsets.all(8),
                             decoration: BoxDecoration(
                               color: Colors.black12,
-                              borderRadius: BorderRadius.circular(20),
+                              borderRadius: BorderRadius.circular(30),
                             ),
                             child: IconButton(
                               onPressed: () {

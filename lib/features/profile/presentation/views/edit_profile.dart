@@ -80,7 +80,7 @@ class EditProfileView extends StatelessWidget {
             ),
             body: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -91,12 +91,12 @@ class EditProfileView extends StatelessWidget {
                         "39".tr,
                         style:
                             Theme.of(context).textTheme.displayMedium!.copyWith(
-                                  fontSize: 24,
+                                  fontSize: 22,
                                   fontWeight: FontWeight.w500,
                                 ),
                       ),
                     ),
-                    const SizedBox(height: 50),
+                    const SizedBox(height: 40),
                     buildTextFieldSection(
                       context,
                       label: '40'.tr,
@@ -141,7 +141,7 @@ class EditProfileView extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         CustomTextFormField(controller: controller),
-        const SizedBox(height: 15),
+        const SizedBox(height: 10),
       ],
     );
   }

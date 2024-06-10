@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_chat_bubble/chat_bubble.dart';
+import 'package:flutter_final_graduation_project/core/utils/colors.dart';
 import 'package:flutter_final_graduation_project/core/utils/shared_prefrences.dart';
 import 'package:flutter_final_graduation_project/features/chat/presentation/views/widgets/Const_chat.dart';
 import 'package:flutter_final_graduation_project/features/favorite/presentation/view/favorite_view.dart';
@@ -46,7 +47,9 @@ class _ChatViewBodyState extends State<ChatViewBody> {
                   itemCount: Chat.length,
                   itemBuilder: (_, index) => BubbleSpecialThree(
                     text: Chat[index].toString(),
-                    color: const Color(0xFF1D2046),
+                    color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                        ? BaseColors.whiteColor
+                        : BaseColors.blackColor,
                     tail: true,
                     textStyle: TextStyle(
                         color: PreferenceUtils.getBool(PrefKeys.darkTheme)
@@ -78,9 +81,11 @@ class _ChatViewBodyState extends State<ChatViewBody> {
                             text.text = "";
                           });
                         },
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.send,
-                          color: Color(0xFF1D2046),
+                          color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                              ? Colors.white
+                              : Colors.black,
                         ))
                   ],
                 ),

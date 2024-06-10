@@ -8,6 +8,7 @@ import 'package:flutter_final_graduation_project/core/utils/flutter_toast.dart';
 import 'package:flutter_final_graduation_project/features/home/presentation/views/home_view.dart';
 import 'package:flutter_final_graduation_project/features/login_and_signUp/presentation/views/auth_cubit/auth_cubit.dart';
 import 'package:flutter_final_graduation_project/features/login_and_signUp/presentation/views/auth_cubit/auth_states.dart';
+import 'package:flutter_final_graduation_project/features/login_and_signUp/presentation/views/login_view.dart';
 import 'package:get/get.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -31,10 +32,8 @@ class _SignupScreenState extends State<SignupScreen> {
     return BlocConsumer<AuthCubit, AuthStates>(
       listener: (context, state) {
         if (state is RegisterSuccessState) {
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => const BottomNavigationBarHelper()));
+          Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) => const LoginScreen()));
         } else if (state is FailedToRegisterState) {
           showDialog(
               context: context,

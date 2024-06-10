@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_final_graduation_project/core/utils/list_view_design.dart';
+import 'package:flutter_final_graduation_project/core/utils/shared_prefrences.dart';
 import 'package:flutter_final_graduation_project/features/room/presentaiton/views/widgets/custom_tab.dart';
 
 class RoomView extends StatelessWidget {
@@ -13,18 +14,24 @@ class RoomView extends StatelessWidget {
       length: 7,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          centerTitle: true,
+          backgroundColor: PreferenceUtils.getBool(PrefKeys.darkTheme)
+              ? Colors.black
+              : Colors.white,
           elevation: 0,
-          title: Center(
-              child: Text(
+          title: Text(
             roomTitle,
             style: Theme.of(context).textTheme.displayMedium,
-          )),
+          ),
           bottom: TabBar(
-            dividerColor: Colors.white,
-            indicator: const ShapeDecoration(
-              color: Color(0xFF1D2046),
-              shape: RoundedRectangleBorder(
+            dividerColor: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                ? Colors.white
+                : Colors.black,
+            indicator: ShapeDecoration(
+              color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                  ? Colors.white
+                  : Colors.black,
+              shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(
                   Radius.circular(
                     15,
@@ -33,8 +40,12 @@ class RoomView extends StatelessWidget {
               ),
             ),
             isScrollable: true,
-            labelColor: Colors.white,
-            unselectedLabelColor: Colors.black,
+            labelColor: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                ? Colors.black
+                : Colors.white,
+            unselectedLabelColor: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                ? Colors.white
+                : Colors.black,
             indicatorSize: TabBarIndicatorSize.values.first,
             indicatorWeight: 1,
             padding: const EdgeInsets.all(5),

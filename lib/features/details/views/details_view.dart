@@ -20,15 +20,10 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "24".tr,
-              style: Theme.of(context).textTheme.displayMedium,
-            ),
-          ],
+        centerTitle: true,
+        title: Text(
+          "24".tr,
+          style: Theme.of(context).textTheme.displayMedium,
         ),
       ),
       body: Padding(
@@ -65,8 +60,11 @@ class DetailsScreen extends StatelessWidget {
                               style: Theme.of(context).textTheme.headlineSmall)
                         ],
                       ),
-                      Text("Description".tr,
-                          style: Theme.of(context).textTheme.titleSmall),
+                      Text(
+                        "Description".tr,
+                        style: Theme.of(context).textTheme.titleSmall,
+                        textDirection: TextDirection.rtl,
+                      ),
                       Text(design.description!,
                           style: Theme.of(context)
                               .textTheme

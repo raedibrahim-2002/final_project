@@ -7,6 +7,7 @@ import 'package:flutter_final_graduation_project/features/home/cubit/home_cubit.
 import 'package:flutter_final_graduation_project/features/unsignedBottomnavigationBar2/unSigned_design_details.dart';
 import 'package:flutter_final_graduation_project/features/unsignedBottomnavigationBar2/usSignedSettings.dart';
 import 'package:flutter_final_graduation_project/models/design_model/design_model.dart';
+import 'package:get/get.dart';
 
 class UnSignedHomeView2 extends StatefulWidget {
   const UnSignedHomeView2({super.key});
@@ -192,7 +193,7 @@ class AppBarBody extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          AppString.home,
+          "1".tr,
           style: Theme.of(context).textTheme.displayMedium,
         ),
         SizedBox(
