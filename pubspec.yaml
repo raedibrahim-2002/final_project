@@ -62,6 +62,14 @@ dependencies:
   shared_preferences: ^2.2.2
 
 dev_dependencies:
+  flutter_launcher_icons: "^0.13.1"
+
+flutter_launcher_icons:
+  android: "launcher_icon2"
+  ios: true
+  image_path: "assets/images/logo_for_photo.png"
+  min_sdk_android: 21
+
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter

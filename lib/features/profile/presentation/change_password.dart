@@ -24,7 +24,7 @@ class ChangePasswordScreen extends StatelessWidget {
     return BlocConsumer<UserCubit, UserState>(
       listener: (context, state) {
         if (state is ChangePasswordSuccessState) {
-          showSnackBarItem(context, "password updated successfully", true);
+          showSnackBarItem(context, "password updated successfully".tr, true);
           Navigator.pop(context);
         }
         if (state is ChangePasswordWithFailureState) {
@@ -82,12 +82,12 @@ class ChangePasswordScreen extends StatelessWidget {
                         final newPassword = newPasswordController.text.trim();
                         if (currentPassword.isEmpty || newPassword.isEmpty) {
                           showSnackBarItem(
-                              context, "Fields cannot be empty", false);
+                              context, "Fields cannot be empty".tr, false);
                           return;
                         }
                         if (newPassword.length < 6) {
                           showSnackBarItem(context,
-                              "Password must be at least 6 characters", false);
+                              "Password must be at least 6 characters".tr, false);
                           return;
                         }
                         cubit.changePassword(

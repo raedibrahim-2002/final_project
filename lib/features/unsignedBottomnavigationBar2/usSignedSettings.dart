@@ -120,28 +120,37 @@ class _UnSignedSettingsScreenState extends State<UnSignedSettingsScreen> {
             const SizedBox(
               height: 24,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ItemRowIcon(
-                  icon: CupertinoIcons.info_circle_fill,
-                  sizeIcon: 30,
-                  title: "13".tr,
-                  value: '',
-                ),
-                const Spacer(),
-                IconButton(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(
-                      builder: (context) {
-                        return AboutUsPage();
-                      },
-                    ));
+            InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return AboutUsPage();
                   },
-                  icon: Icon(Icons.arrow_forward_ios),
-                ),
-              ],
+                ));
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ItemRowIcon(
+                    icon: CupertinoIcons.info_circle_fill,
+                    sizeIcon: 30,
+                    title: "13".tr,
+                    value: '',
+                  ),
+                  const Spacer(),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return AboutUsPage();
+                        },
+                      ));
+                    },
+                    icon: Icon(Icons.arrow_forward_ios),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
@@ -164,13 +173,25 @@ class _UnSignedSettingsScreenState extends State<UnSignedSettingsScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-                const Text('Select Theme'),
+                Text(
+                  'Select Theme'.tr,
+                  style: TextStyle(
+                      color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                          ? BaseColors.whiteColor
+                          : BaseColors.blackColor,
+                      fontSize: 22),
+                ),
                 ElevatedButton(
                   onPressed: () async {
                     await PreferenceUtils.setBool(PrefKeys.darkTheme, false);
                     Navigator.pop(context);
                   },
-                  child: Text('light'),
+                  child: Text('light'.tr,
+                      style: TextStyle(
+                        color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                            ? BaseColors.whiteColor
+                            : BaseColors.blackColor,
+                      )),
                 ),
                 const SizedBox(
                   height: 10,
@@ -180,7 +201,12 @@ class _UnSignedSettingsScreenState extends State<UnSignedSettingsScreen> {
                     await PreferenceUtils.setBool(PrefKeys.darkTheme, true);
                     Navigator.pop(context);
                   },
-                  child: Text('dark'),
+                  child: Text('dark'.tr,
+                      style: TextStyle(
+                        color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                            ? BaseColors.whiteColor
+                            : BaseColors.blackColor,
+                      )),
                 ),
               ],
             ),
@@ -207,13 +233,23 @@ class _UnSignedSettingsScreenState extends State<UnSignedSettingsScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-                const Text('Select Language'),
+                Text('Select Language'.tr,
+                    style: TextStyle(
+                        color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                            ? BaseColors.whiteColor
+                            : BaseColors.blackColor,
+                        fontSize: 22)),
                 ElevatedButton(
                   onPressed: () async {
                     controllerLang.changeLang("en");
                     Navigator.pop(context);
                   },
-                  child: Text('English'),
+                  child: Text('6'.tr,
+                      style: TextStyle(
+                        color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                            ? BaseColors.whiteColor
+                            : BaseColors.blackColor,
+                      )),
                 ),
                 const SizedBox(
                   height: 10,
@@ -224,7 +260,12 @@ class _UnSignedSettingsScreenState extends State<UnSignedSettingsScreen> {
 
                     Navigator.pop(context);
                   },
-                  child: Text('Arabic'),
+                  child: Text('20'.tr,
+                      style: TextStyle(
+                        color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                            ? BaseColors.whiteColor
+                            : BaseColors.blackColor,
+                      )),
                 ),
               ],
             ),
@@ -232,7 +273,7 @@ class _UnSignedSettingsScreenState extends State<UnSignedSettingsScreen> {
         );
       },
     ).then((value) {
-      BlocProvider.of<SettingCubit>(context).chageTheme();
+      BlocProvider.of<SettingCubit>(context).chageLanguage();
     });
   }
 }

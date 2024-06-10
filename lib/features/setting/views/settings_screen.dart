@@ -208,23 +208,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const SizedBox(
               height: 24,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ItemRowIcon(
-                  icon: CupertinoIcons.lock_fill,
-                  sizeIcon: 30,
-                  title: "12".tr,
-                  value: '',
-                ),
-                const Spacer(),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.arrow_forward_ios),
-                ),
-              ],
-            ),
             InkWell(
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(

@@ -46,7 +46,7 @@ class _UnSignedChat2State extends State<UnSignedChat2> {
                   ),
                 ),
                 child: Text(
-                  "OK",
+                  "OK".tr,
                   style: TextStyle(color: Colors.white), // لون النص
                 ),
               ),

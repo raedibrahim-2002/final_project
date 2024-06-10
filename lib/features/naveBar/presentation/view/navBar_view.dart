@@ -71,13 +71,13 @@ class _NavBarViewState extends State<NavBarView> {
                 : _error != null
                     ? Center(child: Text(_error!))
                     : Text(
-                        _userModel?.name ?? "Unknown",
+                        _userModel?.name ?? "Unknown".tr,
                         style: Theme.of(context).textTheme.headlineMedium,
                       ),
             accountEmail: _error != null
                 ? Center(child: Text(_error!))
                 : Text(
-                    _userModel?.email ?? "Unknown",
+                    _userModel?.email ?? "Unknown".tr,
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
             currentAccountPicture: ClipOval(

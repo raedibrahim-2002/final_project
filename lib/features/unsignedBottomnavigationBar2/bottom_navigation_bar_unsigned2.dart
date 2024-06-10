@@ -30,44 +30,67 @@ class _BottomNavigationBarHelperUnSigned2State
     ];
     return Scaffold(
       extendBody: true,
-      bottomNavigationBar: CurvedNavigationBar(
-        color: Colors.white, // لون خلفية ال bottom navigation bar
-        backgroundColor: Colors.transparent,
-        index: _selectedIndex,
-        buttonBackgroundColor: PreferenceUtils.getBool(PrefKeys.darkTheme)
-            ? Colors.white
-            : Colors.black,
-        onTap: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
-        animationDuration: Duration(milliseconds: 400),
-        items: [
-          Icon(
-            Icons.home,
-            color: _selectedIndex == 0 ? PreferenceUtils.getBool(PrefKeys.darkTheme)
-                ? Colors.black
-                : Colors.white
-                : PreferenceUtils.getBool(PrefKeys.darkTheme)
-                ? Colors.white
-                : Colors.black,
-          ), // اللون يتغير بناءً على الاختيار المحدد
-          Icon(Icons.category,
-              color: _selectedIndex == 1 ? PreferenceUtils.getBool(PrefKeys.darkTheme)
-                  ? Colors.black
-                  : Colors.white
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                  ? Colors.white.withOpacity(0.3)
+                  : Colors.black.withOpacity(0.4),
+              spreadRadius: 5,
+              blurRadius: 10,
+              offset: Offset(0, 3), // تغيير الاتجاه إذا لزم الأمر
+            ),
+          ],
+        ),
+        child: CurvedNavigationBar(
+          color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+              ? Colors.black
+              : Colors.white,
+          backgroundColor: Colors.transparent,
+          index: _selectedIndex,
+          buttonBackgroundColor: PreferenceUtils.getBool(PrefKeys.darkTheme)
+              ? Colors.white
+              : Colors.black,
+          onTap: (index) {
+            setState(() {
+              _selectedIndex = index;
+            });
+          },
+          animationDuration: Duration(milliseconds: 400),
+          items: [
+            Icon(
+              Icons.home,
+              color: _selectedIndex == 0
+                  ? PreferenceUtils.getBool(PrefKeys.darkTheme)
+                      ? Colors.black
+                      : Colors.white
                   : PreferenceUtils.getBool(PrefKeys.darkTheme)
-                  ? Colors.white
-                  : Colors.black),
-          Icon(Icons.chat,
-              color: _selectedIndex == 2 ? PreferenceUtils.getBool(PrefKeys.darkTheme)
-                  ? Colors.black
-                  : Colors.white
+                      ? Colors.white
+                      : Colors.black,
+            ),
+            Icon(
+              Icons.category,
+              color: _selectedIndex == 1
+                  ? PreferenceUtils.getBool(PrefKeys.darkTheme)
+                      ? Colors.black
+                      : Colors.white
                   : PreferenceUtils.getBool(PrefKeys.darkTheme)
-                  ? Colors.white
-                  : Colors.black),
-        ],
+                      ? Colors.white
+                      : Colors.black,
+            ),
+            Icon(
+              Icons.chat,
+              color: _selectedIndex == 2
+                  ? PreferenceUtils.getBool(PrefKeys.darkTheme)
+                      ? Colors.black
+                      : Colors.white
+                  : PreferenceUtils.getBool(PrefKeys.darkTheme)
+                      ? Colors.white
+                      : Colors.black,
+            ),
+          ],
+        ),
       ),
       body: screens[_selectedIndex],
     );

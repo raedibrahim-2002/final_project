@@ -92,8 +92,12 @@ class MyLocal implements Translations {
           "Contact Us": "اتصل بنا",
           "If you have any questions or would like to get in touch, please feel free to contact us at grand-deco-mm.com.":
               "إذا كانت لديك أي أسئلة أو ترغب في التواصل معنا، فلا تتردد في الاتصال بنا على grand-deco-mm.com.",
-                            "Select Theme":"اختر المظهر"
-
+          "Select Theme": "اختر المظهر",
+          "Unknown": "غير معروف",
+          "User data updated successfully": "تم تغيير بيانات المستخدم بنجاح",
+          "Fields cannot be empty": "لا يمكن أن تكون الحقول فارغة",
+          "Password must be at least 6 characters":
+              "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل"
         },
         "en": {
           "1": "Home",
@@ -183,7 +187,12 @@ class MyLocal implements Translations {
           "Contact Us": "Contact Us",
           "If you have any questions or would like to get in touch, please feel free to contact us at grand-deco-mm.com.":
               "If you have any questions or would like to get in touch, please feel free to contact us at grand-deco-mm.com.",
-              "Select Theme":"Select Theme"
+          "Select Theme": "Select Theme",
+          "Unknown": "Unknown",
+          "User data updated successfully": "User data updated successfully",
+          "Fields cannot be empty": "Fields cannot be empty",
+          "Password must be at least 6 characters":
+              "Password must be at least 6 characters"
         }
       };
 }

@@ -24,7 +24,7 @@ class EditProfileView extends StatelessWidget {
       child: BlocConsumer<UserCubit, UserState>(
         listener: (context, state) {
           if (state is UpdateUserDataSuccessState) {
-            showSnackBarItem(context, "User data updated successfully", true);
+            showSnackBarItem(context, "User data updated successfully".tr, true);
             Navigator.pop(context);
           } else if (state is UpdateUserDataWithFailureState) {
             showSnackBarItem(context, state.error, false);

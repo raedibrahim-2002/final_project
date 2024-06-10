@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/core/utils/colors.dart';
+import 'package:flutter_final_graduation_project/core/utils/shared_prefrences.dart';
 import 'package:flutter_final_graduation_project/features/details/views/details_view.dart';
 import 'package:flutter_final_graduation_project/features/favorite/cubit/favorite_cubit.dart';
 import 'package:flutter_final_graduation_project/features/favorite/presentation/view/favorite_view.dart';
@@ -98,8 +99,11 @@ class _HomeViewState extends State<HomeView> {
                           ),
                         );
                       },
-                      icon: const Icon(
+                      icon: Icon(
                         CupertinoIcons.slider_horizontal_3,
+                        color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                            ? Colors.white
+                            : Colors.black,
                       ),
                     )
                   ],
