@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_final_graduation_project/core/local/local_controller.dart';
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/core/utils/shared_prefrences.dart';
 import 'package:flutter_final_graduation_project/features/onboardings/presentation/onboarding1/widgets/onBoardingelevatedButtons.dart';
+import 'package:get/get.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 PageViewModel OnBoardingPageView1() {
+  MyLocalController controllerLang = Get.find();
+
   return PageViewModel(
     titleWidget: Text(OnBoardingAssets.title1),
     bodyWidget: Text(
@@ -14,15 +18,17 @@ PageViewModel OnBoardingPageView1() {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         OnBoardingElevatedButtonLanguages(
-          title: OnBoardingAssets.arabicButton,
+          title: "20".tr,
           onPress: () {
             PreferenceUtils.setString(PrefKeys.language, "ar");
+            controllerLang.changeLang("ar");
           },
         ),
         OnBoardingElevatedButtonLanguages(
-          title: OnBoardingAssets.englishButton,
+          title: "6".tr,
           onPress: () {
             PreferenceUtils.setString(PrefKeys.language, "en");
+            controllerLang.changeLang("en");
           },
         )
       ],
@@ -43,7 +49,7 @@ PageViewModel OnBoardingPageView1() {
 PageViewModel OnBoardingPageView2() {
   return PageViewModel(
     bodyWidget: Text(
-      OnBoardingAssets.body2,
+      "Discover the world of beauty".tr,
       style: TextStyle(
         fontSize: 14,
         fontWeight: FontWeightManager.regular,
@@ -52,7 +58,7 @@ PageViewModel OnBoardingPageView2() {
       ),
     ),
     titleWidget: Text(
-      OnBoardingAssets.title2,
+      "Discover The World Of Beauty".tr,
       style: TextStyle(
         fontSize: 24,
         fontWeight: FontWeightManager.semiBold,
@@ -77,7 +83,7 @@ PageViewModel OnBoardingPageView2() {
 PageViewModel OnBoardingPageView3() {
   return PageViewModel(
     titleWidget: Text(
-      OnBoardingAssets.title3,
+      "Direct".tr,
       style: TextStyle(
         fontSize: 24,
         fontWeight: FontWeightManager.semiBold,
@@ -85,8 +91,8 @@ PageViewModel OnBoardingPageView3() {
         color: Color(0xff0D142C),
       ),
     ),
-    bodyWidget: const Text(
-      OnBoardingAssets.body3,
+    bodyWidget: Text(
+      "Direct communication with \nthe company through a chat".tr,
       style: TextStyle(
         fontSize: 14,
         fontWeight: FontWeightManager.regular,

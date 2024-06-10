@@ -7,6 +7,7 @@ import 'package:flutter_final_graduation_project/features/favorite/presentation/
 import 'package:flutter_final_graduation_project/features/home/presentation/views/notifications_view.dart';
 import 'package:flutter_final_graduation_project/features/unsignedBottomnavigationBar2/unSignedChat.dart';
 import 'package:flutter_final_graduation_project/models/design_model/design_model.dart';
+import 'package:get/get.dart';
 
 class UnSignedDesignDetailsScreen extends StatelessWidget {
   final DesignModel design;
@@ -20,19 +21,20 @@ class UnSignedDesignDetailsScreen extends StatelessWidget {
         builder: (BuildContext context) {
           return AlertDialog(
             title: Center(
-                child: Text("You Have To Sign In",
+                child: Text("You Have To Sign In".tr,
                     style: Theme.of(context)
                         .textTheme
                         .labelLarge!
                         .copyWith(fontSize: 20))),
-            content:Text(
-                "Please go back to sign in to view the full details and interact.",
+            content: Text(
+                "Please go back to sign in to view the full details and interact."
+                    .tr,
                 style: Theme.of(context)
                     .textTheme
                     .bodyMedium!
                     .copyWith(fontSize: 15)),
             actions: [
-               TextButton(
+              TextButton(
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -43,7 +45,7 @@ class UnSignedDesignDetailsScreen extends StatelessWidget {
                   ),
                 ),
                 child: Text(
-                  "OK",
+                  "OK".tr,
                   style: TextStyle(color: Colors.white), // لون النص
                 ),
               ),
@@ -59,7 +61,7 @@ class UnSignedDesignDetailsScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Details",
+              "24".tr,
               style: Theme.of(context).textTheme.displayMedium,
             ),
             SizedBox(
@@ -106,7 +108,7 @@ class UnSignedDesignDetailsScreen extends StatelessWidget {
                                     Theme.of(context).textTheme.headlineSmall)
                           ],
                         ),
-                        Text("Description",
+                        Text("Description".tr,
                             style: Theme.of(context).textTheme.titleSmall),
                         Text(design.description!,
                             style: Theme.of(context)
@@ -116,7 +118,7 @@ class UnSignedDesignDetailsScreen extends StatelessWidget {
                         const SizedBox(
                           height: 15,
                         ),
-                        Text("The price of Designs",
+                        Text("25".tr,
                             style: Theme.of(context).textTheme.displaySmall),
                       ],
                     ),
@@ -148,7 +150,7 @@ class UnSignedDesignDetailsScreen extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("Design Price",
+                          Text("Design Price".tr,
                               style: Theme.of(context).textTheme.headlineSmall),
                         ],
                       ),
@@ -196,7 +198,7 @@ class UnSignedDesignDetailsScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "Finishing Price",
+                            "26".tr,
                             style: Theme.of(context).textTheme.headlineSmall,
                           ),
                         ],
@@ -215,7 +217,7 @@ class UnSignedDesignDetailsScreen extends StatelessWidget {
                             ),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Text("Cost +",
+                              child: Text("27".tr,
                                   style: Theme.of(context)
                                       .textTheme
                                       .headlineMedium),
@@ -232,7 +234,7 @@ class UnSignedDesignDetailsScreen extends StatelessWidget {
                             ),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Text("Cost +",
+                              child: Text("27",
                                   style: Theme.of(context)
                                       .textTheme
                                       .headlineMedium),
@@ -246,7 +248,7 @@ class UnSignedDesignDetailsScreen extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("Offer",
+                          Text("28".tr,
                               style:
                                   Theme.of(context).textTheme.headlineMedium),
                         ],
@@ -319,7 +321,7 @@ class UnSignedDesignDetailsScreen extends StatelessWidget {
         label: Padding(
           padding: const EdgeInsets.all(18.0),
           child: Text(
-            'chat',
+            '16'.tr,
             style: Theme.of(context)
                 .textTheme
                 .headlineMedium!

@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/features/categories/cubit/categories_cubit.dart';
 import 'package:flutter_final_graduation_project/features/room/presentaiton/views/room_view.dart';
+import 'package:get/get.dart';
 
 class CategoryView extends StatefulWidget {
   const CategoryView({super.key});
@@ -26,7 +27,7 @@ class _CategoryViewState extends State<CategoryView> {
             title: const AppBarCategoryViewBody(),
           ),
           body: cubit.categories.isEmpty
-              ? const Center(child: CupertinoActivityIndicator())
+              ? const Center(child: CircularProgressIndicator())
               : ListView.builder(
                   itemCount: cubit.categories.length,
                   itemBuilder: (context, index) {
@@ -44,7 +45,7 @@ class _CategoryViewState extends State<CategoryView> {
                         );
                       },
                       child: Padding(
-                        padding: const EdgeInsets.all(10.0),
+                        padding: const EdgeInsets.all(7.0),
                         child: Container(
                           width: double.maxFinite,
                           height: MediaQuery.of(context).size.height * .16,
@@ -87,7 +88,7 @@ class AppBarCategoryViewBody extends StatelessWidget {
           width: MediaQuery.of(context).size.width * .09,
         ),
         Text(
-          AppString.category,
+          "2".tr,
           style: Theme.of(context).textTheme.displayMedium,
         ),
         const Spacer(),

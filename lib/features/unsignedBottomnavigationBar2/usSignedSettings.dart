@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_final_graduation_project/core/local/local_controller.dart';
-import 'package:flutter_final_graduation_project/core/utils/about_us.dart';
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/core/utils/colors.dart';
 import 'package:flutter_final_graduation_project/core/utils/shared_prefrences.dart';
@@ -14,14 +13,14 @@ import 'package:flutter_final_graduation_project/features/setting/cubit/setting_
 import 'package:flutter_final_graduation_project/features/setting/widgets/item_row_icon.dart';
 import 'package:get/get.dart';
 
-class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({super.key});
+class UnSignedSettingsScreen extends StatefulWidget {
+  const UnSignedSettingsScreen({super.key});
 
   @override
-  State<SettingsScreen> createState() => _SettingsScreenState();
+  State<UnSignedSettingsScreen> createState() => _UnSignedSettingsScreenState();
 }
 
-class _SettingsScreenState extends State<SettingsScreen> {
+class _UnSignedSettingsScreenState extends State<UnSignedSettingsScreen> {
   @override
   MyLocalController controllerLang = Get.find();
 
@@ -113,94 +112,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const SizedBox(
               height: 24,
             ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return NotificationView();
-                    },
-                  ),
-                );
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ItemRowIcon(
-                    icon: CupertinoIcons.bell_fill,
-                    title: "8".tr,
-                    value: '',
-                  ),
-                  const Spacer(),
-                  IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return NotificationView();
-                          },
-                        ),
-                      );
-                    },
-                    icon: Icon(Icons.arrow_forward_ios),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 24,
-            ),
-            Text(
-              "9".tr,
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
-            const SizedBox(
-              height: 24,
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return ProfileView();
-                    },
-                  ),
-                );
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ItemRowIcon(
-                    icon: Icons.person,
-                    sizeIcon: 30,
-                    title: "10".tr,
-                    value: '',
-                  ),
-                  const Spacer(),
-                  IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return ProfileView();
-                          },
-                        ),
-                      );
-                    },
-                    icon: Icon(Icons.arrow_forward_ios),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 24,
-            ),
             Text(
               "11".tr,
               style: Theme.of(context).textTheme.bodyMedium,
@@ -213,9 +124,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ItemRowIcon(
-                  icon: CupertinoIcons.lock_fill,
+                  icon: CupertinoIcons.info_circle_fill,
                   sizeIcon: 30,
-                  title: "12".tr,
+                  title: "13".tr,
                   value: '',
                 ),
                 const Spacer(),
@@ -224,38 +135,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   icon: Icon(Icons.arrow_forward_ios),
                 ),
               ],
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(
-                  builder: (context) {
-                    return AboutUsPage();
-                  },
-                ));
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ItemRowIcon(
-                    icon: CupertinoIcons.info_circle_fill,
-                    sizeIcon: 30,
-                    title: "13".tr,
-                    value: '',
-                  ),
-                  const Spacer(),
-                  IconButton(
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(
-                        builder: (context) {
-                          return AboutUsPage();
-                        },
-                      ));
-                    },
-                    icon: Icon(Icons.arrow_forward_ios),
-                  ),
-                ],
-              ),
             ),
           ],
         ),
@@ -278,16 +157,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-                Text(
-                  'Select Theme'.tr,
-                  style: TextStyle(color: BaseColors.blackColor, fontSize: 22),
-                ),
+                const Text('Select Theme'),
                 ElevatedButton(
                   onPressed: () async {
                     await PreferenceUtils.setBool(PrefKeys.darkTheme, false);
                     Navigator.pop(context);
                   },
-                  child: Text('light'.tr),
+                  child: Text('light'),
                 ),
                 const SizedBox(
                   height: 10,
@@ -297,7 +173,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     await PreferenceUtils.setBool(PrefKeys.darkTheme, true);
                     Navigator.pop(context);
                   },
-                  child: Text('dark'.tr),
+                  child: Text('dark'),
                 ),
               ],
             ),
@@ -324,15 +200,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-                Text('Select Language'.tr,
-                    style:
-                        TextStyle(color: BaseColors.blackColor, fontSize: 22)),
+                const Text('Select Language'),
                 ElevatedButton(
                   onPressed: () async {
                     controllerLang.changeLang("en");
                     Navigator.pop(context);
                   },
-                  child: Text('6'.tr),
+                  child: Text('English'),
                 ),
                 const SizedBox(
                   height: 10,
@@ -343,7 +217,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
                     Navigator.pop(context);
                   },
-                  child: Text('20'.tr),
+                  child: Text('Arabic'),
                 ),
               ],
             ),

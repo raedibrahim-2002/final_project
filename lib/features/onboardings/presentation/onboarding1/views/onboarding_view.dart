@@ -5,6 +5,7 @@ import 'package:flutter_final_graduation_project/core/utils/colors.dart';
 import 'package:flutter_final_graduation_project/features/filter/presentation/views/widgets/elevated_button.dart';
 import 'package:flutter_final_graduation_project/features/login_and_signUp/presentation/views/login_view.dart';
 import 'package:flutter_final_graduation_project/features/onboardings/presentation/onboarding1/widgets/onboarding_pages_view.dart';
+import 'package:get/get.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -66,18 +67,18 @@ class _OnBoardingView1State extends State<OnBoardingView1> {
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             backgroundColor: const Color(0xff0D142C),
           ),
-          child: const Text(
+          child: Text(
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeightManager.medium,
               fontSize: 12,
               fontFamily: AppString.fontfamilyInter,
             ),
-            OnBoardingAssets.signUpButton,
+            "Sign up".tr,
           ),
         ),
         showSkipButton: true,
-        skip: Text(OnBoardingAssets.skip),
+        skip: Text("21".tr),
         showNextButton: true,
         next: const Icon(Icons.arrow_forward),
         onDone: () => onDone(context),

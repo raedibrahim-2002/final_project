@@ -16,7 +16,7 @@ class CategoriesCubit extends Cubit<CategoriesState> {
 
   getCategoriesData() async {
     final response =
-        await http.get(Uri.parse("http://granddeco.somee.com/api/Categories"));
+        await http.get(Uri.parse("http://154.38.186.138:96/api/Categories"));
     final responseBody = jsonDecode(response.body);
     // print("Response for categories: $responseBody");
 
@@ -30,6 +30,4 @@ class CategoriesCubit extends Cubit<CategoriesState> {
       emit(FailedToGetCategoriesState());
     }
   }
-
-
 }

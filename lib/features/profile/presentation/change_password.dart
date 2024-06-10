@@ -10,6 +10,8 @@ import 'package:flutter_final_graduation_project/features/profile/cubit/user_cub
 import 'package:flutter_final_graduation_project/features/profile/presentation/views/widgets/custom_circle_avatar.dart';
 import 'package:flutter_final_graduation_project/features/profile/presentation/views/widgets/custom_text_form_field.dart';
 import 'package:flutter_final_graduation_project/generated/intl/messages_ar.dart';
+import 'package:flutter_final_graduation_project/generated/l10n.dart';
+import 'package:get/get.dart';
 
 class ChangePasswordScreen extends StatelessWidget {
   final currentPasswordController = TextEditingController();
@@ -35,7 +37,7 @@ class ChangePasswordScreen extends StatelessWidget {
             elevation: 0.0,
             centerTitle: true,
             title: Text(
-              AppString.profile,
+              S().profile,
               style: Theme.of(context).textTheme.displayMedium,
             ),
           ),
@@ -48,9 +50,9 @@ class ChangePasswordScreen extends StatelessWidget {
                   TextFormField(
                     controller: currentPasswordController,
                     style: Theme.of(context).textTheme.headlineMedium,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: " Current Password",
+                    decoration: InputDecoration(
+                      border: const OutlineInputBorder(),
+                      labelText: "Current Password".tr,
                     ),
                   ),
                   const SizedBox(
@@ -59,9 +61,9 @@ class ChangePasswordScreen extends StatelessWidget {
                   TextFormField(
                     controller: newPasswordController,
                     style: Theme.of(context).textTheme.headlineMedium,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: " New Password",
+                      labelText: "New Password".tr,
                     ),
                   ),
                   const SizedBox(
@@ -85,20 +87,21 @@ class ChangePasswordScreen extends StatelessWidget {
                           } else {
                             showSnackBarItem(
                                 context,
-                                "password must be at least 6 characters",
+                                "password must be at least 6 characters".tr,
                                 false);
                           }
                         } else {
                           showSnackBarItem(
                               context,
-                              "please, verify current password ,try again later",
+                              "please, verify current password ,try again later"
+                                  .tr,
                               false);
                         }
                       },
                       child: Text(
                         state is ChangePasswordLoadingState
-                            ? "Loading..."
-                            : "Update",
+                            ? "Loading...".tr
+                            : "Update".tr,
                         style: Theme.of(context)
                             .textTheme
                             .headlineMedium!

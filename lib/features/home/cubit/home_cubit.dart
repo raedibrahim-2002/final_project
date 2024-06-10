@@ -11,11 +11,12 @@ class HomeCubit extends Cubit<HomeState> {
 
   List<DesignModel> homeDesigns = [];
   List<DesignModel> allDesigns = [];
+  List<DesignModel> favoriteDesigns = [];
 
   void getHomeDesigns() async {
     try {
       Response response = await http.get(
-        Uri.parse('http://granddeco.somee.com/api/Designs/Home'),
+        Uri.parse('http://154.38.186.138:96/api/Designs/Home'),
       );
 
       if (response.statusCode == 200) {
@@ -35,7 +36,7 @@ class HomeCubit extends Cubit<HomeState> {
   void getAllDesigns() async {
     try {
       Response response = await http.get(
-        Uri.parse('http://granddeco.somee.com/api/Designs/'),
+        Uri.parse('http://154.38.186.138:96/api/Designs/'),
       );
 
       if (response.statusCode == 200) {
@@ -60,4 +61,25 @@ class HomeCubit extends Cubit<HomeState> {
         .toList();
     emit(FilterProductsSuccessState());
   }
+
+  void addToFavorites(DesignModel design) {
+    favoriteDesigns.add(design);
+    emit(FavoriteAdded());
+  }
+
+  void removeFromFavorites(DesignModel design) {
+    favoriteDesigns.remove(design);
+    emit(FavoriteRemoved());
+  }
+
+ 
+  void toggleFavoriteStatus(DesignModel design) {
+  if (favoriteDesigns.contains(design)) {
+    favoriteDesigns.remove(design);
+  } else {
+    favoriteDesigns.add(design);
+  }
+  emit(HomeStateUpdated());
+}
+
 }

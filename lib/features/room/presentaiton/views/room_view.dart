@@ -54,21 +54,21 @@ class RoomView extends StatelessWidget {
         body: TabBarView(
           children: [
             GrideViewBuilderForDesigns(
-              styleName: 'Minimalist',
+              styleName: 'Minimalist style',
               categoryName: roomTitle,
             ),
             GrideViewBuilderForDesigns(
                 styleName: 'Modern', categoryName: roomTitle),
             GrideViewBuilderForDesigns(
-                styleName: 'Japandi', categoryName: roomTitle),
+                styleName: 'Japandi style', categoryName: roomTitle),
             GrideViewBuilderForDesigns(
-                styleName: 'Poho', categoryName: roomTitle),
+                styleName: 'Poho style', categoryName: roomTitle),
             GrideViewBuilderForDesigns(
-                styleName: 'Classic', categoryName: roomTitle),
+                styleName: 'Classic style', categoryName: roomTitle),
             GrideViewBuilderForDesigns(
-                styleName: 'New classic', categoryName: roomTitle),
+                styleName: 'New classic style', categoryName: roomTitle),
             GrideViewBuilderForDesigns(
-                styleName: 'Art Deco', categoryName: roomTitle),
+                styleName: 'Art Deco style', categoryName: roomTitle),
           ],
         ),
       ),

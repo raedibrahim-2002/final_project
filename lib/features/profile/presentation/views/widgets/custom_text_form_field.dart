@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_final_graduation_project/core/utils/colors.dart';
+import 'package:flutter_final_graduation_project/core/utils/shared_prefrences.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({required this.controller, super.key});
@@ -12,7 +13,10 @@ class CustomTextFormField extends StatelessWidget {
       width: double.infinity,
       child: TextFormField(
         controller: controller,
-        style: TextStyle(color: Colors.black), // لون النص
+        style: TextStyle(
+            color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                ? BaseColors.whiteColor
+                : Colors.black), // لون النص
         validator: (input) {
           if (controller.text.isEmpty) {
             return "Please enter email!";

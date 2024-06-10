@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:chat_bubbles/bubbles/bubble_special_three.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class UnSignedChat2 extends StatefulWidget {
   const UnSignedChat2({super.key});
@@ -21,13 +22,14 @@ class _UnSignedChat2State extends State<UnSignedChat2> {
         builder: (BuildContext context) {
           return AlertDialog(
             title: Center(
-                child: Text("You Have To Sign In",
+                child: Text("You Have To Sign In".tr,
                     style: Theme.of(context)
                         .textTheme
                         .labelLarge!
                         .copyWith(fontSize: 20))),
             content: Text(
-                "Please go back to sign in to view the full details and interact.",
+                "Please go back to sign in to view the full details and interact."
+                    .tr,
                 style: Theme.of(context)
                     .textTheme
                     .bodyMedium!
@@ -64,7 +66,7 @@ class _UnSignedChat2State extends State<UnSignedChat2> {
               width: MediaQuery.of(context).size.width * .01,
             ),
             Text(
-              "Chat ",
+              "16".tr,
               style: Theme.of(context).textTheme.displayMedium,
             ),
           ],

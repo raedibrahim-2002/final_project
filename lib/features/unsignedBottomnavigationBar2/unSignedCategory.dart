@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/features/categories/cubit/categories_cubit.dart';
 import 'package:flutter_final_graduation_project/features/room/presentaiton/views/room_view.dart';
+import 'package:get/get.dart';
 
 class UnSignedCategory extends StatefulWidget {
   const UnSignedCategory({super.key});
@@ -22,13 +23,14 @@ class _UnSignedCategoryState extends State<UnSignedCategory> {
         builder: (BuildContext context) {
           return AlertDialog(
             title: Center(
-                child: Text("You Have To Sign In",
+                child: Text("You Have To Sign In".tr,
                     style: Theme.of(context)
                         .textTheme
                         .labelLarge!
                         .copyWith(fontSize: 20))),
             content: Text(
-                "Please go back to sign in to view the full details and interact.",
+                "Please go back to sign in to view the full details and interact."
+                    .tr,
                 style: Theme.of(context)
                     .textTheme
                     .bodyMedium!
@@ -45,7 +47,7 @@ class _UnSignedCategoryState extends State<UnSignedCategory> {
                   ),
                 ),
                 child: Text(
-                  "OK",
+                  "OK".tr,
                   style: TextStyle(color: Colors.white), // لون النص
                 ),
               ),

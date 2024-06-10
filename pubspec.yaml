@@ -46,11 +46,13 @@ dependencies:
   flutter_offline: ^2.0.0
   flutter_screenutil: ^5.9.0
   
+  flutter_staggered_grid_view: ^0.7.0
   fluttertoast: ^8.2.4
   font_awesome_flutter: ^10.7.0
   get: ^4.6.6
   http: ^1.2.1
   hydrated_bloc: ^9.1.5
+  image_picker: ^1.1.2
   intl: ^0.18.1
   introduction_screen: ^3.1.12
   jwt_decoder: ^2.0.1

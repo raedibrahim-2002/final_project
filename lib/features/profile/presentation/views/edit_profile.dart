@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/core/utils/colors.dart';
+import 'package:flutter_final_graduation_project/core/utils/shared_prefrences.dart';
 import 'package:flutter_final_graduation_project/core/utils/styles.dart';
 import 'package:flutter_final_graduation_project/features/profile/presentation/views/widgets/custom_circle_avatar.dart';
 import 'package:flutter_final_graduation_project/features/profile/presentation/views/widgets/custom_text_form_field.dart';
+import 'package:get/get.dart';
 import '../../cubit/user_cubit.dart';
 
 class EditProfileView extends StatelessWidget {
@@ -46,7 +48,7 @@ class EditProfileView extends StatelessWidget {
               elevation: 0.0,
               centerTitle: true,
               title: Text(
-                'Profile',
+                '10'.tr,
                 style: Theme.of(context).textTheme.displayMedium,
               ),
               leadingWidth: 48,
@@ -65,8 +67,7 @@ class EditProfileView extends StatelessWidget {
                           email: emailController.text,
                         );
                       } else {
-                        showSnackBarItem(
-                            context, 'Please enter all data!', false);
+                        showSnackBarItem(context, '38'.tr, false);
                       }
                     },
                     icon: const Icon(
@@ -87,7 +88,7 @@ class EditProfileView extends StatelessWidget {
                     Align(
                       alignment: Alignment.center,
                       child: Text(
-                        "Enter New Data",
+                        "39".tr,
                         style:
                             Theme.of(context).textTheme.displayMedium!.copyWith(
                                   fontSize: 24,
@@ -98,17 +99,17 @@ class EditProfileView extends StatelessWidget {
                     const SizedBox(height: 50),
                     buildTextFieldSection(
                       context,
-                      label: 'User Name',
+                      label: '40'.tr,
                       controller: nameController,
                     ),
                     buildTextFieldSection(
                       context,
-                      label: 'Phone',
+                      label: '29'.tr,
                       controller: phoneController,
                     ),
                     buildTextFieldSection(
                       context,
-                      label: 'Email',
+                      label: '30'.tr,
                       controller: emailController,
                     ),
                   ],
@@ -132,8 +133,10 @@ class EditProfileView extends StatelessWidget {
         Text(
           label,
           style: getRegularTextStyleInter(
-            fontSize: 18,
-            color: BaseColors.blackColor,
+            fontSize: 20,
+            color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                ? BaseColors.whiteColor
+                : Colors.black,
           ),
         ),
         const SizedBox(height: 10),

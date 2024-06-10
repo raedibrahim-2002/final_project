@@ -2,18 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
-import 'package:flutter_final_graduation_project/features/details/views/details_view.dart';
-import 'package:flutter_final_graduation_project/features/favorite/cubit/favorite_cubit.dart';
-
-import 'package:flutter_final_graduation_project/features/favorite/presentation/view/favorite_view.dart';
-import 'package:flutter_final_graduation_project/features/filter/presentation/views/fiter_view.dart';
+import 'package:flutter_final_graduation_project/core/utils/colors.dart';
 import 'package:flutter_final_graduation_project/features/home/cubit/home_cubit.dart';
-import 'package:flutter_final_graduation_project/features/home/presentation/views/notifications_view.dart';
-import 'package:flutter_final_graduation_project/features/home/presentation/views/search_view.dart';
-import 'package:flutter_final_graduation_project/features/naveBar/presentation/view/navBar_view.dart';
 import 'package:flutter_final_graduation_project/features/unsignedBottomnavigationBar2/unSigned_design_details.dart';
+import 'package:flutter_final_graduation_project/features/unsignedBottomnavigationBar2/usSignedSettings.dart';
 import 'package:flutter_final_graduation_project/models/design_model/design_model.dart';
-import 'package:flutter_final_graduation_project/models/product_model.dart';
 
 class UnSignedHomeView2 extends StatefulWidget {
   const UnSignedHomeView2({super.key});
@@ -27,7 +20,6 @@ class _UnSignedHomeView2State extends State<UnSignedHomeView2> {
   Widget build(BuildContext context) {
     DesignModel? model;
     final cubit = BlocProvider.of<HomeCubit>(context);
-    final cubitFavorite = BlocProvider.of<FavoriteCubit>(context);
     return BlocConsumer<HomeCubit, HomeState>(
       listener: (context, state) {
         // TODO: implement listener
@@ -38,6 +30,17 @@ class _UnSignedHomeView2State extends State<UnSignedHomeView2> {
             // backgroundColor: Colors.blue,
             elevation: 0,
             title: const AppBarBody(),
+            actions: [
+              IconButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return UnSignedSettingsScreen();
+                      },
+                    ));
+                  },
+                  icon: Icon(Icons.settings))
+            ],
           ),
           body: Padding(
             padding: const EdgeInsets.all(7),
@@ -73,7 +76,7 @@ class _UnSignedHomeView2State extends State<UnSignedHomeView2> {
                                       child: ClipRRect(
                                         borderRadius: BorderRadius.circular(25),
                                         child: Container(
-                                          color: Colors.yellow,
+                                          color: BaseColors.primaryColor,
                                           height: MediaQuery.of(context)
                                                   .size
                                                   .height *

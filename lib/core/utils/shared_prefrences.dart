@@ -1,6 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-enum PrefKeys { apiToken, userName, userEmail, language }
+enum PrefKeys { apiToken, userName, userEmail, language ,darkTheme,}
 
 class PreferenceUtils {
   static SharedPreferences? _prefsInstance;

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_final_graduation_project/core/utils/shared_prefrences.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 class NotificationView extends StatefulWidget {
@@ -10,10 +12,6 @@ class NotificationView extends StatefulWidget {
 
 class _NotificationViewState extends State<NotificationView> {
   List<CustomNotification> notifications = const [
-    CustomNotification(),
-    CustomNotification(),
-    CustomNotification(),
-    CustomNotification(),
     CustomNotification(),
   ];
 
@@ -27,13 +25,16 @@ class _NotificationViewState extends State<NotificationView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: PreferenceUtils.getBool(PrefKeys.darkTheme)
+            ? Colors.black
+            : Colors.white,
         elevation: 0,
         centerTitle: true,
-        title: Text(
-          'Notifications',
-          style: Theme.of(context).textTheme.displayMedium,
-        ),
+        title: Text('8'.tr,
+            style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                    ? Colors.white
+                    : Colors.black)),
         actions: [],
       ),
       body: ListView.builder(
@@ -56,14 +57,17 @@ class CustomNotification extends StatelessWidget {
         title: Padding(
           padding: EdgeInsets.symmetric(vertical: 5),
           child: Text(
-            'Super Offer',
-            style: Theme.of(context).textTheme.displaySmall,
+            'Super Offer'.tr,
+            style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                    ? Colors.black
+                    : Colors.white),
           ),
         ),
         subtitle: Padding(
           padding: EdgeInsets.symmetric(vertical: 0),
           child: Text(
-            'Get 60% off in our first booking',
+            'Get 60% off in our first booking'.tr,
             style: Theme.of(context).textTheme.labelMedium,
           ),
         ),
@@ -75,6 +79,10 @@ class CustomNotification extends StatelessWidget {
           ),
         ),
         trailing: Text(
+          style: Theme.of(context)
+              .textTheme
+              .displaySmall!
+              .copyWith(color: Colors.black),
           '${DateFormat.E().format(DateTime.now())} ${DateFormat.jm().format(DateTime.now())}',
         ),
       ),

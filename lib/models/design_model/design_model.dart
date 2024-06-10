@@ -31,6 +31,8 @@ class DesignModel {
 
   get title => null;
 
+  get isEmpty => null;
+
   Map<String, dynamic> toJson() => {
         'id': id,
         'name': name,

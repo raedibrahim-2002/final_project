@@ -34,6 +34,9 @@ enum AppTheme {
 class AppThemes {
   static final appThemeData = {
     AppTheme.darkTheme: ThemeData(
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: Colors.black,
+      ),
       colorScheme: const ColorScheme.dark(
         primary: Color(0xffA9BBF7),
         secondary: Color(0xffC4C4C4),
@@ -75,6 +78,10 @@ class AppThemes {
     //
 
     AppTheme.lightTheme: ThemeData(
+      bottomNavigationBarTheme:
+          const BottomNavigationBarThemeData(backgroundColor: Colors.white),
+      drawerTheme:
+          const DrawerThemeData(backgroundColor: BaseColors.whiteColor),
       colorScheme: const ColorScheme.light(
         background: Colors.white,
         primary: BaseColors.primaryColor,
@@ -90,8 +97,6 @@ class AppThemes {
           foregroundColor: MaterialStateProperty.all(Colors.black),
         ),
       ),
-      drawerTheme:
-          const DrawerThemeData(backgroundColor: BaseColors.whiteColor),
       textTheme: textThemeCustom(),
       appBarTheme: const AppBarTheme(
           iconTheme: IconThemeData(color: BaseColors.blackColor),

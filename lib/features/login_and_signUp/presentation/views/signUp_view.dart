@@ -8,6 +8,7 @@ import 'package:flutter_final_graduation_project/core/utils/flutter_toast.dart';
 import 'package:flutter_final_graduation_project/features/home/presentation/views/home_view.dart';
 import 'package:flutter_final_graduation_project/features/login_and_signUp/presentation/views/auth_cubit/auth_cubit.dart';
 import 'package:flutter_final_graduation_project/features/login_and_signUp/presentation/views/auth_cubit/auth_states.dart';
+import 'package:get/get.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -64,7 +65,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         alignment: Alignment.topCenter,
                       ),
                       Text(
-                        "Create your account",
+                        "Create your account".tr,
                         style: Theme.of(context)
                             .textTheme
                             .bodyLarge!
@@ -84,13 +85,13 @@ class _SignupScreenState extends State<SignupScreen> {
                               keyboardType: TextInputType.name,
                               validator: (input) {
                                 if (nameController.text.isEmpty) {
-                                  return "Please enter name!";
+                                  return "Please enter name!".tr;
                                 } else {
                                   return null;
                                 }
                               },
                               decoration: InputDecoration(
-                                labelText: "Name",
+                                labelText: "37".tr,
                                 hintStyle:
                                     Theme.of(context).textTheme.headlineMedium,
                                 labelStyle:
@@ -112,13 +113,13 @@ class _SignupScreenState extends State<SignupScreen> {
                               keyboardType: TextInputType.emailAddress,
                               validator: (input) {
                                 if (emailController.text.isEmpty) {
-                                  return "Please enter email!";
+                                  return "Please enter email!".tr;
                                 } else {
                                   return null;
                                 }
                               },
                               decoration: InputDecoration(
-                                labelText: "Email",
+                                labelText: "30".tr,
                                 labelStyle:
                                     Theme.of(context).textTheme.headlineMedium,
                                 prefixIcon: const Icon(
@@ -137,14 +138,14 @@ class _SignupScreenState extends State<SignupScreen> {
                               controller: passwordController,
                               validator: (input) {
                                 if (passwordController.text.isEmpty) {
-                                  return "Please enter password!";
+                                  return "Please enter password!".tr;
                                 } else {
                                   return null;
                                 }
                               },
                               obscureText: obscure1,
                               decoration: InputDecoration(
-                                labelText: "Password",
+                                labelText: "Password".tr,
                                 labelStyle:
                                     Theme.of(context).textTheme.headlineMedium,
                                 prefixIcon: const Icon(
@@ -176,13 +177,13 @@ class _SignupScreenState extends State<SignupScreen> {
                               keyboardType: TextInputType.phone,
                               validator: (input) {
                                 if (phoneController.text.isEmpty) {
-                                  return "Please enter phone!";
+                                  return "Please enter phone!".tr;
                                 } else {
                                   return null;
                                 }
                               },
                               decoration: InputDecoration(
-                                labelText: "phone",
+                                labelText: "29".tr,
                                 hintStyle:
                                     Theme.of(context).textTheme.headlineMedium,
                                 labelStyle:
@@ -219,8 +220,8 @@ class _SignupScreenState extends State<SignupScreen> {
                                 },
                                 child: Text(
                                   state is RegisterLoadingState
-                                      ? "Loading...."
-                                      : "Sign up",
+                                      ? "Loading...".tr
+                                      : "Sign up".tr,
                                   style: Theme.of(context)
                                       .textTheme
                                       .headlineMedium!

@@ -7,12 +7,15 @@ import 'package:flutter_final_graduation_project/features/home/presentation/view
 import 'package:flutter_final_graduation_project/features/login_and_signUp/presentation/views/auth_cubit/auth_cubit.dart';
 import 'package:flutter_final_graduation_project/features/login_and_signUp/presentation/views/auth_cubit/auth_states.dart';
 import 'package:flutter_final_graduation_project/features/unsignedBottomnavigationBar2/bottom_navigation_bar_unsigned2.dart';
+import 'package:get/get.dart';
 import 'signUp_view.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
+
 class _LoginScreenState extends State<LoginScreen> {
   final formKey = GlobalKey<FormState>();
   //Sign in email
@@ -65,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               alignment: Alignment.topCenter,
                             ),
                             Text(
-                              "Login to your account",
+                              "Login to your account".tr,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyLarge!
@@ -84,13 +87,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                     keyboardType: TextInputType.emailAddress,
                                     validator: (input) {
                                       if (emailController.text.isEmpty) {
-                                        return "Please enter email!";
+                                        return "Please enter email!".tr;
                                       } else {
                                         return null;
                                       }
                                     },
                                     decoration: InputDecoration(
-                                      labelText: "Email",
+                                      labelText: "30".tr,
                                       hintStyle: Theme.of(context)
                                           .textTheme
                                           .headlineMedium,
@@ -115,7 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     obscureText: obscure,
                                     validator: (input) {
                                       if (passwordController.text.isEmpty) {
-                                        return "Please enter password!";
+                                        return "Please enter password!".tr;
                                       } else {
                                         return null;
                                       }
@@ -123,7 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     controller: passwordController,
                                     keyboardType: TextInputType.visiblePassword,
                                     decoration: InputDecoration(
-                                      labelText: "Password",
+                                      labelText: "Password".tr,
                                       labelStyle: Theme.of(context)
                                           .textTheme
                                           .headlineMedium,
@@ -173,8 +176,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 },
                                 child: Text(
                                   state is LoginLoadingState
-                                      ? "Loading..."
-                                      : "Sign in",
+                                      ? "Loading...".tr
+                                      : "18".tr,
                                   style: Theme.of(context)
                                       .textTheme
                                       .headlineMedium!
@@ -205,7 +208,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   );
                                 },
                                 child: Text(
-                                  OnBoardingAssets.continueAsGuestButton,
+                                  "Conitnue as a Guest".tr,
                                   style: Theme.of(context)
                                       .textTheme
                                       .headlineMedium!
@@ -219,7 +222,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  "Don\'t have an account?",
+                                  "Don\'t have an account?".tr,
                                   style: Theme.of(context)
                                       .textTheme
                                       .headlineMedium!
@@ -236,7 +239,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       ),
                                     );
                                   },
-                                  child: Text("Sign up ",
+                                  child: Text("Sign up".tr,
                                       style: Theme.of(context)
                                           .textTheme
                                           .displaySmall),

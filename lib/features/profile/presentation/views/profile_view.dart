@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_final_graduation_project/core/utils/assets.dart';
 import 'package:flutter_final_graduation_project/core/utils/colors.dart';
 import 'package:flutter_final_graduation_project/core/utils/local_network.dart';
+import 'package:flutter_final_graduation_project/core/utils/shared_prefrences.dart';
 import 'package:flutter_final_graduation_project/core/utils/styles.dart';
 import 'package:flutter_final_graduation_project/features/login_and_signUp/presentation/views/login_view.dart';
 import 'package:flutter_final_graduation_project/features/profile/cubit/user_cubit.dart';
@@ -12,6 +13,7 @@ import 'package:flutter_final_graduation_project/features/profile/presentation/v
 import 'package:flutter_final_graduation_project/features/profile/presentation/views/widgets/custom_circle_avatar.dart';
 import 'package:flutter_final_graduation_project/features/profile/presentation/views/widgets/decorated_item_profile.dart';
 import 'package:flutter_final_graduation_project/features/splash/presentation/view/splash_view.dart';
+import 'package:get/get.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -34,7 +36,7 @@ class ProfileView extends StatelessWidget {
               elevation: 0.0,
               centerTitle: true,
               title: Text(
-                AppString.profile,
+                "10".tr,
                 style: Theme.of(context).textTheme.displayMedium,
               ),
               leadingWidth: 48,
@@ -78,14 +80,22 @@ class ProfileView extends StatelessWidget {
                                   .displayMedium!
                                   .copyWith(
                                       fontSize: 24,
-                                      fontWeight: FontWeight.w500)),
+                                      fontWeight: FontWeight.w500,
+                                      color: PreferenceUtils.getBool(
+                                              PrefKeys.darkTheme)
+                                          ? Colors.white
+                                          : Colors.black)),
                         ),
                         const SizedBox(
                           height: 50,
                         ),
-                        Text('Name',
+                        Text('37'.tr,
                             style: getRegularTextStyleInter(
-                                fontSize: 18, color: BaseColors.blackColor)),
+                                fontSize: 18,
+                                color:
+                                    PreferenceUtils.getBool(PrefKeys.darkTheme)
+                                        ? Colors.white
+                                        : Colors.black)),
                         const SizedBox(
                           height: 15,
                         ),
@@ -96,9 +106,13 @@ class ProfileView extends StatelessWidget {
                         const SizedBox(
                           height: 10,
                         ),
-                        Text('Phone Number',
+                        Text('29'.tr,
                             style: getRegularTextStyleInter(
-                                fontSize: 18, color: BaseColors.blackColor)),
+                                fontSize: 18,
+                                color:
+                                    PreferenceUtils.getBool(PrefKeys.darkTheme)
+                                        ? Colors.white
+                                        : Colors.black)),
                         const SizedBox(
                           height: 15,
                         ),
@@ -109,9 +123,13 @@ class ProfileView extends StatelessWidget {
                         const SizedBox(
                           height: 10,
                         ),
-                        Text('email',
+                        Text('30'.tr,
                             style: getRegularTextStyleInter(
-                                fontSize: 18, color: BaseColors.blackColor)),
+                                fontSize: 18,
+                                color:
+                                    PreferenceUtils.getBool(PrefKeys.darkTheme)
+                                        ? Colors.white
+                                        : Colors.black)),
                         const SizedBox(
                           height: 15,
                         ),
@@ -137,7 +155,7 @@ class ProfileView extends StatelessWidget {
                                           ChangePasswordScreen()));
                             },
                             child: Text(
-                              "change password",
+                              "31".tr,
                               style: Theme.of(context)
                                   .textTheme
                                   .headlineMedium!
@@ -177,7 +195,7 @@ class ProfileView extends StatelessWidget {
                                 );
                               },
                               child: Text(
-                                "log out",
+                                "32".tr,
                                 style: Theme.of(context)
                                     .textTheme
                                     .headlineMedium!
@@ -193,7 +211,7 @@ class ProfileView extends StatelessWidget {
                     ),
                   )
                 : const Center(
-                    child: CupertinoActivityIndicator(),
+                    child: CircularProgressIndicator(),
                   ),
           );
         },

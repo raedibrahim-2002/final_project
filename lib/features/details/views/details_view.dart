@@ -5,10 +5,12 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_final_graduation_project/core/utils/colors.dart';
+import 'package:flutter_final_graduation_project/core/utils/shared_prefrences.dart';
 import 'package:flutter_final_graduation_project/features/chat/presentation/views/chat_view.dart';
 import 'package:flutter_final_graduation_project/features/favorite/presentation/view/favorite_view.dart';
 import 'package:flutter_final_graduation_project/features/home/presentation/views/notifications_view.dart';
 import 'package:flutter_final_graduation_project/models/design_model/design_model.dart';
+import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
 
 class DetailsScreen extends StatelessWidget {
@@ -23,7 +25,7 @@ class DetailsScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Details",
+              "24".tr,
               style: Theme.of(context).textTheme.displayMedium,
             ),
           ],
@@ -59,21 +61,26 @@ class DetailsScreen extends StatelessWidget {
                                 CupertinoIcons.star_fill,
                                 color: Colors.yellowAccent,
                               )),
-                          Text("4.5 | 318 views",
+                          Text("4.5 | 318 ${"Views".tr}",
                               style: Theme.of(context).textTheme.headlineSmall)
                         ],
                       ),
-                      Text("Discription",
+                      Text("Description".tr,
                           style: Theme.of(context).textTheme.titleSmall),
                       Text(design.description!,
                           style: Theme.of(context)
                               .textTheme
                               .bodyMedium!
-                              .copyWith(color: BaseColors.blackColor)),
+                              .copyWith(
+                                color:
+                                    PreferenceUtils.getBool(PrefKeys.darkTheme)
+                                        ? Colors.white
+                                        : Colors.black,
+                              )),
                       const SizedBox(
                         height: 15,
                       ),
-                      Text("The price of Designs",
+                      Text("25".tr,
                           style: Theme.of(context).textTheme.displaySmall),
                     ]),
               ),
@@ -87,7 +94,11 @@ class DetailsScreen extends StatelessWidget {
                               .textTheme
                               .bodyLarge!
                               .copyWith(
-                                  fontSize: 20, color: BaseColors.blackColor)),
+                                  fontSize: 20,
+                                  color: PreferenceUtils.getBool(
+                                          PrefKeys.darkTheme)
+                                      ? Colors.white
+                                      : Colors.black)),
                       SizedBox(
                         width: 150,
                       ),
@@ -96,13 +107,17 @@ class DetailsScreen extends StatelessWidget {
                               .textTheme
                               .bodyLarge!
                               .copyWith(
-                                  fontSize: 20, color: BaseColors.blackColor)),
+                                  fontSize: 20,
+                                  color: PreferenceUtils.getBool(
+                                          PrefKeys.darkTheme)
+                                      ? Colors.white
+                                      : Colors.black)),
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Design Price",
+                      Text("25".tr,
                           style: Theme.of(context).textTheme.headlineSmall),
                     ],
                   ),
@@ -148,7 +163,7 @@ class DetailsScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Finishing Price",
+                        "26".tr,
                         style: Theme.of(context).textTheme.headlineSmall,
                       ),
                     ],
@@ -167,7 +182,7 @@ class DetailsScreen extends StatelessWidget {
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text("Cost +",
+                          child: Text("27".tr,
                               style:
                                   Theme.of(context).textTheme.headlineMedium),
                         ),
@@ -183,7 +198,7 @@ class DetailsScreen extends StatelessWidget {
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text("Cost +",
+                          child: Text("27".tr,
                               style:
                                   Theme.of(context).textTheme.headlineMedium),
                         ),
@@ -196,7 +211,7 @@ class DetailsScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Offer",
+                      Text("28".tr,
                           style: Theme.of(context).textTheme.headlineMedium),
                     ],
                   ),
@@ -213,7 +228,11 @@ class DetailsScreen extends StatelessWidget {
                               .textTheme
                               .bodyLarge!
                               .copyWith(
-                                  fontSize: 20, color: BaseColors.blackColor),
+                                  fontSize: 20,
+                                  color: PreferenceUtils.getBool(
+                                          PrefKeys.darkTheme)
+                                      ? Colors.white
+                                      : Colors.black),
                         ),
                       ),
                       SizedBox(
@@ -243,7 +262,9 @@ class DetailsScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        backgroundColor: const Color(0xFF1D2046),
+        backgroundColor: PreferenceUtils.getBool(PrefKeys.darkTheme)
+            ? Colors.white
+            : Color(0xFF1D2046),
         splashColor: Color.fromARGB(255, 232, 233, 236),
         onPressed: () {
           Navigator.push(
@@ -258,11 +279,12 @@ class DetailsScreen extends StatelessWidget {
         label: Padding(
           padding: const EdgeInsets.all(18.0),
           child: Text(
-            'chat',
-            style: Theme.of(context)
-                .textTheme
-                .headlineMedium!
-                .copyWith(fontSize: 18, color: BaseColors.whiteColor),
+            '16'.tr,
+            style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                fontSize: 18,
+                color: PreferenceUtils.getBool(PrefKeys.darkTheme)
+                    ? Colors.black
+                    : Colors.white),
           ),
         ),
       ),
